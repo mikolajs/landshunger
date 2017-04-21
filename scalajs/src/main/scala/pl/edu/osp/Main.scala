@@ -49,7 +49,7 @@ object Main  extends  App with BaseService with JsonSupport {
   val route =
     get {
       pathSingleSlash {
-        getFromResource("angular/index.html")
+        getFromResource("scalajs/index.html")
       } ~
         (path("api" / IntNumber ) & parameter('o)) { (l, o) =>
          complete(s"API for $l parm o =  $o" )
@@ -86,15 +86,12 @@ object Main  extends  App with BaseService with JsonSupport {
         pathPrefix("bootstrap") {
           getFromResourceDirectory("bootstrap")
         } ~
-        path("redirect" / Rest) { pathRest =>
-          redirect("http://xxlo.osp.edu.pl/" + pathRest, MovedPermanently )
-        } ~
-        pathPrefix("html") {
+      pathPrefix("js") {
+        getFromResourceDirectory("js")
+      } ~
+      pathPrefix("html") {
           getFromResourceDirectory("html")
-        } ~
-        pathPrefix("angular") {
-          getFromResourceDirectory("angular")
-        } ~
+        }  ~
       path("form") {
         getFromResource("html/form.html")
       } ~

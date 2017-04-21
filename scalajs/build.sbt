@@ -11,15 +11,17 @@ lazy val `landhungry` = (project in file(".")).enablePlugins(SbtTwirl, JavaAppPa
 
 libraryDependencies ++= {
   val akkaVersion      = "2.5.0"
+  val akkaHTTPVer      = "10.0.5"
   Seq(
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
-    "com.typesafe.akka" %% "akka-http-experimental" % akkaVersion,
-    "com.typesafe.akka" %% "akka-http-spray-json-experimental" % akkaVersion,
-    "com.typesafe.akka" %% "akka-http-xml-experimental" % akkaVersion,
-    "com.typesafe.play" %% "twirl-api" % "1.2.1",
-    "org.scala-lang.modules" % "scala-xml_2.21" % "1.0.2",
+    "com.typesafe.akka" % "akka-http_2.12"  % akkaHTTPVer,
+    "com.typesafe.akka" % "akka-http-spray-json_2.12" % akkaHTTPVer,
+    "com.typesafe.akka" % "akka-http-xml_2.12"  % akkaHTTPVer,
+    "com.typesafe.play" %% "twirl-api" % "1.3.0",
+    "org.scala-js" %% "scalajs-dom_sjs0.6" % "0.9.1",
+    "org.scala-lang.modules" % "scala-xml_2.12" % "1.0.2",
     "com.h2database" % "h2" % "1.4.191"
   )
 }
