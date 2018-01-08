@@ -3,10 +3,10 @@ import java.io.*;
 
 public class Main {
 	public static void main(String[] args) {
-		Land e = new Land();
+		MapWorld e = new MapWorld(10,10);
 		try {
 	         FileOutputStream fileOut =
-	         new FileOutputStream("landelement.ser");
+	         new FileOutputStream("landmap.ser");
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 	         out.writeObject(e);
 	         out.close();
