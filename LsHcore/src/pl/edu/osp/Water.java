@@ -2,7 +2,7 @@ package pl.edu.osp;
 
 public class Water implements Tile {
    // private byte grass = 0;
-    private byte aType = 1; 
+    private byte aType = 3; 
     
-    public byte getType() {return aType;}
+    public byte getaType() {return aType;}
 }
