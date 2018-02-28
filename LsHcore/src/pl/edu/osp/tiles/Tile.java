@@ -1,4 +1,4 @@
-package pl.edu.osp;
+package pl.edu.osp.tiles;
 
 public interface Tile {
     byte getType();

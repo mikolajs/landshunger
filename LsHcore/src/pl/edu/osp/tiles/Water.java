@@ -1,4 +1,4 @@
-package pl.edu.osp;
+package pl.edu.osp.tiles;
 
 public class Water implements Tile {
    // private byte grass = 0;

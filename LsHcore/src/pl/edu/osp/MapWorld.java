@@ -2,6 +2,10 @@ package pl.edu.osp;
 
 import java.util.Random;
 
+import pl.edu.osp.tiles.Land;
+import pl.edu.osp.tiles.Tile;
+import pl.edu.osp.tiles.Water;
+
 public class MapWorld {
     public Tile[][] map;
     final int lon;
