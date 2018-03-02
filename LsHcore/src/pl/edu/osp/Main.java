@@ -6,15 +6,20 @@ import java.util.*;
 public class Main {
 
     private int X, Y;
-    MapWorld world;
+    final MapWorld world;
     
     public Main() {
-        MapWorld world = new MapWorld(100, 100);
+        world = new MapWorld(10, 10);
     }
 
     public static void main(String[] args) {
-        
+    	Main game = new Main();
+        game.game();
 
+    }
+    
+    public void game() {
+    	world.showMap();
     }
 
     public void loadFile() {
