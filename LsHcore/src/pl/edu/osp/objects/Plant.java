@@ -5,7 +5,7 @@ public abstract class Plant implements StaticObject {
     protected byte maxBio = 0;
     protected byte growLev = 0;
     protected byte aType = 0;
-    protected String name = "";
+    protected String name = "Plant";
     
     
     public byte getBio() {
