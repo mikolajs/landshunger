@@ -4,5 +4,6 @@ public interface Tile {
     byte getaType();
     void grow();
     byte getLev();
+    byte getFertility();
 
 }

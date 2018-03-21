@@ -1,4 +1,4 @@
-package pl.edu.osp.objects;
+package pl.edu.osp.units;
 
 public interface Moveable {
 
