@@ -1,6 +1,10 @@
 package pl.edu.osp.objects;
 
 final public class LeafWood extends Plant {
-    private byte maxBio = 120;
+    
+    public LeafWood() {
+        super((byte) 120,(byte) 5,(byte) 5, "Leaf");
+    }
+    
     
 }

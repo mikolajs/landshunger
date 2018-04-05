@@ -1,43 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry output="bin/main" kind="src" path="src/main">
+	<classpathentry kind="src" output="bin/main" path="src/main">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="output" path="bin/default"/>
-	<classpathentry output="bin/test" kind="src" path="src/test">
+	<classpathentry kind="src" output="bin/test" path="src/test/java">
 		<attributes>
 			<attribute name="gradle_scope" value="test"/>
 			<attribute name="gradle_used_by_scope" value="test"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
-	<classpathentry sourcepath="/home/ms/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.0.1/b1cf82665b0d42a94e2b6e77052d2393c6c41e50/junit-jupiter-api-5.0.1-sources.jar" kind="lib" path="/home/ms/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.0.1/30fbf4448c594cb45d8e91630d6bb7f465906b88/junit-jupiter-api-5.0.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/ms/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.0.0/a67ba0f50d97fa616f2470c5a48eb7f9eb38391c/opentest4j-1.0.0-sources.jar" kind="lib" path="/home/ms/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.0.0/6f09c598e9ff64bf0ce2fa7e7de49a99ba83c0b4/opentest4j-1.0.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/ms/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.0.1/5c683eb2817c7428d796b4b0affb59a969f98c5b/junit-platform-commons-1.0.1-sources.jar" kind="lib" path="/home/ms/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.0.1/3632e4a74a43d3ae8d29e6fa172cbc29590bda03/junit-platform-commons-1.0.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/ms/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.0.1/bc64a1611d04253891a86e68d91a2d27b51cb3d8/junit-jupiter-engine-5.0.1-sources.jar" kind="lib" path="/home/ms/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.0.1/e22d2bf87f43fb03fee14dea447b2a14f41b095f/junit-jupiter-engine-5.0.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/ms/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.0.1/3527e27f6e0bca46bed66c42bd1ace1f05307238/junit-platform-engine-1.0.1-sources.jar" kind="lib" path="/home/ms/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.0.1/4ce0a37866312c18ea3f45818f2faec077e46e0/junit-platform-engine-1.0.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="test"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+	<classpathentry kind="output" path="bin/default"/>
 </classpath>
