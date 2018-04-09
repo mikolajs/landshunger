@@ -2,17 +2,12 @@ package pl.edu.osp.objects;
 
 public abstract class Plant implements StaticObject {
     protected byte bio = 0;
-    final protected byte maxBio;
-    final protected byte growLev;
-    final protected byte aType;
-    final protected String name;
-    
-    public Plant(byte maxBio, byte growLev, byte aType, String name) {
-        this.maxBio = maxBio;
-        this.growLev = growLev;
-        this.aType = aType;
-        this.name = name;
-    }
+    protected short hp = 0;
+    static protected short HP = 0;
+    static protected short GROW = 0;
+    static protected byte BIO = 0;
+    static protected byte ATYPE = 0;
+    static protected String NAME = "";
     
     public byte getBio() {
         return bio;
@@ -21,9 +16,35 @@ public abstract class Plant implements StaticObject {
     public void setBio(byte b) { bio = b; }
     
     public void grow() { 
-        bio += growLev; 
-        if(bio > maxBio && maxBio < 0)
-            bio = maxBio;
+       hp += GROW;
+       if(hp > HP) hp = HP;
     }
+    
+    public void yields() {
+        bio += GROW;
+        if(bio > BIO)
+            bio = BIO;     
+    }
+    
+    public short getHP() {
+        return hp;
+    }
+    
+    public static byte getMaxBio() {
+        return  BIO;
+    }
+    
+    public static byte getGrowLev() {
+        return GROW;
+    }
+    
+    public static byte getAType() {
+        return ATYPE;
+    }
+    
+    public static String getName() {
+        return NAME;
+    }
+    
     
 }
