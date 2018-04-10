@@ -1,5 +1,6 @@
 package pl.edu.osp.objects;
 
 public interface StaticObject {
-    void grow();
+	void nextDay();
+	short getHP();
 }

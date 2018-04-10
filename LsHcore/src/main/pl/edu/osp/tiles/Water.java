@@ -1,6 +1,6 @@
 package pl.edu.osp.tiles;
 
-import pl.edu.osp.objects.SeaFood;
+import pl.edu.osp.objects.Plankton;
 
 public class Water extends AbstractTile {
    // private byte grass = 0;
@@ -10,6 +10,6 @@ public class Water extends AbstractTile {
     final byte fertility = 90;
     
     public Water() {
-    	staticObject = SeaFood.get(fertility);
+    	staticObject = Plankton.get(fertility);
     }
 }

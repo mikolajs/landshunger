@@ -1,29 +1,33 @@
 package pl.edu.osp.objects;
 
+
 public abstract class Plant implements StaticObject {
     protected byte bio = 0;
-    final protected byte maxBio;
-    final protected byte growLev;
-    final protected byte aType;
-    final protected String name;
+    protected short hp = 0;
+    final PlantConstans plantConst;
     
-    public Plant(byte maxBio, byte growLev, byte aType, String name) {
-        this.maxBio = maxBio;
-        this.growLev = growLev;
-        this.aType = aType;
-        this.name = name;
+    public Plant(PlantConstans pc) {
+    	plantConst = pc;
     }
     
-    public byte getBio() {
-        return bio;
+    public void nextDay() {
+    	grow();
     }
-    
+       
+    public byte getBio() { return bio; }
     public void setBio(byte b) { bio = b; }
+    public short getHP() {return hp;}
+	public byte maxBio() {return plantConst.mBio;}
+	public byte growLev() {return plantConst.gLev;}
+	public short maxHP() {	return plantConst.mHP;}
+	public String name() {return plantConst.n;}
     
-    public void grow() { 
-        bio += growLev; 
-        if(bio > maxBio && maxBio < 0)
-            bio = maxBio;
+    private void grow() {
+        bio += growLev(); 
+        if(bio > maxBio())
+            bio = maxBio();
     }
+    
+    
     
 }

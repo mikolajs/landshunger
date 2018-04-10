@@ -1,6 +1,6 @@
 package pl.edu.osp.tiles;
 
-import pl.edu.osp.objects.SeaFood;
+import pl.edu.osp.objects.Plankton;
 
 public class CoolWater  extends Water {
 
@@ -8,7 +8,7 @@ public class CoolWater  extends Water {
 		final protected byte fertility = 125;
 		
 		public CoolWater() {
-			staticObject = SeaFood.get(fertility);
+			staticObject = new Plankton();
 	}
 
 }

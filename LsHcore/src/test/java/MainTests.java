@@ -15,6 +15,7 @@ public class MainTests {
 	@Test
 	void getMaxBioInChild() {
 	    LeafWood lw = new LeafWood();
-	    assertEquals(lw.getBio(), 120);
+	    lw.nextDay();
+	    assertEquals(10, lw.getBio());
 	}
 }
