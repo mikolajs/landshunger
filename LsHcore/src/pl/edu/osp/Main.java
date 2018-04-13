@@ -19,7 +19,7 @@ public class Main {
     }
     
     public void game() {
-    	world.showMap();
+    	world.game(10);
     }
 
     public void loadFile() {
