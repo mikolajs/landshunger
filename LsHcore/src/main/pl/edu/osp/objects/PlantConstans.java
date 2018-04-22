@@ -8,7 +8,7 @@ public class PlantConstans {
 	final public byte mBio;
 	final public byte gLev;
 	final public  short mHP;
-	final public String n;
+	final public String name;
 	
 	public PlantConstans(String className) {
 		String line = getLineFromFile(className);
@@ -16,11 +16,11 @@ public class PlantConstans {
 		mBio = Byte.parseByte(data[4]);
 		gLev = Byte.parseByte(data[3]);
 		mHP = Short.parseShort(data[2]);
-		n = data[1];
+		name = data[1];
 	}
 	
 	protected String getLineFromFile(String className) {
-    	File file = new File("plants.cfg");
+    	File file = new File("configdata/plants.cfg");
     	Scanner sc = null;
     	String line;
     	try {

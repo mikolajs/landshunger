@@ -20,7 +20,7 @@ public abstract class Plant implements StaticObject {
 	public byte maxBio() {return plantConst.mBio;}
 	public byte growLev() {return plantConst.gLev;}
 	public short maxHP() {	return plantConst.mHP;}
-	public String name() {return plantConst.n;}
+	public String name() {return plantConst.name;}
     
     private void grow() {
         bio += growLev(); 

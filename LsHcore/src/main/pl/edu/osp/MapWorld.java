@@ -8,11 +8,13 @@ public class MapWorld {
 	public Tile[][] map;
 	final int lon;
 	final int lat;
-
+	final TileManager tm;
+	
 	public MapWorld(int lon, int lat) {
 		this.lon = lon;
 		this.lat = lat;
 		map = new Tile[lon][lat];
+		tm = new TileManager();
 		createRandomMap();
 	}
 
@@ -23,13 +25,13 @@ public class MapWorld {
 			for (int j = 0; j < lat; j++) {
 				r = rand.nextInt(10);
 				if (r < 4)
-					map[i][j] = new Water();
+					map[i][j] = tm.getTile("DeepWater");
 				else if (r < 8)
-					map[i][j] = new Land();
+					map[i][j] = tm.getTile("PlainLand");
 				else if (r < 9)
-					map[i][j] = new Hill();
+					map[i][j] = tm.getTile("Hill");
 				else
-					map[i][j] = new Mountain();
+					map[i][j] = tm.getTile("Mountain");
 			}
 		}
 	}

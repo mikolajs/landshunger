@@ -2,13 +2,12 @@ package pl.edu.osp.tiles;
 
 import pl.edu.osp.objects.Plankton;
 
-public class CoolWater  extends Water {
+public class CoolWater  extends AbstractTile {
 
-		final private byte aType = 62;
-		final protected byte fertility = 125;
 		
-		public CoolWater() {
-			staticObject = new Plankton();
+		public CoolWater(TileConstant tileConst) {
+			super(tileConst);
+			//staticObject = new Plankton();
 	}
 
 }
