@@ -18,6 +18,15 @@ public class Mineral implements StaticObject {
 	public byte getAbudance() { return abudance;}
 
 	@Override
-	public void grow() {	return;	}
+	public void nextDay() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public short getHP() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }

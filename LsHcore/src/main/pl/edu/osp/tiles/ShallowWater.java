@@ -1,12 +1,11 @@
 package pl.edu.osp.tiles;
 
-import pl.edu.osp.objects.SeaFood;
+import pl.edu.osp.objects.Plankton;
 
 public class ShallowWater extends Water {
-	final private byte aType = 63;
-	final protected byte fertility = 100;
 	
-	public ShallowWater() {
-		staticObject = SeaFood.get(fertility);
+	public ShallowWater(TileConstant tileConst) {
+		super(tileConst);
+		//staticObject = Plankton.get(fertility);
 	}
 }

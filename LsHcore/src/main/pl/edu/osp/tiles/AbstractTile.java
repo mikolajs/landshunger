@@ -5,15 +5,20 @@ import pl.edu.osp.objects.StaticObject;
 abstract class AbstractTile implements Tile {
     
     protected StaticObject staticObject = null;
-    final protected byte aType = 60; 
-    final protected byte lev = 0;
-    final protected byte fertility = 0;
+    final protected TileConstant tileConst;
     
-    public byte getaType() {return aType;}   
-    public byte getFertility() {return fertility;}
-    public void grow() { if(staticObject != null) staticObject.grow() ;} 
-    public byte getLev() {return lev;}
+    
+    public AbstractTile(TileConstant constant) {
+    	tileConst = constant;
+    }
+    
+    
+    public byte getaType() {return tileConst.aType;}   
+    public void nextDay() { if(staticObject != null) staticObject.nextDay();} 
+    public byte getLev() {return tileConst.lev;}
+    public byte getFertility() {return tileConst.fertility;}
     public void setStaticObject(StaticObject o) {staticObject = o;}
+    public String getName() { return tileConst.name; }
     
     
 }
