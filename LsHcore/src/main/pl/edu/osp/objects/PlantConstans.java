@@ -1,43 +1,19 @@
 package pl.edu.osp.objects;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
 
 public class PlantConstans {
 	final public byte mBio;
 	final public byte gLev;
 	final public  short mHP;
-	final public String n;
+	final public String name;
 	
-	public PlantConstans(String className) {
-		String line = getLineFromFile(className);
-		String[] data = line.split("\\w+");
-		mBio = Byte.parseByte(data[4]);
-		gLev = Byte.parseByte(data[3]);
-		mHP = Short.parseShort(data[2]);
-		n = data[1];
+	public PlantConstans(short mHP, byte mBio, byte gLev, String name) {
+		this.mBio = mBio;
+		this.gLev = gLev;
+		this.mHP = mHP; 
+		this.name = name;
 	}
 	
-	protected String getLineFromFile(String className) {
-    	File file = new File("plants.cfg");
-    	Scanner sc = null;
-    	String line;
-    	try {
-    		sc = new Scanner(file);
-    		while(sc.hasNextLine()) {
-    			line = sc.nextLine();
-    			if(line.startsWith(className)) {
-    				sc.close();
-    				return line;
-    			}
-    		}
-    	} catch(IOException e) {
-    		System.out.println("Cant load file for config plants");
-    	} finally {
-    		if(sc!= null) sc.close();
-    	}
-    	return "";
-    }
+	
 
 }

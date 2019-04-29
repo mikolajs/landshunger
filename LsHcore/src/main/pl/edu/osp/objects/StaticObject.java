@@ -4,3 +4,4 @@ public interface StaticObject {
 	void nextDay();
 	short getHP();
 }
+

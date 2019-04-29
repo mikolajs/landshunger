@@ -11,7 +11,7 @@ public abstract class Plant implements StaticObject {
     }
     
     public void nextDay() {
-    	grow();
+        yields();
     }
        
     public byte getBio() { return bio; }
@@ -20,12 +20,16 @@ public abstract class Plant implements StaticObject {
 	public byte maxBio() {return plantConst.mBio;}
 	public byte growLev() {return plantConst.gLev;}
 	public short maxHP() {	return plantConst.mHP;}
-	public String name() {return plantConst.n;}
+	public String name() {return plantConst.name;}
+	@Override
+	public String toString() {
+	    return plantConst.name + " " + hp + " " + bio;
+	}
     
-    private void grow() {
-        bio += growLev(); 
-        if(bio > maxBio())
-            bio = maxBio();
+    public void yields() {
+        bio += plantConst.gLev;
+        if(bio > plantConst.mBio)
+            bio = plantConst.mBio;     
     }
     
     
