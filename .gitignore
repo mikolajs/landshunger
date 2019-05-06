@@ -7,7 +7,11 @@ LsHcore/*.ser
 LsHgdx/core/build
 LsHgdx/desktop/build
 
+#akka-html-scalajs
 
+akka-html-scalajs/client/target
+akka-html-scalajs/server/target
+akka-html-scalajs/shared/target
 
 #javascript
 easeljs_es6/dist

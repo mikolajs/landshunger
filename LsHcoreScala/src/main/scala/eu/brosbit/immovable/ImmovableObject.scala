@@ -1,5 +1,6 @@
 package eu.brosbit.immovable
 
-abstract class ImmovableObject {
-  
+trait ImmovableObject {
+  def nextDay():Unit
+  def getHP():Short
 }

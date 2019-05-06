@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/ms/Programming/akka-http-scalajs/server/src/main/scala/eu/brosbit/WebService.scala:13:39: object html is not a member of package com.example.akkahttpscalajs[0m
+[0m[[0m[31merror[0m] [0m[0m          com.example.akkahttpscalajs.html.index.render(SharedMessages.itWorks)[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
