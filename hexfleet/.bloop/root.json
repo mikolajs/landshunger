@@ -1,0 +1,196 @@
+{
+    "version" : "1.1.2",
+    "project" : {
+        "name" : "root",
+        "directory" : "/home/administrator/Programy/landshunger/hexfleet",
+        "sources" : [
+            "/home/administrator/Programy/landshunger/hexfleet/src/main/scala-2.12",
+            "/home/administrator/Programy/landshunger/hexfleet/src/main/scala",
+            "/home/administrator/Programy/landshunger/hexfleet/src/main/java",
+            "/home/administrator/Programy/landshunger/hexfleet/target/scala-2.12/src_managed/main"
+        ],
+        "dependencies" : [
+        ],
+        "classpath" : [
+            "/home/administrator/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.8.jar",
+            "/home/administrator/.ivy2/cache/org.scala-js/scalajs-library_2.12/jars/scalajs-library_2.12-0.6.29.jar",
+            "/home/administrator/.ivy2/cache/org.scala-js/scalajs-dom_sjs0.6_2.12/jars/scalajs-dom_sjs0.6_2.12-0.9.7.jar",
+            "/home/administrator/.ivy2/local/com.scalawarrior/scalajs-createjs_sjs0.6_2.12/0.0.3/jars/scalajs-createjs_sjs0.6_2.12.jar"
+        ],
+        "out" : "/home/administrator/Programy/landshunger/hexfleet/.bloop/root",
+        "classesDir" : "/home/administrator/Programy/landshunger/hexfleet/.bloop/root/scala-2.12/classes",
+        "resources" : [
+            "/home/administrator/Programy/landshunger/hexfleet/src/main/resources",
+            "/home/administrator/Programy/landshunger/hexfleet/target/scala-2.12/resource_managed/main"
+        ],
+        "scala" : {
+            "organization" : "org.scala-lang",
+            "name" : "scala-compiler",
+            "version" : "2.12.8",
+            "options" : [
+                "-P:semanticdb:synthetics:on",
+                "-P:semanticdb:failures:warning",
+                "-P:semanticdb:sourceroot:/home/administrator/Programy/landshunger/hexfleet",
+                "-Yrangepos",
+                "-Xplugin-require:semanticdb",
+                "-Xplugin:/home/administrator/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.29.jar",
+                "-Xplugin:/home/administrator/.ivy2/cache/org.scalameta/semanticdb-scalac_2.12.8/jars/semanticdb-scalac_2.12.8-4.2.3.jar"
+            ],
+            "jars" : [
+                "/home/administrator/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.12.8.jar",
+                "/home/administrator/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.8.jar",
+                "/home/administrator/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.8.jar",
+                "/home/administrator/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.6.jar",
+                "/home/administrator/.ivy2/cache/jline/jline/jars/jline-2.14.6.jar"
+            ],
+            "setup" : {
+                "order" : "mixed",
+                "addLibraryToBootClasspath" : true,
+                "addCompilerToClasspath" : false,
+                "addExtraJarsToClasspath" : false,
+                "manageBootClasspath" : true,
+                "filterLibraryFromClasspath" : true
+            }
+        },
+        "java" : {
+            "options" : [
+            ]
+        },
+        "test" : {
+            "frameworks" : [
+                {
+                    "names" : [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names" : [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names" : [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names" : [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names" : [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                }
+            ],
+            "options" : {
+                "excludes" : [
+                ],
+                "arguments" : [
+                ]
+            }
+        },
+        "platform" : {
+            "name" : "js",
+            "config" : {
+                "version" : "0.6.29",
+                "mode" : "debug",
+                "kind" : "none",
+                "emitSourceMaps" : false,
+                "jsdom" : false,
+                "toolchain" : [
+                ]
+            },
+            "mainClass" : [
+            ]
+        },
+        "resolution" : {
+            "modules" : [
+                {
+                    "organization" : "org.scala-lang",
+                    "name" : "scala-library",
+                    "version" : "2.12.8",
+                    "artifacts" : [
+                        {
+                            "name" : "scala-library",
+                            "path" : "/home/administrator/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.8.jar"
+                        },
+                        {
+                            "name" : "scala-library",
+                            "classifier" : "sources",
+                            "path" : "/home/administrator/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization" : "org.scala-js",
+                    "name" : "scalajs-library_2.12",
+                    "version" : "0.6.29",
+                    "artifacts" : [
+                        {
+                            "name" : "scalajs-library_2.12",
+                            "path" : "/home/administrator/.ivy2/cache/org.scala-js/scalajs-library_2.12/jars/scalajs-library_2.12-0.6.29.jar"
+                        },
+                        {
+                            "name" : "scalajs-library_2.12",
+                            "classifier" : "sources",
+                            "path" : "/home/administrator/.ivy2/cache/org.scala-js/scalajs-library_2.12/srcs/scalajs-library_2.12-0.6.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization" : "org.scala-js",
+                    "name" : "scalajs-dom_sjs0.6_2.12",
+                    "version" : "0.9.7",
+                    "artifacts" : [
+                        {
+                            "name" : "scalajs-dom_sjs0.6_2.12",
+                            "path" : "/home/administrator/.ivy2/cache/org.scala-js/scalajs-dom_sjs0.6_2.12/jars/scalajs-dom_sjs0.6_2.12-0.9.7.jar"
+                        },
+                        {
+                            "name" : "scalajs-dom_sjs0.6_2.12",
+                            "classifier" : "sources",
+                            "path" : "/home/administrator/.ivy2/cache/org.scala-js/scalajs-dom_sjs0.6_2.12/srcs/scalajs-dom_sjs0.6_2.12-0.9.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization" : "com.scalawarrior",
+                    "name" : "scalajs-createjs_sjs0.6_2.12",
+                    "version" : "0.0.3",
+                    "artifacts" : [
+                        {
+                            "name" : "scalajs-createjs_sjs0.6_2.12",
+                            "checksum" : {
+                                "type" : "sha1",
+                                "digest" : "253597dd8122309525b2f9b1702c36065137fe5f"
+                            },
+                            "path" : "/home/administrator/.ivy2/local/com.scalawarrior/scalajs-createjs_sjs0.6_2.12/0.0.3/jars/scalajs-createjs_sjs0.6_2.12.jar"
+                        },
+                        {
+                            "name" : "scalajs-createjs_sjs0.6_2.12",
+                            "classifier" : "sources",
+                            "checksum" : {
+                                "type" : "sha1",
+                                "digest" : "15d7bdeb050bff22186b2f0e5ee1cd76d6d7cc49"
+                            },
+                            "path" : "/home/administrator/.ivy2/local/com.scalawarrior/scalajs-createjs_sjs0.6_2.12/0.0.3/srcs/scalajs-createjs_sjs0.6_2.12-sources.jar"
+                        },
+                        {
+                            "name" : "scalajs-createjs_sjs0.6_2.12",
+                            "classifier" : "javadoc",
+                            "checksum" : {
+                                "type" : "sha1",
+                                "digest" : "ca1fd47a489de5f2ec39149ddcc283122a3900fa"
+                            },
+                            "path" : "/home/administrator/.ivy2/local/com.scalawarrior/scalajs-createjs_sjs0.6_2.12/0.0.3/docs/scalajs-createjs_sjs0.6_2.12-javadoc.jar"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
