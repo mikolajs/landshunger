@@ -16,3 +16,5 @@ akka-html-scalajs/shared/target
 #javascript
 easeljs_es6/dist
 easeljs_es6/node_modules
+# vim
+*.swp
