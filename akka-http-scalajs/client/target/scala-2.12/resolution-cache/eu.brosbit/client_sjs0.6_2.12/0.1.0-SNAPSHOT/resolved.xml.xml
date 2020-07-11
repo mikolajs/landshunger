@@ -4,7 +4,7 @@
 		module="client_sjs0.6_2.12"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20190506175602"
+		publication="20190506202752"
 	>
 		<description>
 		client
@@ -40,5 +40,6 @@
 		<dependency org="org.scala-js" name="scalajs-library_2.12" rev="0.6.27" conf="compile->default(compile)"/>
 		<dependency org="org.scala-js" name="scalajs-test-interface_2.12" rev="0.6.27" conf="test->default(compile)"/>
 		<dependency org="org.scala-js" name="scalajs-dom_sjs0.6_2.12" rev="0.9.5" conf="compile->default(compile)"/>
+		<dependency org="org.scalameta" name="semanticdb-scalac_2.12.8" rev="4.1.9" conf="plugin->default(compile)"/>
 	</dependencies>
 </ivy-module>

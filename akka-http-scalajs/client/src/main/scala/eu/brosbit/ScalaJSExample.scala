@@ -7,5 +7,6 @@ object ScalaJSExample {
 
   def main(args: Array[String]): Unit = {
     dom.document.getElementById("scalajsShoutOut").textContent = SharedMessages.itWorks
+    dom.document.getElementById("elementTest").textContent = "Jakiś tekst"
   }
 }

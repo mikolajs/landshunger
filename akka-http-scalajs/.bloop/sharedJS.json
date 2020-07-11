@@ -1,0 +1,147 @@
+{
+    "version" : "1.1.2",
+    "project" : {
+        "name" : "sharedJS",
+        "directory" : "/home/ms/Programming/landshunger/akka-http-scalajs/shared/.js",
+        "sources" : [
+            "/home/ms/Programming/landshunger/akka-http-scalajs/shared/.js/src/main/scala-2.12",
+            "/home/ms/Programming/landshunger/akka-http-scalajs/shared/.js/src/main/scala",
+            "/home/ms/Programming/landshunger/akka-http-scalajs/shared/.js/src/main/java",
+            "/home/ms/Programming/landshunger/akka-http-scalajs/shared/src/main/scala-2.12",
+            "/home/ms/Programming/landshunger/akka-http-scalajs/shared/src/main/scala",
+            "/home/ms/Programming/landshunger/akka-http-scalajs/shared/.js/target/scala-2.12/src_managed/main"
+        ],
+        "dependencies" : [
+        ],
+        "classpath" : [
+            "/home/ms/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.8.jar",
+            "/home/ms/.ivy2/cache/org.scala-js/scalajs-library_2.12/jars/scalajs-library_2.12-0.6.27.jar"
+        ],
+        "out" : "/home/ms/Programming/landshunger/akka-http-scalajs/.bloop/sharedJS",
+        "classesDir" : "/home/ms/Programming/landshunger/akka-http-scalajs/.bloop/sharedJS/scala-2.12/classes",
+        "resources" : [
+            "/home/ms/Programming/landshunger/akka-http-scalajs/shared/.js/src/main/resources",
+            "/home/ms/Programming/landshunger/akka-http-scalajs/shared/.js/target/scala-2.12/resource_managed/main"
+        ],
+        "scala" : {
+            "organization" : "org.scala-lang",
+            "name" : "scala-compiler",
+            "version" : "2.12.8",
+            "options" : [
+                "-P:semanticdb:synthetics:on",
+                "-P:semanticdb:failures:warning",
+                "-P:semanticdb:sourceroot:/home/ms/Programming/landshunger/akka-http-scalajs",
+                "-Yrangepos",
+                "-Xplugin-require:semanticdb",
+                "-Xplugin:/home/ms/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.27.jar",
+                "-Xplugin:/home/ms/.ivy2/cache/org.scalameta/semanticdb-scalac_2.12.8/jars/semanticdb-scalac_2.12.8-4.1.9.jar"
+            ],
+            "jars" : [
+                "/home/ms/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.12.8.jar",
+                "/home/ms/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.8.jar",
+                "/home/ms/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.8.jar",
+                "/home/ms/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.6.jar",
+                "/home/ms/.ivy2/cache/jline/jline/jars/jline-2.14.6.jar"
+            ],
+            "setup" : {
+                "order" : "mixed",
+                "addLibraryToBootClasspath" : true,
+                "addCompilerToClasspath" : false,
+                "addExtraJarsToClasspath" : false,
+                "manageBootClasspath" : true,
+                "filterLibraryFromClasspath" : true
+            }
+        },
+        "java" : {
+            "options" : [
+            ]
+        },
+        "test" : {
+            "frameworks" : [
+                {
+                    "names" : [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names" : [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names" : [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names" : [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names" : [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                }
+            ],
+            "options" : {
+                "excludes" : [
+                ],
+                "arguments" : [
+                ]
+            }
+        },
+        "platform" : {
+            "name" : "js",
+            "config" : {
+                "version" : "0.6.27",
+                "mode" : "debug",
+                "kind" : "none",
+                "emitSourceMaps" : false,
+                "jsdom" : false,
+                "toolchain" : [
+                ]
+            },
+            "mainClass" : [
+            ]
+        },
+        "resolution" : {
+            "modules" : [
+                {
+                    "organization" : "org.scala-lang",
+                    "name" : "scala-library",
+                    "version" : "2.12.8",
+                    "artifacts" : [
+                        {
+                            "name" : "scala-library",
+                            "path" : "/home/ms/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.8.jar"
+                        },
+                        {
+                            "name" : "scala-library",
+                            "classifier" : "sources",
+                            "path" : "/home/ms/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization" : "org.scala-js",
+                    "name" : "scalajs-library_2.12",
+                    "version" : "0.6.27",
+                    "artifacts" : [
+                        {
+                            "name" : "scalajs-library_2.12",
+                            "path" : "/home/ms/.ivy2/cache/org.scala-js/scalajs-library_2.12/jars/scalajs-library_2.12-0.6.27.jar"
+                        },
+                        {
+                            "name" : "scalajs-library_2.12",
+                            "classifier" : "sources",
+                            "path" : "/home/ms/.ivy2/cache/org.scala-js/scalajs-library_2.12/srcs/scalajs-library_2.12-0.6.27-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

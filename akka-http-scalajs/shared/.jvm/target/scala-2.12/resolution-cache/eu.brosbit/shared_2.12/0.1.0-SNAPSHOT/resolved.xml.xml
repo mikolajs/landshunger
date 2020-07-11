@@ -4,7 +4,7 @@
 		module="shared_2.12"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20190506175600"
+		publication="20190506202750"
 	>
 		<description>
 		shared
@@ -32,5 +32,6 @@
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.8" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.12.8" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="org.scalameta" name="semanticdb-scalac_2.12.8" rev="4.1.9" conf="plugin->default(compile)"/>
 	</dependencies>
 </ivy-module>

@@ -4,7 +4,7 @@
 		module="akka-http-scalajs-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20190506175435"
+		publication="20190506202728"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>

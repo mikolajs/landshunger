@@ -1,12 +1,8 @@
 package eu.brosbit.immovable
 
 abstract  class Plant extends ImmovableObject {
-  val growBio:Short
-  val maxBio:Short
-  val growHP: Short
-  val maxHP:Short
-  val name:String
 
+  val obj:PlantConst
 
   protected var bio: Short = 0
   protected var hp: Short = 0
@@ -18,13 +14,22 @@ abstract  class Plant extends ImmovableObject {
 
   override def nextDay() = yields()
 
-
-  def yields() = {
-    bio = (bio + growBio).toShort
-    hp = (hp + growHP).toShort
-    if(bio > maxBio) bio = maxBio
-    if(hp > maxHP) hp = maxHP
+  override def log: String = {
+    s"$shortName:hp=${hp},bi=$bio"
   }
 
+  def yields() = {
+    bio = (bio + obj.growBio).toShort
+    hp = (hp + obj.growHP).toShort
+    if(bio > obj.maxBio) bio = obj.maxBio
+    if(hp > obj.maxHP) hp = obj.maxHP
+  }
 
+}
+
+trait PlantConst {
+  val growBio:Short = 0
+  val maxBio:Short = 0
+  val growHP: Short = 0
+  val maxHP:Short  = 0
 }
