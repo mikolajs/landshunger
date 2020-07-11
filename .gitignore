@@ -12,6 +12,7 @@ LsHgdx/desktop/build
 akka-html-scalajs/client/target
 akka-html-scalajs/server/target
 akka-html-scalajs/shared/target
+akka-html-scalajs/target
 
 #javascript
 easeljs_es6/dist
