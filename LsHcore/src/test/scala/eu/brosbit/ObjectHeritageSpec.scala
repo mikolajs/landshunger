@@ -1,27 +1,29 @@
 package eu.brosbit
 
 import eu.brosbit.immovable.{Grass, LeafWood}
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class ObjectHeritageSpec extends FlatSpec with Matchers {
+
+class ObjectHeritageSpec extends AnyFlatSpec with Matchers {
 
   val leafWood = LeafWood()
   val grass = Grass()
 
   "Different plants" should "have different grow for bio" in {
-    leafWood.growBio shouldNot be (grass.growBio)
+    leafWood.obj.growBio shouldNot be (grass.obj.growBio)
   }
   it should "have different grow for HP" in {
-    leafWood.growHP shouldNot be(grass.growHP)
+    leafWood.obj.growHP shouldNot be(grass.obj.growHP)
   }
   it should "have different max for bio" in {
-    leafWood.maxBio shouldNot be(grass.maxBio)
+    leafWood.obj.maxBio shouldNot be(grass.obj.maxBio)
   }
   it should "have different max for HP" in {
-    leafWood.maxHP shouldNot be(grass.maxHP)
+    leafWood.obj.maxHP shouldNot be(grass.obj.maxHP)
   }
   it should "have different names" in {
-    leafWood.name shouldNot be(grass.name)
+    leafWood.obj.name shouldNot be(grass.obj.name)
   }
 
 }

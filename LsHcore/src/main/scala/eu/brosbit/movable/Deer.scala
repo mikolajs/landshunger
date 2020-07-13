@@ -2,8 +2,8 @@ package eu.brosbit.movable
 
 class Deer(x:Short, y:Short) extends  Animal {
   val obj = Deer
-  override val number: Short = 2
-  override val grown: Short = 0
+  override var number: Short = 2
+  override var grown: Short = 0
   override var full: Short = 100
   override val position: MapPosition = MapPosition(x, y)
   override var moveTo: List[MapPosition] = Nil

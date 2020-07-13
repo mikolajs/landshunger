@@ -15,7 +15,7 @@ abstract  class Plant extends ImmovableObject {
   override def nextDay() = yields()
 
   override def log: String = {
-    s"$shortName:hp=${hp},bi=$bio"
+    s"${obj.shortName}:hp=${hp},bi=$bio"
   }
 
   def yields() = {
@@ -27,7 +27,9 @@ abstract  class Plant extends ImmovableObject {
 
 }
 
-trait PlantConst {
+trait PlantConst extends ImmovableObjectConst {
+  val name:String = "Plant"
+  val shortName:String ="pl"
   val growBio:Short = 0
   val maxBio:Short = 0
   val growHP: Short = 0

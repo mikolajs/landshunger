@@ -1,36 +1,37 @@
 package eu.brosbit
 
 import eu.brosbit.immovable.LeafWood
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class GrowPlantsSpec  extends FlatSpec with Matchers {
+class GrowPlantsSpec  extends AnyFlatSpec with Matchers {
 
   val leafWood = LeafWood()
 
   "Leaf Wood" should "not exceed limit bio" in {
-    leafWood.setBio((leafWood.maxBio - 5).toShort)
+    leafWood.setBio((leafWood.obj.maxBio - 5).toShort)
     leafWood.nextDay()
-    leafWood.getBio should be (leafWood.maxBio)
+    leafWood.getBio should be (leafWood.obj.maxBio)
 
   }
 
   it should "not exceed limit hp" in {
-    leafWood.setHP((leafWood.maxHP - 5).toShort)
+    leafWood.setHP((leafWood.obj.maxHP - 5).toShort)
     leafWood.nextDay()
-    leafWood.getHP should be (leafWood.maxHP)
+    leafWood.getHP should be (leafWood.obj.maxHP)
   }
 
   it should "grow bio of growBio amount next Day" in {
-    val start =  (leafWood.maxBio / 2.toShort).toShort
+    val start =  (leafWood.obj.maxBio / 2.toShort).toShort
     leafWood.setBio(start)
     leafWood.nextDay()
-    leafWood.getBio should be (start + leafWood.growBio)
+    leafWood.getBio should be (start + leafWood.obj.growBio)
   }
   it should "grow hp of growHP amount next Day" in {
-    val start =  (leafWood.maxHP / 2).toShort
+    val start =  (leafWood.obj.maxHP / 2).toShort
     leafWood.setHP(start)
     leafWood.nextDay()
-    leafWood.getHP should be (start + leafWood.growHP)
+    leafWood.getHP should be (start + leafWood.obj.growHP)
   }
 
 }

@@ -7,12 +7,20 @@ import scala.collection.mutable.ArrayBuffer
 
 class WildAnimals(map:Array[Array[Tile]], units:Array[Array[Boolean]]) {
   var deers:ArrayBuffer[Animal] = new ArrayBuffer[Animal]()
+  val wordSize = map.size
 
-  def createDeerHeard = {
-    val randPoint = MapPosition((Math.random()*map(0).size).toShort, (Math.random()*map.size).toShort)
-
+  def createDeerHeard: Unit = {
+    val randPoint = MapPosition((Math.random()*2*wordSize).toShort, (Math.random()*wordSize).toShort)
+    var tried = 0
+    var lines = 0
     while(!canPlaceDeer(randPoint.x, randPoint.y)){
-     randPoint
+      if(tried >= 2*wordSize) {
+        tried = 0
+        randPoint.y =  ((randPoint.y+1) % wordSize).toShort
+        lines += 1
+        if(lines > wordSize) return
+      } else tried += 1
+      randPoint.x = ((randPoint.x + 1) % (2*wordSize)).toShort
     }
     val newHeard = new Deer(0,0)
   }
@@ -37,7 +45,7 @@ class WildAnimals(map:Array[Array[Tile]], units:Array[Array[Boolean]]) {
 
     private def isWood(x:Short, y:Short): Boolean = {
       if(map(y)(x).imObjOpt.isEmpty) return false
-      map(y)(x).imObjOpt.get.shortName match {
+      map(y)(x).imObjOpt.get.obj.shortName match {
         case "PL" => true
         case "PW" => true
         case "LW" => true
@@ -47,7 +55,7 @@ class WildAnimals(map:Array[Array[Tile]], units:Array[Array[Boolean]]) {
 
   private def isGrass(x:Short, y:Short): Boolean = {
     if(map(y)(x).imObjOpt.isEmpty) return false
-    map(y)(x).imObjOpt.get.shortName match {
+    map(y)(x).imObjOpt.get.obj.shortName match {
       case "GR" => true
       case _ => false
     }

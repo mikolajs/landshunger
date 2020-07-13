@@ -3,30 +3,28 @@ package eu.brosbit
 import eu.brosbit.tiles.Tile
 import tiles._
 
-class TheMap(wordSize: Int) {
-   private val map:Array[Array[Tile]] = Array.ofDim(wordSize, 2*wordSize)
+class TheMap(mapPath:String) {
+   val (wordSize:Int, map:Array[Array[Tile]]) = createMap
    private val unitMap:Array[Array[Boolean]] = Array.ofDim(wordSize, 2*wordSize)
-
-   def createMap: Unit = {
+   private def createMap = {
      val mapData = loadFromFileMap
+     val wordSize = calculateWordSize(mapData.length)
+     val map:Array[Array[Tile]] = Array.ofDim(wordSize, 2*wordSize)
      println(s"SIZE OF MAP = ${mapData.size}")
     for {i <- 0 until wordSize
         j <- 0 until 2*wordSize } {
         map(i)(j) = choiceTile(mapData(i*2*wordSize+j))
     }
+     (wordSize, map)
   }
 
   def getMap: Array[Array[Tile]] = map
-
-  def nextDay(): Unit = {
-    for(a <- map; t <- a) t.nextDay
-  }
 
   private def loadFromFileMap: Array[Byte] = {
     import java.io.File;
     import java.nio.file.Files;
 
-    val file = new File("configdata/map.data")
+    val file = new File(s"configdata/${mapPath}")
     val fileContent = Files.readAllBytes(file.toPath());
     fileContent.map(_.toInt).map(_ match {
       case x if x < 0 => 255 + x
@@ -47,6 +45,8 @@ class TheMap(wordSize: Int) {
     case _ => new Plain
   }
 
+  private def calculateWordSize(l:Int) = Math.ceil(Math.sqrt(l / 2.0)).toInt
+
   def printTiles: Unit = {
     for (i <- 0 until wordSize) {
       for (j <- 0 until 2 * wordSize) {
@@ -61,8 +61,7 @@ class TheMap(wordSize: Int) {
           j <- 0 until 2*wordSize} {
         print(arr(i*2*wordSize+j)+ "\t")
         if(j == 2*wordSize -1) println()
-      }
-
+    }
   }
 
 }
