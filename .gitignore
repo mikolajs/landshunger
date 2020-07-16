@@ -3,6 +3,10 @@
 
 LsHcore/bin
 LsHcore/*.ser
+LsHcore/.*
+LsHcore/.idea/
+LsHcore/target/
+LsHcore/project/target/
 
 LsHgdx/core/build
 LsHgdx/desktop/build
