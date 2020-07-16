@@ -1,6 +1,6 @@
 package eu.brosbit.movable
 
-case class MapPosition(var x:Short, var y:Short)
+case class MapPosition(var r:Int, var c:Int)
 
 trait Animal {
   var number:Short
