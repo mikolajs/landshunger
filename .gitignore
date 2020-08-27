@@ -1,6 +1,9 @@
 *.class
 *.log
 
+LsHserver/target
+LsHserver/project/target/
+
 LsHcore/bin
 LsHcore/*.ser
 LsHcore/.*
