@@ -1,26 +1,52 @@
 package eu.brosbit
 
+import eu.brosbit.hexlib.Hex
+
 
 object Main {
   //
+   val hexLib = new Hex(40, 40)
+
+   var days = 0
+   val dayTime = 720
+
  
   def main(args: Array[String]): Unit = {
+
     val map = new TheMap("map.data")
-    val mapArray = map.getMap
-    val plantsManager = new PlantsManager(mapArray)
-    val statistics = new Statistics(mapArray)
-    val mapManager = new MapManager(map, plantsManager)
+    val plantsManager = new PlantsManager(map)
+    val wildAnimals = new WildAnimals(map, 3)
+    val statistics = new Statistics(map)
+    val mapManager = new MapManager(map, plantsManager, wildAnimals)
     mapManager.nextDay()
-    for(i <- 1 to 10){
-      println(s"Dzień $i")
-      //map.printTiles
+    days = 1
+    val daysShow = 10
+
+    var play = true
+
+    while(play) {
+      println(s"Dzień $days")
+      for (time <- 1 to dayTime) {
+        wildAnimals.moveAnimals
+      }
+      println("STATYSTYKI:")
       statistics.countForests
       statistics.countHPOfForest
       statistics.countGrasses
-      statistics.countHPOGrasses
+      statistics.countBioGrasses
+      wildAnimals.showInfoDeer
+      wildAnimals.consumeAndGrown()
       Thread.sleep(1000)
       mapManager.nextDay()
+      wildAnimals.nextDay
+
+      if(days >= daysShow) play = false
+
     }
+
+
+
+
 
   }
   

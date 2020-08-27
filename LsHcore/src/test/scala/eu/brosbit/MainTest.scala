@@ -1,7 +1,7 @@
 
 
 import eu.brosbit.immovable.Plant
-import eu.brosbit.{MapManager, PlantsManager, TheMap}
+import eu.brosbit.{MapManager, PlantsManager, TheMap, WildAnimals}
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.flatspec.AnyFlatSpec
 
@@ -12,13 +12,14 @@ class MainSpec extends AnyFlatSpec with Matchers {
 
   val map = new TheMap("map.data")
   val mapArray = map.getMap
-  val plantsManager = new PlantsManager(mapArray)
-  val mapManager = new MapManager(map, plantsManager)
+  val plantsManager = new PlantsManager(map)
+  val wildAnimals = new WildAnimals(map, 3)
+  val mapManager = new MapManager(map, plantsManager, wildAnimals)
   mapManager.nextDay()
 //  map.printTiles
   val m = map.getMap.flatten
-  "Map" should "be size of 20" in {
-    map.wordSize should be (20)
+  "Map" should "be size of 40" in {
+    map.getWordSize should be (40)
   }
   it should "has all defined fields except mountain" in {
     m.filter(_.level < 3).forall(_.imObjOpt.isDefined) should be(true)

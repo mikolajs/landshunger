@@ -1,13 +1,13 @@
 package eu.brosbit
 
-import eu.brosbit.immovable.{Grass, LeafWood}
+import eu.brosbit.immovable.{Grass, Forest}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 
 class ObjectHeritageSpec extends AnyFlatSpec with Matchers {
 
-  val leafWood = LeafWood()
+  val leafWood = Forest()
   val grass = Grass()
 
   "Different plants" should "have different grow for bio" in {

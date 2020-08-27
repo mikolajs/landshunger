@@ -2,12 +2,11 @@ package eu.brosbit.movable
 
 case class MapPosition(var r:Int, var c:Int)
 
-trait Animal {
+trait Animal extends Movable {
+  val obj:AnimalConst
   var number:Short
   var grown:Short
-  var full:Short
-  val position:MapPosition
-  var moveTo:List[MapPosition]
+  var eaten:Short
 }
 
 trait AnimalConst {
