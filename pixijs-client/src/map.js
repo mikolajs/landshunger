@@ -6,7 +6,7 @@ class MapWorld {
     this.container = container;
     this.resources = resources;
     console.log("Start Map of World: " + this.X + " x " + this.Y);
-    //this.drawMap(null);
+    this.drawMap(null);
   }
   //// TODO: Implement
   drawMap(mapData){

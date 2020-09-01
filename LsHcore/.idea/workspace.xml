@@ -22,35 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e32c88f5-ccdc-41f5-8672-fd6f1f646670" name="Default Changelist" comment="Hex library, count distance and list neighbours. Check Dotty.">
-      <change afterPath="$PROJECT_DIR$/configdata/test.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/hexlib/PathFinder.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Movable.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/scala/eu/brosbit/PathFinderSpec.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/scala/eu/brosbit/WildAnimalsSpec.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/LsHcore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/LsHcore.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configdata/map.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/configdata/map.bmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configdata/map.data" beforeDir="false" afterPath="$PROJECT_DIR$/configdata/map.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapManager.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/PlantsManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/PlantsManager.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Statistics.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Statistics.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/TheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/TheMap.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/TilesManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/TilesManager.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/WildAnimals.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/WildAnimals.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/immovable/Grass.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/immovable/Grass.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/immovable/LeafWood.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/immovable/Forest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/immovable/PalmWood.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/immovable/PineWood.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/immovable/Plankton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/immovable/Plankton.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Animal.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Animal.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Deer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Deer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/eu/brosbit/GrowPlantsSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/eu/brosbit/GrowPlantsSpec.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/eu/brosbit/MainTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/eu/brosbit/MainTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/eu/brosbit/ObjectHeritageSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/eu/brosbit/ObjectHeritageSpec.scala" afterDir="false" />
-    </list>
+    <list default="true" id="e32c88f5-ccdc-41f5-8672-fd6f1f646670" name="Default Changelist" comment="Hex library, count distance and list neighbours. Check Dotty." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +66,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../scala-teaching/rekrutacja" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -178,9 +150,10 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="222" y="28" width="912" height="734" key="CommitChangelistDialog2/0.28.1366.740@0.28.1366.740" timestamp="1594933633250" />
-    <state x="466" y="144" width="424" height="478" key="FileChooserDialogImpl" timestamp="1594744361872">
-      <screen x="0" y="28" width="1366" height="740" />
+    <state x="466" y="143" width="424" height="478" key="FileChooserDialogImpl" timestamp="1598891726178">
+      <screen x="0" y="27" width="1366" height="741" />
     </state>
+    <state x="466" y="143" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1598891726178" />
     <state x="466" y="144" width="424" height="478" key="FileChooserDialogImpl/0.28.1366.740@0.28.1366.740" timestamp="1594744361872" />
   </component>
 </project>

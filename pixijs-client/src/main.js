@@ -38,12 +38,11 @@ class Main {
 
  setup(self, resources){
    console.log("SETUP");
-   console.log(self);
    self.app.stage.addChild(self.gridContainer);
-   self.grid = new Grid(self.unitSize, 10, 10, self.gridContainer);
-   self.app.renderer.plugins.interaction.on('pointerup', (event) => {
+    self.grid = new Grid(self.unitSize, 10, 10, self.gridContainer);
+    self.app.renderer.plugins.interaction.on('pointerup', (event) => {
      self.onClick(event, self.grid);
-   });
+    });
 
    self.app.stage.addChild(self.mapContainer);
    self.mapWorld = new MapWorld(self.grid, 10, 10, self.mapContainer, resources);
