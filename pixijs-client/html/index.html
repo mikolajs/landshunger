@@ -2,17 +2,49 @@
 <html>
 <head>
   <meta charset="utf-8" />
+  <link rel="shortcut icon" href="img/flavicon.ico"/>
   <title>Landshunger</title>
   <script src="lib/pixi_5.3.2.js"></script>
+  <script src="src/hexpoint.js"></script>
+  <script src="src/plainpoint.js"></script>
+  <script src="src/worldmap.js"></script>
   <script src="src/main.js"></script>
   <script src="src/grid.js"></script>
   <script src="src/map.js"></script>
-<style> * {padding: 0; margin: 0}</style>
+<style> * {padding: 0; margin: 0}
+ canvas { float: left; float: left;}
+ #scrollUp, #scrollDown, #scrollLeft, #scrollRight {
+   padding: 0; margin: 0; display: block;
+   background-color: black; color: white;
+ }
+ #scrollUp, #scrollDown {
+   width: 1260px; height: 20px; margin-left: 20px; margin-right: 20px;
+   text-align: center;
+ }
+ #scrollLeft, #scrollRight {
+   width: 20px; height: 612px; display: inline;
+ }
+ #scrollLeft { float: left;}
+ #scrollRight { float: right;}
+ #empty {  width: 1260px; height: 612px;  padding: 0; margin: 0; display: block;}
+</style>
 </head>
 <body>
+  <div id="scrollUp">↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑</div>
+  <div id="scrollLeft">←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>
+  ←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>←<br>
+ ←<br>←<br>←<br>←<br>←<br>←<br>←<br></div>
   <script type="text/javascript">
+    //var bigMap = new WorldMap();
     var main = new Main();
-
    </script>
+   <div id="scrollRight">→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>
+   →<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>
+ →<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br>→<br></div>
+   <div id="empty"></div>
+   <div id="scrollDown">↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+   ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</div>
+
 </body>
 </html>

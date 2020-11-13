@@ -9,12 +9,13 @@ class Grid {
   }
   drawHexGrid() {
         let background = new PIXI.Graphics();
-        background.lineStyle(3, 0x000000);
+        background.lineStyle(2, 0x000000);
+        background.zOrder = 1001;
         //background.beginFill(0x66CCFF);
         let pointX = 0;
         let pointY = 0;
         for (let i = 0; i < this.y; i++) {
-            pointY = (i * 5 + 1) * this.unitSize;
+            pointY = (i * 5) * this.unitSize + 12;
             if (i % 2 == 0) {
                 pointX = 0;
             }
@@ -70,6 +71,7 @@ class Grid {
     }
 
     getPoolClicked(x, y) {
+      ///// TODO: ERROR -> with Y
         let yP = Math.ceil((y - 0.16666666 * this.unitSize) / (5 * this.unitSize));
         if (yP % 2 == 1) {
             return new PIXI.Point(Math.ceil(x / (10 * this.unitSize)) - 1, yP);
