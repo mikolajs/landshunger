@@ -1,8 +1,15 @@
 *.class
 *.log
 
+LsHserver/target
+LsHserver/project/target/
+
 LsHcore/bin
 LsHcore/*.ser
+LsHcore/.*
+LsHcore/.idea/
+LsHcore/target/
+LsHcore/project/target/
 
 LsHgdx/core/build
 LsHgdx/desktop/build
@@ -12,9 +19,13 @@ LsHgdx/desktop/build
 akka-html-scalajs/client/target
 akka-html-scalajs/server/target
 akka-html-scalajs/shared/target
+akka-html-scalajs/target
 
 #javascript
 easeljs_es6/dist
 easeljs_es6/node_modules
 # vim
 *.swp
+
+pixijs-client/node_modules
+
