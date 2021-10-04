@@ -11,7 +11,7 @@ class Main {
    this.Y = 612;
    this.unitSize = 12;
    this.app = new PIXI.Application(
-     {width: this.X, height: this.Y,  backgroundColor: 0xffffff, antialiasing: true});
+     {width: this.X, height: this.Y,  backgroundColor: 0x0a0a0a, antialiasing: true});
    document.body.appendChild(this.app.view);
    this.mapContainer = new PIXI.Container();
    this.gridContainer = new PIXI.Container();
@@ -19,7 +19,9 @@ class Main {
         [{"name":"w", "url": "img/water_120x72.png"},
         {"name":'h', "url":"img/hill_120x72.png"},
         {"name":"p", "url":"img/plain_120x72.png"},
-        {"name":'m', "url":"img/mountain_120x72.png"}
+        {"name":'m', "url":"img/mountain_120x72.png"},
+        {"name":"s", "url":"img/steppe_120x72.png"},
+        {"name":"f", "url":"img/ford_120x72.png"}
       ]);
       let self = this;
     this.app.loader.load((loader, resources) => {

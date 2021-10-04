@@ -1,0 +1,46 @@
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/MainExtra.scala:14:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m14 |[0m  [33mdef[0m [36mrun[0m(): [35mUnit[0m = {[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:12:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m12 |[0m  [33mdef[0m [36mgetMap[0m: [35mArray[Array[Tile]][0m = map[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:13:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m13 |[0m  [33mdef[0m [36mgetUnitMap[0m: [35mArray[Array[Boolean]][0m = unitMap[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:14:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m14 |[0m  [33mdef[0m [36mgetWordSize[0m:[35mInt[0m = wordSize[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:15:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m15 |[0m  [33mdef[0m [36mgetTile[0m([36mrow[0m:[35mInt[0m, [36mcol[0m:[35mInt[0m) = map(row)(col)[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:17:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m17 |[0m  [33mprivate[0m [33mdef[0m createMap = {[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:30:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m30 |[0m  [33mprivate[0m [33mdef[0m loadFromFileMap: Array[Byte] = {[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:47:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m47 |[0m  [33mprivate[0m [33mdef[0m choiceTile(tile:Byte) = tile [33mmatch[0m {[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:55:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m55 |[0m  [33mprivate[0m [33mdef[0m calculateWordSize(l:Int) = Math.round(Math.sqrt(l)).toInt[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:57:2 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m57 |[0m  [33mdef[0m [36mprintTiles[0m: [35mUnit[0m = {[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |  Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/TheMap.scala:66:1 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m66 |[0m [33mprivate[0m [33mdef[0m printArray[A](arr:Array[A]): Unit = {[0m
+[0m[[0m[33mwarn[0m] [0m[0m   | [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   | Line is indented too far to the left, or a `}` is missing[0m
+[0m[[0m[33mwarn[0m] [0m[0m11 warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0m11 warnings found[0m

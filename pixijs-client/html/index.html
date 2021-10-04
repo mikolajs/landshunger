@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="img/flavicon.ico"/>
   <title>Landshunger</title>
-  <script src="lib/pixi_5.3.2.js"></script>
+  <script src="lib/pixi-legacy.min.js"></script>
   <script src="src/hexpoint.js"></script>
   <script src="src/plainpoint.js"></script>
   <script src="src/worldmap.js"></script>
@@ -12,7 +12,7 @@
   <script src="src/grid.js"></script>
   <script src="src/map.js"></script>
 <style> * {padding: 0; margin: 0}
- canvas { float: left; float: left;}
+ canvas { float: left;}
  #scrollUp, #scrollDown, #scrollLeft, #scrollRight {
    padding: 0; margin: 0; display: block;
    background-color: black; color: white;
@@ -25,7 +25,7 @@
    width: 20px; height: 612px; display: inline;
  }
  #scrollLeft { float: left;}
- #scrollRight { float: right;}
+ #scrollRight { float: left;}
  #empty {  width: 1260px; height: 612px;  padding: 0; margin: 0; display: block;}
 </style>
 </head>
