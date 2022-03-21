@@ -52,6 +52,7 @@ class Main {
    self.scrollCover(self);
  }
 
+
  scrollCover(self){
    console.log("start scroll cover");
    document.getElementById('scrollUp').onclick =  function() {self.mkScrollUp(self)};

@@ -1,13 +1,14 @@
 
 class WorldMap {
 
- constructor(){
+ constructor(width, height){
    this.loaded = false;
    // this.sizeXY = 100;
-   // this.worldTiles[widht][height] form 0,0 as left top point
+   this.worldTiles = Array(width)
+   this.worldTiles[width][height];// form 0,0 as left top point
    //console.log("Size of map: " + this.sizeXY*this.sizeXY);
    this.readMap();
-   //this.generateMap();
+   this.generateMap();
    //this.test();
  }
 

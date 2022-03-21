@@ -8,8 +8,8 @@ class MapWorld {
     console.log("Start Map of World: " + this.X + " x " + this.Y);
     //let worldsMap = new WorldMap();
     //this.drawMap(worldsMap.worldTiles);
-    this.worldData = new WorldMap();
-    while(this.worldData.loaded)
+    this.worldData = new TheWorld(X, Y);
+    //while(!this.worldData.loaded){}
     this.startX = 0;
     this.startY = 0;
     this.drawMapTimeout();
@@ -34,6 +34,7 @@ class MapWorld {
     /// TODO: must add delete sprite from containder before add new sprites
 
     let tile = "";
+    console.log(this.worldData.worldTiles.length);
     for(let i = 0; i < this.X; i++){
       for(let j = 0; j < this.Y; j++){
         tile = this.worldData.worldTiles[startY+i][startX+j];
