@@ -9,21 +9,34 @@ class MapWorld {
     //let worldsMap = new WorldMap();
     //this.drawMap(worldsMap.worldTiles);
     this.worldData = new WorldMap();
-    this.startX = 44;
-    this.startY = 44;
-      this.drawMap();
+    while(this.worldData.loaded)
+    this.startX = 0;
+    this.startY = 0;
+    this.drawMapTimeout();
   }
+
+  drawMapTimeout(){
+    if(!this.worldData.loaded) {
+      window.setTimeout(() => {this.drawMapTimeout();}, 2000);
+      console.log("waiting next 2 seconds");
+      return;
+    }
+    this.drawMap();
+  }
+
   //// TODO: Implement
   drawMap(){
     //// TODO: Change direction x and y (must be the same as in worldmap test())
     // console.log(resources);
+    this.container.removeChildren(0,this.container.children.length);
     let startX = this.startX;
     let startY = this.startY;
+    /// TODO: must add delete sprite from containder before add new sprites
 
     let tile = "";
     for(let i = 0; i < this.X; i++){
       for(let j = 0; j < this.Y; j++){
-        tile = this.worldData.worldTiles[startX+i][startY+j];
+        tile = this.worldData.worldTiles[startY+i][startX+j];
         const sprite = new PIXI.Sprite(this._getTileTexture(tile));
         sprite.anchor.set(0.5);
         const p = this.grid.getCenterOfPoolInPixels(i, j);
@@ -59,6 +72,8 @@ class MapWorld {
     else if(tile == 'w') return this.resources.w.texture;
     else if(tile == 'h') return this.resources.h.texture;
     else if(tile == 'm') return this.resources.m.texture;
+    else if(tile == 's') return this.resources.s.texture;
+    else if(tile == 'f') return this.resources.f.texture;
     else return this.resources.p.texture;
 
   }
