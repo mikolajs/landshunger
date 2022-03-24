@@ -1,0 +1,50 @@
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E040] Syntax Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:415:0 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m415 |[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m    |[31m^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |eof expected, but '}' found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:222:11 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m222 |[0m      [33mthis[0m.worldTiles(COL)(ROW) = [31m'w'[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |      [31m^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value worldTiles is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:224:11 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m224 |[0m      [33mthis[0m.worldTiles(COL)(ROW) = [31m'w'[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |      [31m^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value worldTiles is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:237:39 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m237 |[0m          [33mif[0m (!(COL < [31m0[0m || COL >= [33mthis[0m.sizeXY || ROW < [31m0[0m || ROW >= [33mthis[0m.sizeXY)) [33mthis[0m.worldTiles(COL)(ROW) = waterType[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                  [31m^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value sizeXY is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:237:72 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m237 |[0m          [33mif[0m (!(COL < [31m0[0m || COL >= [33mthis[0m.sizeXY || ROW < [31m0[0m || ROW >= [33mthis[0m.sizeXY)) [33mthis[0m.worldTiles(COL)(ROW) = waterType[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                   [31m^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value sizeXY is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:237:86 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m237 |[0m          [33mif[0m (!(COL < [31m0[0m || COL >= [33mthis[0m.sizeXY || ROW < [31m0[0m || ROW >= [33mthis[0m.sizeXY)) [33mthis[0m.worldTiles(COL)(ROW) = waterType[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                                 [31m^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value worldTiles is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:241:39 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m241 |[0m          [33mif[0m (!(COL < [31m0[0m || COL >= [33mthis[0m.sizeXY || ROW < [31m0[0m || ROW >= [33mthis[0m.sizeXY)) [33mthis[0m.worldTiles(COL)(ROW) = waterType[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                  [31m^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value sizeXY is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:241:72 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m241 |[0m          [33mif[0m (!(COL < [31m0[0m || COL >= [33mthis[0m.sizeXY || ROW < [31m0[0m || ROW >= [33mthis[0m.sizeXY)) [33mthis[0m.worldTiles(COL)(ROW) = waterType[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                   [31m^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value sizeXY is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:241:86 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m241 |[0m          [33mif[0m (!(COL < [31m0[0m || COL >= [33mthis[0m.sizeXY || ROW < [31m0[0m || ROW >= [33mthis[0m.sizeXY)) [33mthis[0m.worldTiles(COL)(ROW) = waterType[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                                 [31m^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value worldTiles is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:245:39 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m245 |[0m          [33mif[0m (!(COL < [31m0[0m || COL >= [33mthis[0m.sizeXY || ROW < [31m0[0m || ROW >= [33mthis[0m.sizeXY)) [33mthis[0m.worldTiles(COL)(ROW) = waterType[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                  [31m^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value sizeXY is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:245:72 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m245 |[0m          [33mif[0m (!(COL < [31m0[0m || COL >= [33mthis[0m.sizeXY || ROW < [31m0[0m || ROW >= [33mthis[0m.sizeXY)) [33mthis[0m.worldTiles(COL)(ROW) = waterType[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                   [31m^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value sizeXY is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E008] Not Found Error: /home/ms/Programming/landshunger/LsHScala3/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:245:86 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m245 |[0m          [33mif[0m (!(COL < [31m0[0m || COL >= [33mthis[0m.sizeXY || ROW < [31m0[0m || ROW >= [33mthis[0m.sizeXY)) [33mthis[0m.worldTiles(COL)(ROW) = waterType[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                                 [31m^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |value worldTiles is not a member of object eu.brosbit.hexlib.MapGenerator$package[0m
+[0m[[0m[31merror[0m] [0m[0m12 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m12 errors found[0m

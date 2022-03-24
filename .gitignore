@@ -3,6 +3,8 @@
 
 LsHserver/target
 LsHserver/project/target/
+LsHserver3/target
+LsHserver3/project/target/
 
 LsHcore/bin
 LsHcore/*.ser
