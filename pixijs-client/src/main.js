@@ -21,7 +21,13 @@ class Main {
         {"name":"p", "url":"img/plain_120x72.png"},
         {"name":'m', "url":"img/mountain_120x72.png"},
         {"name":"s", "url":"img/steppe_120x72.png"},
-        {"name":"f", "url":"img/ford_120x72.png"}
+        {"name":"f", "url":"img/ford_120x72.png"},
+        {"name":"u", "url":"img/humus_120x72.png"},
+        {"name":'oc', "url":"img/corn_120x72.png"},
+        {"name":'ov', "url":"img/village.png"},
+        {"name":'ol', "url":"img/forest_l.png"},
+        {"name":'om', "url":"img/forest_m.png"},
+        {"name":'os', "url":"img/forest_s.png"}
       ]);
       let self = this;
     this.app.loader.load((loader, resources) => {
@@ -55,10 +61,10 @@ class Main {
 
  scrollCover(self){
    console.log("start scroll cover");
-   document.getElementById('scrollUp').onclick =  function() {self.mkScrollUp(self)};
-   document.getElementById('scrollDown').onclick =  function() {self.mkScrollDown(self)};
-   document.getElementById('scrollLeft').onclick = function() {self.mkScrollLeft(self)};
-   document.getElementById('scrollRight').onclick =  function() {self.mkScrollRight(self)};
+   document.getElementById('scrollUp').onmouseover =  function() {self.mkScrollUp(self)};
+   document.getElementById('scrollDown').onmouseover =  function() {self.mkScrollDown(self)};
+   document.getElementById('scrollLeft').onmouseover = function() {self.mkScrollLeft(self)};
+   document.getElementById('scrollRight').onmouseover =  function() {self.mkScrollRight(self)};
  }
 
  mkScrollUp(self){ self.mapWorld.scrollUp();}
