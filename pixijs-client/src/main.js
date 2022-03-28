@@ -27,7 +27,8 @@ class Main {
         {"name":'ov', "url":"img/village.png"},
         {"name":'ol', "url":"img/forest_l.png"},
         {"name":'om', "url":"img/forest_m.png"},
-        {"name":'os', "url":"img/forest_s.png"}
+        {"name":'os', "url":"img/forest_s.png"},
+        {"name":'og', "url":"img/mine_g.png"}
       ]);
       let self = this;
     this.app.loader.load((loader, resources) => {

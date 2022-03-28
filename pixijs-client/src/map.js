@@ -52,6 +52,7 @@ class MapWorld {
         //console.log(p);
         tile = this.worldData.worldObjects[startY+i][startX+j];
         if(tile == '') continue;
+        console.log(tile + " w maps");
         const objSprite = new PIXI.Sprite(this._getTileTexture(tile));
         objSprite.anchor.set(0.5);
         objSprite.x = p.x;
@@ -92,6 +93,7 @@ class MapWorld {
     else if(tile == 'os') return this.resources.os.texture;
     else if(tile == 'oc') return this.resources.oc.texture;
     else if(tile == 'ov') return this.resources.ov.texture;
+    else if(tile == 'og') return this.resources.og.texture;
     else return this.resources.p.texture;
 
   }
