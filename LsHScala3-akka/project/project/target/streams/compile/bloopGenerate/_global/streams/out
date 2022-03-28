@@ -1,0 +1,4 @@
+[debug] [lshscala3-akka-build-build] Classpath dependencies List()
+[debug] [lshscala3-akka-build-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'lshscala3-akka-build-build' to '/home/ms/Programming/landshunger/LsHScala3-akka/project/project/.bloop/lshscala3-akka-build-build.json'
+[success] Generated .bloop/lshscala3-akka-build-build.json

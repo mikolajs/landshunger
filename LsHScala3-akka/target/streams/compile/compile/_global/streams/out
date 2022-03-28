@@ -1,0 +1,216 @@
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/UserRoutes.scala:45:31 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m45 |[0m              complete(getUsers())[0m
+[0m[[0m[31merror[0m] [0m[0m   |                       [31m^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m   |Found:    concurrent.Future[eu.brosbit.Users][0m
+[0m[[0m[31merror[0m] [0m[0m   |Required: akka.http.scaladsl.marshalling.ToResponseMarshallable[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/UserRoutes.scala:48:29 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m48 |[0m              entity(as[[35mUser[0m]) { [36muser[0m =>[0m
+[0m[[0m[31merror[0m] [0m[0m   |                             [31m^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m   |no implicit argument of type akka.http.scaladsl.unmarshalling.FromRequestUnmarshaller[eu.brosbit.User] was found for parameter um of [33mmethod[0m [35mas[0m in [33mtrait[0m [35mMarshallingDirectives[0m.[0m
+[0m[[0m[31merror[0m] [0m[0m   |I found:[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |    akka.http.scaladsl.unmarshalling.Unmarshaller.[0m
+[0m[[0m[31merror[0m] [0m[0m   |      messageUnmarshallerFromEntityUnmarshaller[0m
+[0m[[0m[31merror[0m] [0m[0m   |    [[35meu.brosbit.User[0m]([0m
+[0m[[0m[31merror[0m] [0m[0m   |      akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport.[0m
+[0m[[0m[31merror[0m] [0m[0m   |        sprayJsonUnmarshaller[0m
+[0m[[0m[31merror[0m] [0m[0m   |      [[35meu.brosbit.User[0m]([0m
+[0m[[0m[31merror[0m] [0m[0m   |        /* missing */summon[spray.json.RootJsonReader[eu.brosbit.User]][0m
+[0m[[0m[31merror[0m] [0m[0m   |      )[0m
+[0m[[0m[31merror[0m] [0m[0m   |    )[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |But no implicit values were found that match type spray.json.RootJsonReader[eu.brosbit.User].[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/UserRoutes.scala:50:27 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m50 |[0m                  complete((StatusCodes.Created, performed))[0m
+[0m[[0m[31merror[0m] [0m[0m   |                           [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m   |Found:    (akka.http.scaladsl.model.StatusCodes.Success, [0m
+[0m[[0m[31merror[0m] [0m[0m   |  eu.brosbit.UserRegistry.ActionPerformed[0m
+[0m[[0m[31merror[0m] [0m[0m   |)[0m
+[0m[[0m[31merror[0m] [0m[0m   |Required: akka.http.scaladsl.marshalling.ToResponseMarshallable[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/UserRoutes.scala:63:36 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m63 |[0m                  complete(response.maybeUser)[0m
+[0m[[0m[31merror[0m] [0m[0m   |                           [31m^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m   |Found:    (response.maybeUser : Option[eu.brosbit.User])[0m
+[0m[[0m[31merror[0m] [0m[0m   |Required: akka.http.scaladsl.marshalling.ToResponseMarshallable[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/UserRoutes.scala:71:25 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m71 |[0m                complete((StatusCodes.OK, performed))[0m
+[0m[[0m[31merror[0m] [0m[0m   |                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m   |Found:    (akka.http.scaladsl.model.StatusCodes.Success, [0m
+[0m[[0m[31merror[0m] [0m[0m   |  eu.brosbit.UserRegistry.ActionPerformed[0m
+[0m[[0m[31merror[0m] [0m[0m   |)[0m
+[0m[[0m[31merror[0m] [0m[0m   |Required: akka.http.scaladsl.marshalling.ToResponseMarshallable[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- Warning: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/UserRoutes.scala:27:21 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m27 |[0m    userRegistry.ask(GetUsers)[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                     [33m^^^^^^^^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |The method `apply` is inserted. The auto insertion will be deprecated, please write `eu.brosbit.UserRegistry.GetUsers.apply` explicitly.[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:22:34 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m22 |[0m  [33mdef[0m [36mgetMap[0m:[35mArray[Array[Tile]][0m = worldTiles[0m
+[0m[[0m[31merror[0m] [0m[0m   |                                  [31m^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m   |Found:    [1m[31m([0m[1m[31mMapGenerator[0m[1m[31m.[0m[1m[31mthis[0m[1m[31m.[0m[1m[31mworldTiles[0m[1m[31m [0m[1m[31m:[0m[1m[31m [0mArray[Array[eu.brosbit.tiles.[1m[31mPlain[0m]][1m[31m)[0m[0m
+[0m[[0m[31merror[0m] [0m[0m   |Required: Array[Array[eu.brosbit.tiles.[1m[32mTile[0m]][0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m   |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:163:27 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m163 |[0m    worldTiles(start)([31m0[0m) = [33mnew[0m [35mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                           [31m^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:176:38 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m176 |[0m        [33mthis[0m.worldTiles(start)(ROW) = [33mnew[0m [35mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                      [31m^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:186:40 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m186 |[0m          [33mthis[0m.worldTiles(start)(ROW) = [33mnew[0m [35mFord[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                        [31m^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mFord[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:189:40 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m189 |[0m          [33mthis[0m.worldTiles(start)(ROW) = [33mnew[0m [35mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                        [31m^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:221:34 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m221 |[0m      [33mthis[0m.worldTiles(COL)(ROW) = [33mnew[0m [35mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                  [31m^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:223:34 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m223 |[0m      [33mthis[0m.worldTiles(COL)(ROW) = [33mnew[0m [35mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                  [31m^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:237:65 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m237 |[0m            [33mthis[0m.worldTiles(COL)(ROW) = [33mif[0m waterType == [31m'w'[0m [33mthen[0m [33mnew[0m [35mDeepWater[0m [33melse[0m [33mnew[0m [35mFord[0m [0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                 [31m^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:237:84 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m237 |[0m            [33mthis[0m.worldTiles(COL)(ROW) = [33mif[0m waterType == [31m'w'[0m [33mthen[0m [33mnew[0m [35mDeepWater[0m [33melse[0m [33mnew[0m [35mFord[0m [0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                                    [31m^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mFord[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:242:65 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m242 |[0m            [33mthis[0m.worldTiles(COL)(ROW) = [33mif[0m waterType == [31m'w'[0m [33mthen[0m [33mnew[0m [35mDeepWater[0m [33melse[0m [33mnew[0m [35mFord[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                 [31m^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:242:84 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m242 |[0m            [33mthis[0m.worldTiles(COL)(ROW) = [33mif[0m waterType == [31m'w'[0m [33mthen[0m [33mnew[0m [35mDeepWater[0m [33melse[0m [33mnew[0m [35mFord[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                                    [31m^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mFord[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:247:65 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m247 |[0m            [33mthis[0m.worldTiles(COL)(ROW) = [33mif[0m waterType == [31m'w'[0m [33mthen[0m [33mnew[0m [35mDeepWater[0m [33melse[0m [33mnew[0m [35mFord[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                 [31m^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mDeepWater[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m[31m-- [E007] Type Mismatch Error: /home/ms/Programming/landshunger/LsHScala3-akka/src/main/scala/eu/brosbit/hexlib/MapGenerator.scala:247:84 [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m247 |[0m            [33mthis[0m.worldTiles(COL)(ROW) = [33mif[0m waterType == [31m'w'[0m [33mthen[0m [33mnew[0m [35mDeepWater[0m [33melse[0m [33mnew[0m [35mFord[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |                                                                                    [31m^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Found:    eu.brosbit.tiles.[1m[31mFord[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |Required: eu.brosbit.tiles.[1m[32mPlain[0m[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |One of the following imports might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.impl.util.JavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |  import akka.http.javadsl.server.RoutingJavaMapping.Implicits.convertToScala[0m
+[0m[[0m[31merror[0m] [0m[0m    |[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[31merror[0m] [0m[0m18 errors found[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[31merror[0m] [0m[0m18 errors found[0m
