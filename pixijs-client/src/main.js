@@ -28,7 +28,11 @@ class Main {
         {"name":'ol', "url":"img/forest_l.png"},
         {"name":'om', "url":"img/forest_m.png"},
         {"name":'os', "url":"img/forest_s.png"},
-        {"name":'og', "url":"img/mine_g.png"}
+        {"name":'og', "url":"img/mine_g.png"},
+        {"name":'ow', "url":"img/grapes.png"},
+        {"name":'ua', "url":"img/arkebusers.png"},
+        {"name":'uc', "url":"img/cows.png"},
+        {"name":'us', "url":"img/ship.png"}
       ]);
       let self = this;
     this.app.loader.load((loader, resources) => {

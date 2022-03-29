@@ -94,6 +94,10 @@ class MapWorld {
     else if(tile == 'oc') return this.resources.oc.texture;
     else if(tile == 'ov') return this.resources.ov.texture;
     else if(tile == 'og') return this.resources.og.texture;
+    else if(tile == 'ua') return this.resources.ua.texture;
+    else if(tile == 'us') return this.resources.us.texture;
+    else if(tile == 'uc') return this.resources.uc.texture;
+    else if(tile == 'ow') return this.resources.ow.texture;
     else return this.resources.p.texture;
 
   }

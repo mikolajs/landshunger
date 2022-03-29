@@ -5,7 +5,7 @@ class Grid {
     this.gridContainer = gridContainer;
     this.x = X; this.y = Y;
     this.drawHexGrid();
-    this.drawPointIndexes();
+    //this.drawPointIndexes();
   }
   drawHexGrid() {
         let background = new PIXI.Graphics();
