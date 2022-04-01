@@ -28,11 +28,21 @@ class Main {
         {"name":'ol', "url":"img/forest_l.png"},
         {"name":'om', "url":"img/forest_m.png"},
         {"name":'os', "url":"img/forest_s.png"},
+        {"name":'oe', "url":"img/forest_e.png"},
         {"name":'og', "url":"img/mine_g.png"},
         {"name":'ow', "url":"img/grapes.png"},
         {"name":'ua', "url":"img/arkebusers.png"},
         {"name":'uc', "url":"img/cows.png"},
-        {"name":'us', "url":"img/ship.png"}
+        {"name":'us', "url":"img/ship.png"},
+        {"name":'bs', "url":"img/bisons_s.png"},
+        {"name":'bm', "url":"img/bisons_m.png"},
+        {"name":'bl', "url":"img/bisons_l.png"},
+        {"name":'ds', "url":"img/deer_s.png"},
+        {"name":'dm', "url":"img/deer_m.png"},
+        {"name":'dl', "url":"img/deer_l.png"},
+        {"name":'ss', "url":"img/boar_s.png"},
+        {"name":'sm', "url":"img/boar_m.png"},
+        {"name":'sl', "url":"img/boar_l.png"}
       ]);
       let self = this;
     this.app.loader.load((loader, resources) => {

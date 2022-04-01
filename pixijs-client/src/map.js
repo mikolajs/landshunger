@@ -91,6 +91,7 @@ class MapWorld {
     else if(tile == 'ol') return this.resources.ol.texture;
     else if(tile == 'om') return this.resources.om.texture;
     else if(tile == 'os') return this.resources.os.texture;
+    else if(tile == 'oe') return this.resources.oe.texture;
     else if(tile == 'oc') return this.resources.oc.texture;
     else if(tile == 'ov') return this.resources.ov.texture;
     else if(tile == 'og') return this.resources.og.texture;
@@ -98,6 +99,15 @@ class MapWorld {
     else if(tile == 'us') return this.resources.us.texture;
     else if(tile == 'uc') return this.resources.uc.texture;
     else if(tile == 'ow') return this.resources.ow.texture;
+    else if(tile == 'bl') return this.resources.bl.texture;
+    else if(tile == 'bm') return this.resources.bm.texture;
+    else if(tile == 'bs') return this.resources.bs.texture;
+    else if(tile == 'dl') return this.resources.dl.texture;
+    else if(tile == 'dm') return this.resources.dm.texture;
+    else if(tile == 'ds') return this.resources.ds.texture;
+    else if(tile == 'sl') return this.resources.sl.texture;
+    else if(tile == 'sm') return this.resources.sm.texture;
+    else if(tile == 'ss') return this.resources.ss.texture;
     else return this.resources.p.texture;
 
   }

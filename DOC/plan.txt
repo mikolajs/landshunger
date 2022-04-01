@@ -1,0 +1,8 @@
+1 etap (pole 20x20):
+4 poziomy drzew i rośnięcie
+trawa
+ryby
+jelenie
+dziki
+bizony
+
