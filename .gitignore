@@ -10,6 +10,8 @@ LsHScala3-vertx/project/target/
 LsHScala3-akka/target/
 LsHScala3-akka/project/target/
 
+hexlib/project/target/
+hexlib/target/
 
 #javascript
 # vim
