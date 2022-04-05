@@ -1,6 +1,6 @@
-package eu.brosbit.hexlib
+package eu.brosbit
 
-import eu.brosbit.movable.MapPosition
+case class MapPosition(r:Int, c:Int)
 
 case class CubePoint(x:Int, y:Int, z:Int)
 

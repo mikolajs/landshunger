@@ -1,6 +1,7 @@
-package eu.brosbit.hexlib
+package eu.brosbit
 
-import eu.brosbit.movable.MapPosition
+
+case class MapPositionWithDistance(pos:MapPosition, dist:Int)
 
 class PathFinder(hex:Hex) {
 
