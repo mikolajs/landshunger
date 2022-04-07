@@ -4,6 +4,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 
+
 class PathFinderSpec extends  AnyFlatSpec, Matchers:
   val hex = new Hex(10, 10)
   val mapDist = List[MapPositionWithDistance](
@@ -57,16 +58,25 @@ class PathFinderSpec extends  AnyFlatSpec, Matchers:
     MapPositionWithDistance(MapPosition(9, 4), -1), MapPositionWithDistance(MapPosition(9, 5), 2),
     MapPositionWithDistance(MapPosition(9, 6), 2), MapPositionWithDistance(MapPosition(9, 7), 1),
     MapPositionWithDistance(MapPosition(9, 8), 1), MapPositionWithDistance(MapPosition(9, 9), 1))
-    val dists = mapDist.map(_.dist)
-    var e = false
-    for i <- 0 to dists.size do
-      if i % 10 == 0 then println("")
-      if i % 10 == 0 && e then 
-      	print(" ")
-      	e = false
-      else if i % 10 == 0 then e = true
-      if dists(i) < 0 then print(dists(i) + " ") else  print(" " + dists(i) + " ") 
-    end for
-
+  val dists = mapDist.map(_.dist).toArray
+  var e = false
+  val distanceMap = Array.ofDim[Int](10, 10)
+  for i <- 0 until dists.size do
+    if i % 10 == 0 then println("")
+    if i % 10 == 0 && e then 
+     	print(" ")
+     	e = false
+    else if i % 10 == 0 then e = true
+    if dists(i) < 0 then print(dists(i) + " ") else  print(" " + dists(i) + " ")
+    distanceMap(i/10)(i%10) = dists(i) 
+  end for
+  println()
+  
+  val pf = PathFinder(hex)
+  
+  "Path Move" should " from 0,1 to 1, 8" in {
+    val pathList = pf.findLandPath(MapPosition(0,1), MapPosition(1, 8), distanceMap)
+    true    
+  }
 
 end PathFinderSpec
