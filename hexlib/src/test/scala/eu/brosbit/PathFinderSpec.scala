@@ -6,7 +6,7 @@ import org.scalatest.matchers.should.Matchers
 
 
 class PathFinderSpec extends  AnyFlatSpec, Matchers:
-  val hex = new Hex(10, 10)
+  val hex = new HexFlat(10, 10)
   val mapDist = List[MapPositionWithDistance](
     MapPositionWithDistance(MapPosition(0, 0), 1), MapPositionWithDistance(MapPosition(0, 1), 1),
     MapPositionWithDistance(MapPosition(0, 2), 1), MapPositionWithDistance(MapPosition(0, 3), -1),
@@ -74,9 +74,23 @@ class PathFinderSpec extends  AnyFlatSpec, Matchers:
   
   val pf = PathFinder(hex)
   
-  "Path Move" should " from 0,1 to 1, 8" in {
-    val pathList = pf.findLandPath(MapPosition(0,1), MapPosition(1, 8), distanceMap)
-    true    
+  "Path Move" should " from 0,1 to 0,8 have 11 hexs" in {
+    val pathList = pf.findPath(MapPosition(0,1), MapPosition(0, 8), distanceMap)
+    //println(pathList)
+    pathList.size should be (11)  
+  }
+  it should " from 4, 0 to 1,9 have 13 hexs" in {
+    val pathList = pf.findPath(MapPosition(4,0), MapPosition(1, 9), distanceMap)
+    pathList.size should be (13)  
+  }
+  it should "from 0,2 to 0,5 have 8 hexs" in {
+    val pathList = pf.findPath(MapPosition(0,2), MapPosition(0, 5), distanceMap)
+    pathList.size should be (8)  
+  }
+  it should "from 1,2 to 4,4 have 5 hexs" in {
+    val pathList = pf.findPath(MapPosition(1,2), MapPosition(4, 4), distanceMap)
+    //println(pathList)
+    pathList.size should be (5)  
   }
 
 end PathFinderSpec

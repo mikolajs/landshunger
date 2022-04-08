@@ -1,14 +1,14 @@
 package eu.brosbit
 
-import eu.brosbit.Hex
+import eu.brosbit.HexRound
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
-class HexToolsSpec extends AnyFlatSpec with Matchers {
-  val hex = new Hex(  5, 5)
+class HexToolsRoundSpec extends AnyFlatSpec with Matchers {
+  val hex = new HexRound(5, 5)
 
 
-  "Distance" should "count 1 from 0,0 to 0,1" in {
+  "Distance for rounded" should "count 1 from 0,0 to 0,1" in {
     hex.distance(MapPosition(0,0), MapPosition(0,1)) should be(1)
   }
   it should "count 1  from 0,1 to 0,0" in {
@@ -41,12 +41,12 @@ class HexToolsSpec extends AnyFlatSpec with Matchers {
   it should "count 3 from 2,4 to 4,1" in {
     hex.distance(MapPosition(0,0), MapPosition(1,4)) should be(1)
   }
-  it should "never get distance larger then 4" in {
-    val allPositions = (for(i <- 0 to 4; j <- 0 to 4) yield MapPosition(i,j)).toArray
+  it should "never get distance larger then 10" in {
+    val allPositions = (for(i <- 0 to 10; j <- 0 to 10) yield MapPosition(i,j)).toArray
     val distances = for(i <- 0 until allPositions.length; j <- i+1 until allPositions.length )
       yield hex.distance(allPositions(i), allPositions(j))
     //println(distances)
-    distances.max should be (4)
+    distances.max should be (10)
   }
 
   " Neighbours of position" should "have 18 pools for 2,2 of 2 distance neighbours" in {
