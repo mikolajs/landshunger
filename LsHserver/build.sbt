@@ -20,7 +20,8 @@ lazy val root = project.
       ("com.typesafe.akka" %% "akka-stream" % akkaVersion).cross(CrossVersion.for3Use2_13),
       ("com.typesafe.akka" %% "akka-http" % akkaHttpVersion).cross(CrossVersion.for3Use2_13),
       ("com.typesafe.akka" %% "akka-http-spray-json"     % akkaHttpVersion).cross(CrossVersion.for3Use2_13),
-      "ch.qos.logback"    % "logback-classic"           % "1.2.3"
+      "ch.qos.logback"    % "logback-classic"           % "1.2.3",
+      "eu.brosbit" %% "hexlib" % "0.1.0"
     )
   )
 

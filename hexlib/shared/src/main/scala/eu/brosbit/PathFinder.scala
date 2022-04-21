@@ -1,4 +1,4 @@
-package eu.brosbit
+package eu.brosbit.hexlib
 
 import scala.collection.mutable.Queue
 

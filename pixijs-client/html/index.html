@@ -11,6 +11,7 @@
   <script src="src/main.js"></script>
   <script src="src/grid.js"></script>
   <script src="src/map.js"></script>
+  <script src="lib/hexlib-fastopt.js"></script>
 <style> * {padding: 0; margin: 0}
  canvas { float: left;}
  #scrollUp, #scrollDown, #scrollLeft, #scrollRight {
@@ -46,5 +47,11 @@
    <div id="scrollDown">↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
    ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</div>
 
+<script>
+ let hex = new HexFlat(10, 10);
+ let mpf = new MapPosition(1,1);
+ let mpt = new MapPosition(0,7);
+ console.log("Distance: " + hex.getDistance(mpf, mpt));
+</script>
 </body>
 </html>

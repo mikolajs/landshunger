@@ -1,7 +1,7 @@
-package eu.brosbit
+package eu.brosbit.hexlib
 
 
-class HexFlat(rows:Short, cols:Short) extends HexBase {
+class HexFlat(rows:Int, cols:Int) extends HexBase {
 
   def distance(from:MapPosition, to: MapPosition):Int = {
      distanceFromCubes(coordinateToCube(from), coordinateToCube(to))

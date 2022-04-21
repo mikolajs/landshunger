@@ -1,20 +1,29 @@
-val scala3Version = "3.1.0"
+import Dependencies._
+
+ThisBuild / scalaVersion     := "3.1.2"
+ThisBuild / version          := "0.1.0"
+ThisBuild / organization     := "eu.brosbit"
+ThisBuild / organizationName := "brosbit"
 
 
-cancelable in Global := true
-
-fork / run := true
-
-lazy val root = project.
-  in(file("."))
-  .settings(
-    organization    := "eu.brosbit",
-    scalaVersion    := scala3Version,
-    version := "0.1.0" ,
-    libraryDependencies ++= Seq(
-      "org.scalactic" %% "scalactic" % "3.2.10",
-      "org.scalatest" %% "scalatest" % "3.2.10" % "test",
-      "ch.qos.logback"    % "logback-classic"           % "1.2.3"
-    )
+lazy val root = (project in file(".")).
+  aggregate(aCross.js, aCross.jvm).
+  settings(
+    crossScalaVersions ++= Seq("2.13.6", "3.1.2")
   )
+  
+ lazy val aCross = crossProject(JSPlatform, JVMPlatform).in(file(".")).
+   settings(
+     name := "hexlib"
+   ).
+   jvmSettings(
+    libraryDependencies ++= Seq(
+	 "org.scalatest" %% "scalatest" % "3.2.10" % "test",
+	 "org.scala-js" %% "scalajs-stubs" % "1.1.0" % "provided"
+    )
+   ).
+   jsSettings(
+    scalaJSUseMainModuleInitializer := true
+   )
 
+// See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype. .enablePlugins(ScalaJSPlugin)

@@ -1,4 +1,4 @@
-package eu.brosbit
+package eu.brosbit.hexlib
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers

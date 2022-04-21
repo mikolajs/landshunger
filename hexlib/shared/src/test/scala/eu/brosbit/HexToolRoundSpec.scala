@@ -1,6 +1,6 @@
-package eu.brosbit
+package eu.brosbit.hexlib
 
-import eu.brosbit.HexRound
+import eu.brosbit.hexlib.HexRound
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

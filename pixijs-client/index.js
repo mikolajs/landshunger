@@ -7,5 +7,5 @@ app.use('/lib',express.static('lib'));
 app.use('/src', express.static('src'));
 
 
-app.listen(3000, () => console.log("listen on port 3000"));
+app.listen(3000, () => console.log("listen on port http://localhost:3000"));
 

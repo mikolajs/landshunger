@@ -1,6 +1,6 @@
-package eu.brosbit
+package eu.brosbit.hexlib
 
-class HexRound(rows:Short, cols:Short) extends HexBase {
+class HexRound(rows:Int, cols:Int) extends HexBase {
 
   def distance(from:MapPosition, to: MapPosition):Int = {
     if((from.c - to.c).abs > cols/2) {

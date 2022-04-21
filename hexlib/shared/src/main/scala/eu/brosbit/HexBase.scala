@@ -1,4 +1,4 @@
-package eu.brosbit
+package eu.brosbit.hexlib
 
 case class MapPosition(r:Int, c:Int)
 
