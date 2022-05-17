@@ -1,6 +1,8 @@
 *.class
 *.log
 
+LsHserver/.bloop/
+LsHserver/.metals/
 LsHserver/target
 LsHserver/project/target/
 LsHcore/target
