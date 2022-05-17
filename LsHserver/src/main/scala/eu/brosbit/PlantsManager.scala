@@ -7,23 +7,21 @@ class PlantsManager(map:TheMap) {
   //private val plainAndHills = map.flatten.count(t => t.level > 0 && t.level < 3)
 
 
-  def nextDay(): Unit = {
+  def nextDay(): Unit =
     fillAllFreePools()
     setWoodInRandomFreePlace()
     growForest()
-  }
+
 // empty object fill with grass or plankton, destroyed fields replace with grass
-  private def fillAllFreePools(): Unit = {
-    for(a <- map.getMap; t <- a){
-      if(t.imObjOpt.isEmpty && t.level > 0 && t.level < 3)  t.imObjOpt = Some(Grass())
-      else if(t.imObjOpt.isEmpty && t.level == 0) t.imObjOpt = Some(Plankton())
+  private def fillAllFreePools(): Unit =
+    for (a <- map.getMap; t <- a) do
+      if t.imObjOpt.isEmpty && t.aType.level > 0 && t.aType.level < 3 then  t.imObjOpt = Some(Grass())
+      else if t.imObjOpt.isEmpty && t.aType.level == 0 then t.imObjOpt = Some(Plankton())
       else if(t.imObjOpt.nonEmpty && TilesManager.isForest(t.imObjOpt.get.obj)
         && t.imObjOpt.get.asInstanceOf[Plant].getHP() < 2) t.imObjOpt = Some(Grass())
-    }
-  }
 
   private def setWoodInRandomFreePlace(): Unit = {
-    val allTilesWithGrass =  map.getMap.flatten.filter(t => t.level == 1 || t.level == 2)
+    val allTilesWithGrass =  map.getMap.flatten.filter(t => t.aType.level == 1 || t.aType.level == 2)
       .filter(_.imObjOpt.nonEmpty)
       .filter(t => t.imObjOpt.get.isInstanceOf[Grass])
       .filter(t => {
@@ -35,7 +33,6 @@ class PlantsManager(map:TheMap) {
     toSetForest.foreach(i => {
       val tile = allTilesWithGrass(i)
       tile.imObjOpt = Some(Forest())
-
     })
   }
   //create new forest near all forests

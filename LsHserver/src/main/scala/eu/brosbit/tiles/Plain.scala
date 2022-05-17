@@ -1,10 +1,13 @@
 package eu.brosbit.tiles
 import eu.brosbit.immovable._
 
-class Plain  extends Tile:
-  override val aType:Byte = 10
-  override val level: Byte = 1
-  override val fertility: Byte = 10
+object  Plain extends TileObj:
+  override val level: Byte = 0
+  override val fertility: Byte = 9
   override val name: String = "plain"
-  override val shortName: String = "p"
+  override val shortName: String = "pl"
+
+
+class Plain  extends Tile:
+  override val aType = Plain
   var imObjOpt:Option[ImmovableObject] = None

@@ -1,11 +1,12 @@
 package eu.brosbit.tiles
 import eu.brosbit.immovable._
 
-class Swamp extends Tile {
-  override val aType: Byte = 0
+object Swamp extends TileObj:
   override val level: Byte = 1
   override val fertility: Byte = 0
   override val name: String = "swamp"
-  override val shortName: String = "Sw"
+  override val shortName: String = "sp"
+
+class Swamp extends Tile:
+  override val aType = Swamp
   var imObjOpt:Option[ImmovableObject] = None
-}

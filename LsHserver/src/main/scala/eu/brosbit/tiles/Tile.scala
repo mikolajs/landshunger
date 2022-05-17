@@ -1,31 +1,27 @@
 package eu.brosbit.tiles
 import eu.brosbit.immovable.*
 
- trait Tile {
-    val aType:Byte
-    val level: Byte
-    val fertility: Byte
-    val name: String
-    val shortName: String
+trait TileObj:
+  val level: Byte
+  val fertility: Byte
+  val name: String
+  val shortName: String
+  def getLevel:Byte = level
+  def getFertility:Byte = fertility
+  def getName:String = name
+end TileObj
 
-    var imObjOpt:Option[ImmovableObject]
+trait Tile:
+   val aType:TileObj
+   var imObjOpt:Option[ImmovableObject]
 
-    def getType:Byte = aType
-    def nextDay:Unit = {
-       if(imObjOpt.nonEmpty){
-          if(imObjOpt.get.isInstanceOf[Plant]) {
+   def nextDay:Unit =
+       if imObjOpt.nonEmpty then
+          if imObjOpt.get.isInstanceOf[Plant] then
              imObjOpt.get.asInstanceOf[Plant].nextDay()
-          }
-       }
-    }
-    def getLevel:Byte = level
-    def getFertility:Byte = fertility
-    def setImmovableObject(o:ImmovableObject) = imObjOpt = if(imObjOpt != null) Some(o) else None
-    def getName:String = name
-    def log:String = {
-       s"$shortName:${imObjOpt.map(_.log).getOrElse("--")}\t"
-    }
 
-}
+
+   def setImmovableObject(o:ImmovableObject) = imObjOpt = if(imObjOpt != null) Some(o) else None
+   def log:String = s"${aType.shortName}:${imObjOpt.map(_.log).getOrElse("--")}\t"
 
 

@@ -43,11 +43,11 @@ class TheMap(mapPath:String):
   }
 
   private def choiceTile(tile:Byte) = tile match {
-    case 0 => new DeepWater
-    case 1 => new Plain
-    case 2 => new Hill
-    case 3 => new Mountain
-    case _ => new Plain
+    case 0 => DeepWater()
+    case 1 => Plain()
+    case 2 => Hill()
+    case 3 => Mountain()
+    case _ => Plain()
   }
 
   private def calculateWordSize(l:Int) = Math.round(Math.sqrt(l)).toInt

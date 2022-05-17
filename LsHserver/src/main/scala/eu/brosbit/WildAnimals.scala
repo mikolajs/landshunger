@@ -70,7 +70,7 @@ class WildAnimals(map:TheMap, nrCreate:Int) {
       val position = (d.position::hexlib.neighbours(d.position))
         .filter(mp => {
           val tile = map.getTile(mp.r, mp.c)
-          tile.level > 0 && tile.level < 3 &&
+          tile.aType.level > 0 && tile.aType.level < 3 &&
           (tile.imObjOpt.nonEmpty && tile.imObjOpt.get.isInstanceOf[Grass] ||
             tile.imObjOpt.nonEmpty && tile.imObjOpt.get.isInstanceOf[Forest])})
         .filter(mp => !map.getUnitMap(mp.r)(mp.c)).max
@@ -122,13 +122,13 @@ class WildAnimals(map:TheMap, nrCreate:Int) {
 
   private def freeAndPlainOrHill(c:Int, r:Int):Boolean = {
     if (map.getUnitMap(r)(c)) return false
-    val level = map.getTile(r, c).level
+    val level = map.getTile(r, c).aType.level
     if (level > 2 || level < 1) false else true
   }
 
   private def freePlain(c: Int, r: Int): Boolean = {
     if (map.getUnitMap(r)(c)) return false
-    if (map.getTile(r, c).level == 1) true else false
+    if (map.getTile(r, c).aType.level == 1) true else false
   }
 
     private def isWood(c:Int, r:Int): Boolean = {
