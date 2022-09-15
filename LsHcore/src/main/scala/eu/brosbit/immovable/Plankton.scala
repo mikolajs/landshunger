@@ -12,4 +12,6 @@ object Plankton extends PlantConst {
   override val growBio: Short = 15
   override val growHP: Short = 0
   override val maxHP: Short = 0
+  override val maxFood = 0
+  override val growFood: Short = 0
 }

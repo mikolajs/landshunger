@@ -10,8 +10,9 @@ object Forest  extends  PlantConst  {
   override val name: String = "Forest"
   override val shortName: String = "F"
   override val maxBio: Short = 40
-  override val growBio: Short = 10
-  override val growHP: Short = 50
+  override val growBio: Short = 5
+  override val growHP: Short = 20
   override val maxHP: Short = 1000
-
+  override val maxFood: Short = 40
+  override val growFood: Short = 5
 }

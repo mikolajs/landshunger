@@ -6,9 +6,12 @@ trait ImmovableObject {
   val obj:ImmovableObjectConst
   def log:String
 
+  def jsonStr:String
+
 }
 
 trait  ImmovableObjectConst {
+  val genType:String
   val name:String
   val shortName:String
 }

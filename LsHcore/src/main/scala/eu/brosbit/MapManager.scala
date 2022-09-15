@@ -6,7 +6,7 @@ class MapManager(theMap: TheMap, plantsManager: PlantsManager, wildAnimals: Wild
 
   def nextDay(): Unit = {
     plantsManager.nextDay()
-    wildAnimals.calculateForage()
+    //wildAnimals.calculateForage()
     for(a <- theMap.getMap; t <- a) t.nextDay
   }
 

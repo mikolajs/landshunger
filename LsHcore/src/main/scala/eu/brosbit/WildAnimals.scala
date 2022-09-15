@@ -40,10 +40,10 @@ class WildAnimals(map:TheMap, nrCreate:Int) {
       val toEat = d.number
       if(plant.getBio >= toEat) {
         plant.setBio((plant.getBio - toEat).toShort)
-        d.eaten += toEat
+        d.eaten = (d.eaten + toEat).toShort
       } else {
         findNewDestinationNearOrElseFar(d)
-        d.eaten += plant.getBio
+        d.eaten = (d.eaten + plant.getBio).toShort
         plant.setBio(0)
       }
     })

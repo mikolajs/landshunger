@@ -14,7 +14,7 @@ class Statistics(map:TheMap){
 
   def countHPOfForest: Unit = {
     val wood = map.getMap.foldLeft(0)((n,a)=> n + a.foldLeft(0)((m, t) => {
-      m + (if(t.imObjOpt.nonEmpty && t.imObjOpt.get.obj.shortName == "F") t.imObjOpt.get.getHP() else 0)
+      m + (if(t.imObjOpt.nonEmpty && t.imObjOpt.get.obj.shortName == "F") t.imObjOpt.get.getHP() else 0.toShort)
     }))
     println(s"Amount of woods: $wood")
   }
@@ -29,7 +29,7 @@ class Statistics(map:TheMap){
   def countBioGrasses: Unit = {
     val bio = map.getMap.foldLeft(0)((n,a)=> n + a.foldLeft(0)((m, t) => {
       m + (if(t.imObjOpt.nonEmpty && t.imObjOpt.get.obj.shortName == "G")
-        t.imObjOpt.get.asInstanceOf[Plant].getBio else 0)
+        t.imObjOpt.get.asInstanceOf[Plant].getBio else 0.toShort)
     }))
     println(s"Amount of Grasses: $bio")
   }

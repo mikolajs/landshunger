@@ -35,7 +35,7 @@ object Main {
       statistics.countGrasses
       statistics.countBioGrasses
       wildAnimals.showInfoDeer
-      wildAnimals.consumeAndGrown()
+      //wildAnimals.consumeAndGrown()
       Thread.sleep(1000)
       mapManager.nextDay()
       wildAnimals.nextDay
