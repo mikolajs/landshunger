@@ -2,15 +2,15 @@
     "version": "1.4.0",
     "project": {
         "name": "lshserver-build-build",
-        "directory": "/home/ms/Programming/landshunger/LsHserver/project/project",
-        "workspaceDir": "/home/ms/Programming/landshunger/LsHserver/project/project",
+        "directory": "/home/ms/Programowanie/landshunger/LsHserver/project/project",
+        "workspaceDir": "/home/ms/Programowanie/landshunger/LsHserver/project/project",
         "sources": [
-            "/home/ms/Programming/landshunger/LsHserver/project/project/src/main/scala",
-            "/home/ms/Programming/landshunger/LsHserver/project/project/src/main/scala-2.12",
-            "/home/ms/Programming/landshunger/LsHserver/project/project/src/main/scala-2",
-            "/home/ms/Programming/landshunger/LsHserver/project/project/src/main/java",
-            "/home/ms/Programming/landshunger/LsHserver/project/project/src/main/scala-sbt-1.0",
-            "/home/ms/Programming/landshunger/LsHserver/project/project/target/scala-2.12/sbt-1.0/src_managed/main"
+            "/home/ms/Programowanie/landshunger/LsHserver/project/project/src/main/scala",
+            "/home/ms/Programowanie/landshunger/LsHserver/project/project/src/main/scala-2.12",
+            "/home/ms/Programowanie/landshunger/LsHserver/project/project/src/main/scala-2",
+            "/home/ms/Programowanie/landshunger/LsHserver/project/project/src/main/java",
+            "/home/ms/Programowanie/landshunger/LsHserver/project/project/src/main/scala-sbt-1.0",
+            "/home/ms/Programowanie/landshunger/LsHserver/project/project/target/scala-2.12/sbt-1.0/src_managed/main"
         ],
         "dependencies": [
             
@@ -105,11 +105,11 @@
             "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/com/squareup/okio/okio/1.17.2/okio-1.17.2.jar",
             "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/config/1.3.3/config-1.3.3.jar"
         ],
-        "out": "/home/ms/Programming/landshunger/LsHserver/project/project/.bloop/lshserver-build-build",
-        "classesDir": "/home/ms/Programming/landshunger/LsHserver/project/project/.bloop/lshserver-build-build/scala-2.12/sbt-1.0/classes",
+        "out": "/home/ms/Programowanie/landshunger/LsHserver/project/project/.bloop/lshserver-build-build",
+        "classesDir": "/home/ms/Programowanie/landshunger/LsHserver/project/project/.bloop/lshserver-build-build/scala-2.12/sbt-1.0/classes",
         "resources": [
-            "/home/ms/Programming/landshunger/LsHserver/project/project/src/main/resources",
-            "/home/ms/Programming/landshunger/LsHserver/project/project/target/scala-2.12/sbt-1.0/resource_managed/main"
+            "/home/ms/Programowanie/landshunger/LsHserver/project/project/src/main/resources",
+            "/home/ms/Programowanie/landshunger/LsHserver/project/project/target/scala-2.12/sbt-1.0/resource_managed/main"
         ],
         "scala": {
             "organization": "org.scala-lang",
@@ -125,8 +125,8 @@
             "jars": [
                 "/home/ms/.sbt/boot/scala-2.12.15/lib/scala-library.jar",
                 "/home/ms/.sbt/boot/scala-2.12.15/lib/scala-reflect.jar",
-                "/home/ms/.sbt/boot/scala-2.12.15/lib/scala-xml_2.12-1.0.6.jar",
-                "/home/ms/.sbt/boot/scala-2.12.15/lib/scala-compiler.jar"
+                "/home/ms/.sbt/boot/scala-2.12.15/lib/scala-compiler.jar",
+                "/home/ms/.sbt/boot/scala-2.12.15/lib/scala-xml_2.12-1.0.6.jar"
             ],
             "setup": {
                 "order": "mixed",
@@ -200,9 +200,9 @@
         "platform": {
             "name": "jvm",
             "config": {
-                "home": "/usr/lib/jvm/java-11-openjdk-amd64",
+                "home": "/usr/lib/jvm/java-17-oracle",
                 "options": [
-                    "-Duser.dir=/home/ms/Programming/landshunger/LsHserver/project/project"
+                    "-Duser.dir=/home/ms/Programowanie/landshunger/LsHserver/project/project"
                 ]
             },
             "mainClass": [
@@ -236,6 +236,10 @@
                     "artifacts": [
                         {
                             "name": "gson",
+                            "path": "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/code/gson/gson/2.7/gson-2.7.jar"
+                        },
+                        {
+                            "name": "gson",
                             "checksum": {
                                 "type": "sha1",
                                 "digest": "751f548c85fa49f330cecbb1875893f971b33c4e"
@@ -255,6 +259,10 @@
                     "version": "3.0.2",
                     "configurations": "default",
                     "artifacts": [
+                        {
+                            "name": "jsr305",
+                            "path": "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
+                        },
                         {
                             "name": "jsr305",
                             "checksum": {
@@ -1213,6 +1221,10 @@
                     "artifacts": [
                         {
                             "name": "slf4j-api",
+                            "path": "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar"
+                        },
+                        {
+                            "name": "slf4j-api",
                             "checksum": {
                                 "type": "sha1",
                                 "digest": "77100a62c2e6f04b53977b9f541044d7d722693d"
@@ -1251,6 +1263,10 @@
                     "artifacts": [
                         {
                             "name": "jsch",
+                            "path": "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/com/jcraft/jsch/0.1.54/jsch-0.1.54.jar"
+                        },
+                        {
+                            "name": "jsch",
                             "checksum": {
                                 "type": "sha1",
                                 "digest": "da3584329a263616e277e15462b387addd1b208d"
@@ -1287,6 +1303,10 @@
                     "version": "3.7.0",
                     "configurations": "default",
                     "artifacts": [
+                        {
+                            "name": "okhttp-urlconnection",
+                            "path": "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/com/squareup/okhttp3/okhttp-urlconnection/3.7.0/okhttp-urlconnection-3.7.0.jar"
+                        },
                         {
                             "name": "okhttp-urlconnection",
                             "checksum": {
@@ -1378,6 +1398,10 @@
                     "artifacts": [
                         {
                             "name": "test-interface",
+                            "path": "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar"
+                        },
+                        {
+                            "name": "test-interface",
                             "checksum": {
                                 "type": "sha1",
                                 "digest": "0a3f14d010c4cb32071f863d97291df31603b521"
@@ -1414,6 +1438,10 @@
                     "version": "1.0.0-M4",
                     "configurations": "default",
                     "artifacts": [
+                        {
+                            "name": "shaded-scalajson_2.12",
+                            "path": "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/com/eed3si9n/shaded-scalajson_2.12/1.0.0-M4/shaded-scalajson_2.12-1.0.0-M4.jar"
+                        },
                         {
                             "name": "shaded-scalajson_2.12",
                             "checksum": {
@@ -1724,6 +1752,10 @@
                     "version": "1.3.3",
                     "configurations": "default",
                     "artifacts": [
+                        {
+                            "name": "config",
+                            "path": "/home/ms/.cache/coursier/v1/https/repo1.maven.org/maven2/com/typesafe/config/1.3.3/config-1.3.3.jar"
+                        },
                         {
                             "name": "config",
                             "checksum": {
