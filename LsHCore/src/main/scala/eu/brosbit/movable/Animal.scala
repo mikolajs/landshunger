@@ -1,5 +1,5 @@
 package eu.brosbit.movable
-
+import scala.collection.mutable.ArrayBuffer
 case class MapPosition(var r:Int, var c:Int)
 
 trait Animal extends Movable {
@@ -7,6 +7,8 @@ trait Animal extends Movable {
   var number:Short
   var grown:Short
   var eaten:Short
+  val position: MapPosition 
+  val moveTo: ArrayBuffer[MapPosition]
 }
 
 trait AnimalConst {

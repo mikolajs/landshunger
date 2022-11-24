@@ -1,8 +1,9 @@
 package eu.brosbit
 
-import eu.brosbit.immovable.{Grass, Forest, Plankton, Plant}
+import eu.brosbit.immovable.{Forest, Grass, Plankton, Plant}
+import eu.brosbit.tiles.Tile
 
-class PlantsManager(map:TheMap) {
+class PlantsManager(map:Array[Array[Tile]]) {
   //private val waters = map.flatten.count(_.level == 0)
   //private val plainAndHills = map.flatten.count(t => t.level > 0 && t.level < 3)
 

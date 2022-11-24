@@ -1,12 +1,12 @@
 package eu.brosbit.tiles
-import eu.brosbit.immovable._
+import eu.brosbit.immovable.*
 
-class Ford extends Tile {
-  override val aType: Byte = 0
+object Ford extends TileObj:
   override val level: Byte = 0
   override val fertility: Byte = 0
   override val name: String = "Ford"
-  override val shortName: String = "Fo"
+  override val shortName: String = "fd"
+
+class Ford extends Tile:
+  override val aType = Ford
   var imObjOpt:Option[ImmovableObject] = None
-  override def json = s"""'tile':'$shortName'"""
-}

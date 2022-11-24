@@ -4,9 +4,9 @@ import scala.collection.mutable.ArrayBuffer
 
 class Deer(r:Int, c:Int) extends  Animal {
   override val obj = Deer
-  override var number: Short = 2
-  override var grown: Short = 0
-  override var eaten: Short = 0
+  var number: Short = 2
+  var grown: Short = 0
+  var eaten: Short = 0
   override val position: MapPosition = MapPosition(r, c)
   override val moveTo: ArrayBuffer[MapPosition] = ArrayBuffer.empty[MapPosition]
 }

@@ -2,20 +2,21 @@ package eu.brosbit
 
 import eu.brosbit.immovable.{Forest, Grass, Plant}
 import eu.brosbit.movable.{Deer, MapPosition}
+import eu.brosbit.tiles.Tile
+import eu.brosbit.hexlib.*
 
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.{ArrayBuffer, ArrayStack}
 
-class WildAnimals(map:TheMap, nrCreate:Int) {
-  private val hexlib = Main.hexLib
+class WildAnimals(map:Array[Array[Tile]], nrCreate:Int) {
   var deerArr:ArrayBuffer[Deer] = new ArrayBuffer[Deer]()
   //++ Peccary, Buffalo, Fish
-
-  private val wordSize = map.getMap.length
+  val mapUnit:Array[Array[Boolean]] = Array.ofDim[Boolean](40,40)
+  private val wordSize = map.length
+  val hexlib = Hex(wordSize, wordSize)
 
   for(_ <- 1 to nrCreate) createDeerHeard
 
   implicit val orderingTilesBio:BioTileOrdering = new BioTileOrdering
-
 
 
   def getDeer:Array[Deer] = deerArr.toArray
@@ -36,7 +37,7 @@ class WildAnimals(map:TheMap, nrCreate:Int) {
   def feed():Unit = {
     deerArr.foreach(d => {
       val p = d.position
-      val plant = map.getTile(p.r, p.c).imObjOpt.get.asInstanceOf[Plant]
+      val plant = map(p.r)(p.c).imObjOpt.get.asInstanceOf[Plant]
       val toEat = d.number
       if(plant.getBio >= toEat) {
         plant.setBio((plant.getBio - toEat).toShort)
@@ -69,13 +70,13 @@ class WildAnimals(map:TheMap, nrCreate:Int) {
   private def findNewDestinationNearOrElseFar(d:Deer):Unit = {
       val position = (d.position::hexlib.neighbours(d.position))
         .filter(mp => {
-          val tile = map.getTile(mp.r, mp.c)
-          tile.level > 0 && tile.level < 3 &&
+          val tile = map(mp.r)(mp.c)
+          tile.aType.level > 0 && tile.aType.level < 3 &&
           (tile.imObjOpt.nonEmpty && tile.imObjOpt.get.isInstanceOf[Grass] ||
             tile.imObjOpt.nonEmpty && tile.imObjOpt.get.isInstanceOf[Forest])})
-        .filter(mp => !map.getUnitMap(mp.r)(mp.c)).max
+        .filter(mp => !mapUnit(mp.r)(mp.c)).max
 
-         if(map.getTile(position.r, position.c).imObjOpt.get.asInstanceOf[Plant].getBio < 10) {
+         if(map(position.r)(position.c).imObjOpt.get.asInstanceOf[Plant].getBio < 10) {
            findNewDestinationFar(d)
         } else if(position != d.position) d.moveTo += position
   }
@@ -121,27 +122,27 @@ class WildAnimals(map:TheMap, nrCreate:Int) {
     freeAndPlainOrHill(c, r) && isWood(c, r)
 
   private def freeAndPlainOrHill(c:Int, r:Int):Boolean = {
-    if (map.getUnitMap(r)(c)) return false
-    val level = map.getTile(r, c).level
+    if (mapUnit(r)(c)) return false
+    val level = map(r)(c).aType.level
     if (level > 2 || level < 1) false else true
   }
 
   private def freePlain(c: Int, r: Int): Boolean = {
-    if (map.getUnitMap(r)(c)) return false
-    if (map.getTile(r, c).level == 1) true else false
+    if (mapUnit(r)(c)) return false
+    if (map(r)(c).aType.level == 1) true else false
   }
 
     private def isWood(c:Int, r:Int): Boolean = {
-      if(map.getTile(r, c).imObjOpt.isEmpty) return false
-      map.getTile(r, c).imObjOpt.get.obj.shortName match {
+      if(map(r)(c).imObjOpt.isEmpty) return false
+      map(r)(c).imObjOpt.get.obj.shortName match {
         case "G" => true
         case _ => false
       }
     }
 
   private def isGrass(c:Int, r:Int): Boolean = {
-    if(map.getTile(r, c).imObjOpt.isEmpty) return false
-    map.getTile(r, c).imObjOpt.get.obj.shortName match {
+    if(map(r)(c).imObjOpt.isEmpty) return false
+    map(r)(c).imObjOpt.get.obj.shortName match {
       case "G" => true
       case _ => false
     }
@@ -149,8 +150,8 @@ class WildAnimals(map:TheMap, nrCreate:Int) {
 
   class BioTileOrdering extends  Ordering[MapPosition] {
     override def compare(x: MapPosition, y: MapPosition): Int = {
-      map.getTile(x.r, x.c).imObjOpt.getOrElse(Grass()).asInstanceOf[Plant].getBio -
-      map.getTile(y.r, y.c).imObjOpt.getOrElse(Grass()).asInstanceOf[Plant].getBio
+      map(x.r)(x.c).imObjOpt.getOrElse(Grass()).asInstanceOf[Plant].getBio -
+      map(y.r)(y.c).imObjOpt.getOrElse(Grass()).asInstanceOf[Plant].getBio
 
     }
   }

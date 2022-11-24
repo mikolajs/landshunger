@@ -5,17 +5,15 @@ import eu.brosbit.hexlib.Hex
 object Main:
   //
   val hexLib = new Hex(40, 40)
-
   var days = 0
   val dayTime = 720
-
  
   def main(args: Array[String]): Unit =
-    val map = new TheMap("map.data")
+    val map = MapGeneratorSteppe(40).getMap
     val plantsManager = new PlantsManager(map)
     val wildAnimals = new WildAnimals(map, 3)
-    val statistics = new Statistics(map)
-    val mapManager = new MapManager(map, plantsManager, wildAnimals)
+    //val statistics = new Statistics(map)
+    val mapManager = MapManager(map, plantsManager, wildAnimals)
     mapManager.nextDay()
     days = 1
     val daysShow = 10
@@ -28,10 +26,10 @@ object Main:
         wildAnimals.moveAnimals
       }
       println("STATYSTYKI:")
-      statistics.countForests
-      statistics.countHPOfForest
-      statistics.countGrasses
-      statistics.countBioGrasses
+      //statistics.countForests
+      //statistics.countHPOfForest
+      //statistics.countGrasses
+      //statistics.countBioGrasses
       wildAnimals.showInfoDeer
       //wildAnimals.consumeAndGrown()
       Thread.sleep(1000)

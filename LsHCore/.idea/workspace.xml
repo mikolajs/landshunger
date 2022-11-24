@@ -23,46 +23,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e32c88f5-ccdc-41f5-8672-fd6f1f646670" name="Default Changelist" comment="Hex library, count distance and list neighbours. Check Dotty.">
-      <change afterPath="$PROJECT_DIR$/.bsp/sbt.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapGeneratorSteppe.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/scala/eu/brosbit/GenTilesSpec.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_modules_scala_xml_2_13_1_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_library_2_13_2_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_reflect_2_13_2_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalactic_scalactic_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_compatible_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_core_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_diagrams_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_featurespec_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_flatspec_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_freespec_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_funspec_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_funsuite_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_matchers_core_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_mustmatchers_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_propspec_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_refspec_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_shouldmatchers_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalatest_scalatest_wordspec_2_13_3_2_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/LsHcore-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/LsHcore-build.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/LsHcore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/LsHcore.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/build.properties" beforeDir="false" afterPath="$PROJECT_DIR$/project/build.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapGeneratorSteppe.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapGeneratorSteppe.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapManager.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/PlantsManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/PlantsManager.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/TheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/TheMap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/WildAnimals.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/WildAnimals.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/hexlib/Hex.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/hexlib/Hex.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Animal.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Animal.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Deer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Deer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/CoolWater.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/CoolWater.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/DeepWater.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/DeepWater.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Ford.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Ford.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Mountain.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Mountain.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Plain.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Plain.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Hill.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Hill.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Humus.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Humus.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Ice.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Ice.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Prairie.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Steppe.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Sand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Sand.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/ShallowWater.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/ShallowWater.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Tile.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Tile.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LsHserver/.bsp/sbt.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/.bsp/sbt.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LsHserver/project/.bloop/lshserver-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/project/.bloop/lshserver-build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LsHserver/project/project/.bloop/lshserver-build-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/project/project/.bloop/lshserver-build-build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Swamp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Swamp.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +90,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/ms/Programowanie/landshunger/LsHcore",
+    "last_opened_file_path": "/home/ms/Programowanie/landshunger/LsHCore",
+    "scala_project_settings_configurable.last_selected_tab_index": "0",
     "settings.editor.selected.configurable": "Bytecode Indices"
   }
 }]]></component>
@@ -139,6 +122,11 @@
     </recent_temporary>
   </component>
   <component name="ScalaProjectSettings">
+    <option name="intInjectionMapping">
+      <map>
+        <entry key="xml" value="XML" />
+      </map>
+    </option>
     <option name="scala3DisclaimerShown" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -175,5 +163,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Hex library, count distance and list neighbours. Check Dotty." />
     <option name="LAST_COMMIT_MESSAGE" value="Hex library, count distance and list neighbours. Check Dotty." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

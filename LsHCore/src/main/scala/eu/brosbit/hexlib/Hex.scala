@@ -4,7 +4,7 @@ import eu.brosbit.movable.MapPosition
 
 case class CubePoint(x:Int, y:Int, z:Int)
 
-class Hex(rows:Short, cols:Short) {
+class Hex(rows:Int, cols:Int) {
 
   def distance(from:MapPosition, to: MapPosition):Int = {
     if((from.c - to.c).abs > cols/2) {

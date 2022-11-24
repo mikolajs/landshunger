@@ -2,7 +2,7 @@ package eu.brosbit
 
 import eu.brosbit.tiles.*
 import scala.util.Random
-
+import scala.util.control.NonLocalReturns.*
 case class HexPoint(r: Int, c: Int)
 
 class MapGeneratorSteppe(val sizeXY: Int):
@@ -90,7 +90,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
     var numberOfHills = 0;
     for r <- 0 until sizeXY
         c <- 0 until sizeXY do
-      if this.worldTiles(r)(c).shortName == Mountain.aType.shortName then
+      if this.worldTiles(r)(c).aType.shortName == Mountain.shortName then
         numberOfHills += fillWithHillNearMount(r, c)
     //println("Used hills: " + numberOfHills)
     numberOfHills
@@ -101,7 +101,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
     for dir <- 0 to 5 do
       val nearDir = poolForDir(pos.r, dir)
       val nearPoint = HexPoint(pos.r + nearDir.r, pos.c + nearDir.c)
-      if checkGoodPointPos(nearPoint) && worldTiles(nearPoint.r)(nearPoint.c).shortName == Plain.aType.shortName && Math.random() > 0.5 then
+      if checkGoodPointPos(nearPoint) && worldTiles(nearPoint.r)(nearPoint.c).aType.shortName == Plain.shortName && Math.random() > 0.5 then
         this.worldTiles(nearPoint.r)(nearPoint.c) = Hill()
         numberOfHills += 1
     numberOfHills
@@ -260,7 +260,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
     ///// TODO: add mayby a second line of hiils
     numbOfHills
 
-  private def longLakeDraw(source:HexPoint, size:Int):Int =
+  private def longLakeDraw(source:HexPoint, size:Int):Int = returning {
     var watersNumber = 0;
     var nextSource = source
     //println("beging lake source: " + nextSource.x + "," + nextSource.y);
@@ -268,10 +268,12 @@ class MapGeneratorSteppe(val sizeXY: Int):
       val arrAddedWater = makeNextLongLakeDrawElement(nextSource)
       watersNumber += arrAddedWater.length;
       //println("for lake chains: " + i + "; " + arrAddedWater.length);
-      if(arrAddedWater.length == 0) return watersNumber
-      nextSource = arrAddedWater(Math.floor(Math.random()*arrAddedWater.length).toInt)
+      if (arrAddedWater.length == 0) throwReturn(watersNumber)
+      nextSource = arrAddedWater(Math.floor(Math.random() * arrAddedWater.length).toInt)
     //console.log("_longLakeDraw watersNumber: " + watersNumber)
     watersNumber
+  }
+
 
 
   private def makeNextLongLakeDrawElement(source: HexPoint) =
@@ -285,7 +287,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
     arrForLong
 
 
-  private def steppesGroupDraw(source: HexPoint, size:Int):Int =
+  private def steppesGroupDraw(source: HexPoint, size:Int):Int = returning {
     var steppesNumber = 0
     var nextSource = source
     var arrAddedSteppes:List[HexPoint] = Nil
@@ -294,19 +296,21 @@ class MapGeneratorSteppe(val sizeXY: Int):
       arrAddedSteppes = makeNextSteppeDrawElement(nextSource)
       steppesNumber += arrAddedSteppes.length
        // println("for steppe chains: " + i + "; " + arrAddedSteppes.length);
-       if(arrAddedSteppes.length == 0) return steppesNumber
+       if(arrAddedSteppes.length == 0) throwReturn(steppesNumber)
        nextSource = arrAddedSteppes(math.floor(math.random()*arrAddedSteppes.length).toInt)
      // console.log("_longLakeDraw steppesNumber: " + steppesNumber)
     steppesNumber
+  }
+
 
   private def makeNextSteppeDrawElement(source: HexPoint) =
     var arrForLong:List[HexPoint] = Nil
     for dir <- 0 to 5 do
       val nearDir = this.poolForDir(source.r, dir)
-      val nearPoint = PlainPoint(source.r+nearDir.r, source.c + nearDir.c);
+      val nearPoint = HexPoint(source.r+nearDir.r, source.c + nearDir.c);
       if nearPoint.r >= 0 && nearPoint.r < this.sizeXY && nearPoint.c >= 0 && nearPoint.c < this.sizeXY then
-        if this.worldTiles(nearPoint.c)(nearPoint.r).aType.shortName == 'p' then
-          this.worldTiles(nearPoint.c)(nearPoint.r).aType.shortName = 's';
+        if this.worldTiles(nearPoint.c)(nearPoint.r).aType.shortName == "p" then
+          this.worldTiles(nearPoint.c)(nearPoint.r) = Steppe();
           arrForLong = nearPoint::arrForLong
 
     arrForLong
