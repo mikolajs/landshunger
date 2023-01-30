@@ -1,5 +1,5 @@
 package eu.brosbit.tiles
-import eu.brosbit.immovable._
+import eu.brosbit.immovable.*
 
 object Swamp extends TileObj:
   override val level: Byte = 1

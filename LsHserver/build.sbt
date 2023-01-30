@@ -1,27 +1,35 @@
-val scala3Version = "3.1.0"
 
-lazy val akkaHttpVersion = "10.2.7"
-lazy val akkaVersion    = "2.6.18"
+// give the user a nice default project!
+ThisBuild / organization := "eu.brosbit"
+ThisBuild / version := "0.1"
 
-cancelable in Global := true
+val ZioVersion   = "2.0.1"
+val ZHTTPVersion = "2.0.0-RC11"
 
-fork / run := true
 
-lazy val root = project.
-  in(file("."))
+lazy val root = (project in file("."))
+  .enablePlugins(JavaAppPackaging)
+  .settings(BuildHelper.stdSettings)
   .settings(
-    organization    := "eu.brosbit",
-    scalaVersion    := scala3Version,
-    version := "0.1.0" ,
+    name := "LsH-ZioHttp",
+    testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework"),
     libraryDependencies ++= Seq(
+      "dev.zio"       %% "zio"            % ZioVersion,
+      "dev.zio"       %% "zio-json"       % "0.4.2",
+      "io.d11"        %% "zhttp"          % ZHTTPVersion,
+      "io.d11" %% "zhttp" % ZHTTPVersion % Test,
+      //"dev.zio" %% "zio-test"     % ZioVersion % Test,
+      //"dev.zio" %% "zio-test-sbt" % ZioVersion % Test,
       "org.scalactic" %% "scalactic" % "3.2.10",
-      "org.scalatest" %% "scalatest" % "3.2.10" % "test",
-      ("com.typesafe.akka"%% "akka-actor-typed" % akkaVersion).cross(CrossVersion.for3Use2_13),
-      ("com.typesafe.akka" %% "akka-stream" % akkaVersion).cross(CrossVersion.for3Use2_13),
-      ("com.typesafe.akka" %% "akka-http" % akkaHttpVersion).cross(CrossVersion.for3Use2_13),
-      ("com.typesafe.akka" %% "akka-http-spray-json"     % akkaHttpVersion).cross(CrossVersion.for3Use2_13),
-      "ch.qos.logback"    % "logback-classic"           % "1.2.3",
-      "eu.brosbit" %% "hexlib" % "0.1.0"
-    )
+      "org.scalatest" %% "scalatest" % "3.2.10" % "test"
+    ),
+  )
+  .settings(
+    Docker / version          := version.value,
+    Compile / run / mainClass := Option("eu.brosbit.MainApp"),
   )
 
+addCommandAlias("fmt", "scalafmt; Test / scalafmt; sFix;")
+addCommandAlias("fmtCheck", "scalafmtCheck; Test / scalafmtCheck; sFixCheck")
+addCommandAlias("sFix", "scalafix OrganizeImports; Test / scalafix OrganizeImports")
+addCommandAlias("sFixCheck", "scalafix --check OrganizeImports; Test / scalafix --check OrganizeImports")

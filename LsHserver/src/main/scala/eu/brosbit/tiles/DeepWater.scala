@@ -1,6 +1,6 @@
 package eu.brosbit.tiles
 
-import eu.brosbit.immovable._
+import eu.brosbit.immovable.*
 
 object DeepWater extends TileObj:  
   override val level: Byte = 0

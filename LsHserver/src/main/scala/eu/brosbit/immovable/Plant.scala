@@ -1,6 +1,6 @@
 package eu.brosbit.immovable
 
-abstract  class Plant extends ImmovableObject {
+abstract  class Plant {
 
   val obj:PlantConst
 
@@ -10,11 +10,11 @@ abstract  class Plant extends ImmovableObject {
   def getBio = bio
   def setBio(bio:Short) = this.bio = bio
   def setHP(hp:Short) = this.hp = hp
-  def getHP() = hp
+  def getHP = hp
 
-  override def nextDay() = yields()
+  def nextDay() = yields()
 
-  override def log: String = {
+  def log: String = {
     s"${obj.shortName}:hp=${hp},bi=$bio"
   }
 
@@ -27,7 +27,7 @@ abstract  class Plant extends ImmovableObject {
 
 }
 
-trait PlantConst extends ImmovableObjectConst {
+trait PlantConst {
   val name:String = "Plant"
   val shortName:String ="pl"
   val growBio:Short = 0

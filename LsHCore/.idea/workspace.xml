@@ -23,28 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e32c88f5-ccdc-41f5-8672-fd6f1f646670" name="Default Changelist" comment="Hex library, count distance and list neighbours. Check Dotty.">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/LsHcore-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/LsHcore-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/LsHcore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/LsHcore.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.metals/metals.lock.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.metals/metals.mv.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/metals.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.bsp/sbt.json" beforeDir="false" afterPath="$PROJECT_DIR$/.bsp/sbt.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapGeneratorSteppe.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapGeneratorSteppe.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/MapManager.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/PlantsManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/PlantsManager.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/TheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/TheMap.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/WildAnimals.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/WildAnimals.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/hexlib/Hex.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/hexlib/Hex.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Animal.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Animal.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Deer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/movable/Deer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/CoolWater.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/CoolWater.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/DeepWater.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/DeepWater.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Ford.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Ford.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Hill.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Hill.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Humus.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Humus.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Ice.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Ice.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Prairie.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Steppe.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Sand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Sand.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/ShallowWater.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/ShallowWater.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Swamp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/tiles/Swamp.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,15 +71,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/ms/Programowanie/landshunger/LsHCore",
-    "scala_project_settings_configurable.last_selected_tab_index": "0",
-    "settings.editor.selected.configurable": "Bytecode Indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ms/Programowanie/landshunger/LsHCore&quot;,
+    &quot;scala_project_settings_configurable.last_selected_tab_index&quot;: &quot;0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Bytecode Indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="eu.brosbit" />

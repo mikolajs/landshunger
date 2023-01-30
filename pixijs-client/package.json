@@ -11,7 +11,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.18.2"
   },
   "author": "Mikołaj Sochacki",
   "license": "ISC"
