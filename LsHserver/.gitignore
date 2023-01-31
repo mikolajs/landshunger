@@ -1,3 +1,6 @@
 *.class
-.idea
+.idea/
 target/
+.bsp/
+LsHcore/.idea/
+

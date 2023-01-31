@@ -3,6 +3,7 @@ package eu.brosbit.hexlib
 import eu.brosbit.tiles.*
 
 import scala.util.Random
+import scala.util.control.Breaks.{break, breakable}
 
 case class HexPoint(r: Int, c: Int)
 
@@ -13,30 +14,32 @@ class MapGenerator(val sizeXY: Int):
   println("Size of map: " + allPools)
   generateMap()
   
-  def getMapJson() = "[" + worldTiles
+  def getMapStringJson() = "[" + worldTiles
     .map(line => "[" +line.map(tile => "\""+tile.aType.shortName+"\"").mkString(", ") + "]\n")
     .mkString(", ") + "]"
+
+  def getMapStringForJson = worldTiles.map(arr => arr.map( t => t.aType.shortName)) 
 
   def getMap:Array[Array[Tile]] = worldTiles
 
   def generateMap(): Unit =
     mainRiver()
-    makeChainOfMounts(allPools/10)
-    makeRandomMountains(sizeXY)
+    makeChainOfMounts(allPools/15)
+    makeRandomMountains(allPools/30)
     var usedHills = addHillsSurroundMounts()
     //    // ///// TODO: surrounding mountains not work!!!
-    while usedHills < allPools/10 do
+    while usedHills < allPools/8 do
       val position = drawRandomFreePosition(Hill())
       usedHills += 1
       usedHills += setRandomHillsNear(position)
 
     //    println("In the end used hills: " + usedHills)
-    //    var userdWaters = 0
-    //    userdWaters += 100
-    //    userdWaters +=  makeLakes(200, 4)
-    //    println("Used waters for Lakes: " + userdWaters)
-    //    makeSteppes(700, 10)
-
+    
+    var usedWaters = 0
+    usedWaters +=  makeLakes(allPools/20, 3)
+    println("Used waters for Lakes: " + usedWaters)
+    makeSteppes(allPools/10, 10)
+  
 
 
   def makeChainOfMounts(mountainsNumb:Int):Unit =
@@ -114,14 +117,15 @@ class MapGenerator(val sizeXY: Int):
         val source = drawRandomFreePosition(DeepWater())
         watersNumber -= 1;
         watersNumber -= longLakeDraw(source, size)
-    watersNumber
+    _watersNumber - watersNumber
 
+  ///TODO: repair not continues line of water
   def mainRiver(): Unit =
     val random = Random()
-    var start = random.nextInt(sizeXY / 4) + sizeXY / 2
-    worldTiles(start)(0) = new DeepWater
-    println("Start main river: " + start)
-    var ROW = 1
+    var COL = random.nextInt(sizeXY / 4) + sizeXY / 2
+    var ROW = 0
+    worldTiles(ROW)(COL) = DeepWater()
+    println("Start main river: " + COL)
     var r = 0
     var ford = 5
     var rFord = 0
@@ -129,82 +133,98 @@ class MapGenerator(val sizeXY: Int):
     var longRiverSide = 10
     while ROW < this.sizeXY do
       r = random.nextInt(2)
-      if (ROW % 2 == 1) start -= r
-      else start += r
+      if (ROW % 2 == 1) COL -= r
+      else COL += r
       if (ford < 6) then
-        this.worldTiles(start)(ROW) = new DeepWater
+        this.worldTiles(ROW)(COL) = DeepWater()
         ford += 1
         longRiverSide -= 1
         if (longRiverSide <= 0) then
           longRiverSide = 10
-          sideRiverStart = HexPoint(start, ROW) :: sideRiverStart
+          sideRiverStart = HexPoint(ROW, COL) :: sideRiverStart
       else
-        rFord = random.nextInt(4)
+        rFord = random.nextInt(3)
         //println("rFord " + rFord);
         if (rFord < 1) then
-          this.worldTiles(start)(ROW) = new Ford
+          this.worldTiles(ROW)(COL) = new Ford
           ford = 0
         else
-          this.worldTiles(start)(ROW) = new DeepWater
+          this.worldTiles(ROW)(COL) = new DeepWater
           longRiverSide -= 1
           ford += 1
 
       ROW += 1
-      //console.log("longRiverSide: " + longRiverSide);
-    println("Finish main river: " + start)
+    println("Finish main river: " + COL)
     mkSideRivers(sideRiverStart)
 
 
-  //TODO: Implement
-  private def mkSideRivers(sideRiverStart: List[HexPoint]): Unit = {
-    //console.log("_mkSideRivers not Implemented");
+  private def mkSideRivers(sideRiverStart: List[HexPoint]): Unit = breakable {
     val random = new Random()
     var weightRandom = 0.5;
     for a <- sideRiverStart do
-      println(s"rivers side start: ' + a[0] + ', ' + a[1]");
-      var COL = a.c
-      var ROW = a.r
-      var r = 0
-      var ford = 4
-      var rFord = 0
-      if (random.nextDouble() > weightRandom) then
-        r = 1
-        weightRandom += 0.15
-      else
-        r = -1
-        weightRandom -= 0.15
-      COL += r
-      worldTiles(COL)(ROW) = new DeepWater
-      COL += r
-      worldTiles(COL)(ROW) = new DeepWater
-      var sideRiverLong = random.nextInt(12) + 8
-      var lastUpDownOrLeft = 0
-      while (sideRiverLong > 0) do
-        var upDownOrLeft = random.nextInt(3) - 1
-        if Math.random() < 0.9 then ford -= 1
-        var waterType = 'w'
-        if ford < 0 then
-          ford = 4
-          waterType = 'f'
-        if upDownOrLeft == 0 || lastUpDownOrLeft == -upDownOrLeft then
-          COL += r
+      println(s"rivers side start: ' + ${a.r} + ', ' + ${a.c}")
+      breakable {
+        var COL = a.c
+        var ROW = a.r
+        var c = 0
+        var ford = 4
+        var rFord = 0
+        var oldROW = 0;
+        if (random.nextDouble() > weightRandom) then
+          c = 1
+          weightRandom += 0.15
+        else
+          c = -1
+          weightRandom -= 0.15
+        COL += c
+        if COL >= sizeXY then break
+        worldTiles(ROW)(COL) = DeepWater()
+        COL += c
+        if COL >= sizeXY then break
+        worldTiles(ROW)(COL) = DeepWater()
+        var sideRiverLong = random.nextInt(12) + 8
+        var lastUpDownOrLeft = 0
+        oldROW = ROW
+        var oldUpDownOrLeft = 0
+        while sideRiverLong > 0 do
+          var upDownOrLeft = random.nextInt(3) - 1
+          if Math.random() < 0.9 then ford -= 1
+          var waterType = 'w'
+          if ford < 0 then
+            ford = 4
+            waterType = 'f'
+          if upDownOrLeft != -oldUpDownOrLeft then ROW += upDownOrLeft
+          if upDownOrLeft == 0 || oldROW % 2 != 0 then COL += 1
           if !(COL < 0 || COL >= sizeXY || ROW < 0 || ROW >= sizeXY) then
-            worldTiles(COL)(ROW) = if waterType == 'w' then new DeepWater else new Ford
-          else if ROW % 2 == 0 then
-            ROW += upDownOrLeft
-          if r < 0 then COL += r
-          if !(COL < 0 || COL >= sizeXY || ROW < 0 || ROW >= sizeXY) then
-            worldTiles(COL)(ROW) = if waterType == 'w' then new DeepWater else new Ford
-          else if r > 0 then COL += r
-          ROW += upDownOrLeft
-          if !(COL < 0 || COL >= sizeXY || ROW < 0 || ROW >= sizeXY) then
-            worldTiles(COL)(ROW) = if waterType == 'w' then new DeepWater else new Ford
+            worldTiles(ROW)(COL) = if waterType == 'w' then new DeepWater else new Ford
+          sideRiverLong -= 1
+          oldUpDownOrLeft = upDownOrLeft
 
-        lastUpDownOrLeft = upDownOrLeft
-        sideRiverLong -= 1
+          oldROW = ROW
+         /*   
+          if upDownOrLeft == 0 || lastUpDownOrLeft == -upDownOrLeft then
+            //ROW += upDownOrLeft
+            COL += r
+            if !(COL < 0 || COL >= sizeXY || ROW < 0 || ROW >= sizeXY) then
+              worldTiles(ROW)(COL) = if waterType == 'w' then new DeepWater else new Ford
+            else if ROW % 2 == 0 then
+              ROW += upDownOrLeft
+            if r < 0 then COL += r
+            if !(COL < 0 || COL >= sizeXY || ROW < 0 || ROW >= sizeXY) then
+              worldTiles(ROW)(COL) = if waterType == 'w' then new DeepWater else new Ford
+            else if r > 0 then COL += r
+            ROW += upDownOrLeft
+            if !(COL < 0 || COL >= sizeXY || ROW < 0 || ROW >= sizeXY) then
+              worldTiles(ROW)(COL) = if waterType == 'w' then new DeepWater else new Ford
+
+          lastUpDownOrLeft = upDownOrLeft
+          */
+
+          
+      }
   }
 
-  def drawRandomFreePosition(tile:Tile) = 
+  private def drawRandomFreePosition(tile:Tile) = 
     var posOfWorld = -1
     val pow = sizeXY * sizeXY
     while
@@ -225,17 +245,15 @@ class MapGenerator(val sizeXY: Int):
       case 4 => if row % 2 == 0 then HexPoint(1, -1) else HexPoint(-1, 1)
       case 5 => HexPoint(0, -1)
       case _ => HexPoint(0,0)
-  /*
-    _makeSteppes(steppeNumber, size){
-      let source;
-      while(steppeNumber > 4) {
-        source = this._drawRandomFreePosition('s');
-        steppeNumber--;
-        steppeNumber -= this._steppesGroupDraw(source, size);
-      }
-    }
   
- */
+  private def makeSteppes(steppeNumber:Int, size:Int) = 
+    var source:HexPoint = HexPoint(0,0)
+    var steppes = steppeNumber
+    while steppes > 4 do
+      source = drawRandomFreePosition(Steppe())
+      steppes -= 1
+      steppes -= steppesGroupDraw(source, size)
+  
 
   private def makeNewDirForLinePools(_dir: Int) =
     ///// TODO: is 50% of forward, change to 80%
@@ -287,50 +305,38 @@ class MapGenerator(val sizeXY: Int):
      }
      arrForLong
    }
-/*
 
-   _steppesGroupDraw(source, size){
-     let steppesNumber = 0;
-     let nextSource = source;
-     let arrAddedSteppes = [];
-     // console.log("beging Steppe source: " + nextSource.x + "," + nextSource.y);
-     for(let i = 0; i < size; i++){
-       arrAddedSteppes = this._makeNextSteppeDrawElement(nextSource);
-       steppesNumber += arrAddedSteppes.length;
-       // console.log("for steppe chains: " + i + "; " + arrAddedSteppes.length);
-       if(arrAddedSteppes.length == 0) break;
-       nextSource = arrAddedSteppes[Math.floor(Math.random()*arrAddedSteppes.length)];
-     }
-     // console.log("_longLakeDraw steppesNumber: " + steppesNumber);
-     return steppesNumber;
-   }
+  private def steppesGroupDraw(source:HexPoint, size:Int) =
+    var steppesNumber = 0
+    var next = true
+    var nextSource = source
+    var arrAddedSteppes:List[HexPoint] = Nil
+    //println("beging Steppe source: " + nextSource.x + "," + nextSource.y);
+    while next && steppesNumber < size do
+      arrAddedSteppes = makeNextSteppeDrawElement(nextSource)
+      steppesNumber += arrAddedSteppes.length
+      //println("for steppe chains: " + i + "; " + arrAddedSteppes.length);
+      if arrAddedSteppes.length == 0 then next = false
+      else nextSource = arrAddedSteppes(Math.floor(Math.random()*arrAddedSteppes.length).toInt)
+    
+    //println("Created steppes tiles: " + steppesNumber);
+    steppesNumber
 
-   _makeNextSteppeDrawElement(source){
-     let arrForLong = [];
-     for(let dir = 0; dir < 6; dir++){
-       let nearDir = this._poolForDir(source.y, dir);
-       let nearPoint = new PlainPoint(source.x+nearDir.x, source.y + nearDir.y);
-       if(nearPoint.x < 0 || nearPoint.x >= this.sizeXY || nearPoint.y < 0 || nearPoint.y >= this.sizeXY) continue;
-       if(this.worldTiles[nearPoint.y][nearPoint.x] == 'p') {
-         this.worldTiles[nearPoint.y][nearPoint.x] = 's';
-         arrForLong.push(nearPoint);
-       }
-     }
-     return arrForLong;
-   }
+  private def makeNextSteppeDrawElement(source:HexPoint):List[HexPoint] =
+    var arrForLong:List[HexPoint] = Nil
+    for dir <- 0 to 5 do
+      val nearDir = poolForDir(source.r, dir)
+      val nearPoint = HexPoint(source.r+nearDir.r, source.c + nearDir.c)
+      if !(nearPoint.r < 0 || nearPoint.r >= this.sizeXY || nearPoint.c < 0 || nearPoint.c >= this.sizeXY) then
+        if worldTiles(nearPoint.r)(nearPoint.c).aType.shortName == Plain.shortName then
+          worldTiles(nearPoint.r)(nearPoint.c) = Steppe();
+          arrForLong = nearPoint::arrForLong
+      
+    arrForLong;
+   
 
    //// TODO: Implement!!!
-   _findMountainInCenter(){
-
-   }
+  private def findMountainInCenter() = ' '
 
 
-   test(){
-     for(let i = 0; i < this.sizeXY; i++){
-       console.log(this.worldTiles[i].join(''));
-     }
-
-   }
-
-  */
 
