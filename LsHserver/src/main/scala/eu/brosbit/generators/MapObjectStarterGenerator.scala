@@ -1,9 +1,10 @@
-package eu.brosbit.hexlib
+package eu.brosbit.generators
 import  eu.brosbit.tiles.*
 import java.util.Random
 import eu.brosbit.immovable.Forest
 import eu.brosbit.immovable.ImmovableObject
 import eu.brosbit.immovable.Grass
+import eu.brosbit.hexlib.*
 
 class MapObjectStarterGenerator(map:Array[Array[Tile]]):
   val ROWS = map.size

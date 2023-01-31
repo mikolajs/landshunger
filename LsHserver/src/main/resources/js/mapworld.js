@@ -19,13 +19,14 @@ class MapWorld {
     console.log('Start mapAsynchonic');
     this.X = this.worldData.X;
     this.Y = this.worldData.Y;
-    //this.grid.drawHexGrid(this.startY);
-    //this.grid.drawPointIndexes(this.startX, this.startY);
-    this.drawTilesMap();
-    this.drawObjectMap();
+    this.refreshMap();
   }
 
   refreshMap(){
+    this.grid.clearGrid();
+    this.grid.drawHexGrid(this.startY);
+    this.grid.drawPointIndexes(this.startX, this.startY);
+    
     this.drawTilesMap();
     this.drawObjectMap();
   }

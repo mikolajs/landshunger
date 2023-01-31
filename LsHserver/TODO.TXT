@@ -1,3 +1,2 @@
-# Repair side river generation?
 # to low number of hills?
-# repair grid hex and indexes
+# repair moving long way map – not moving to the end of map.

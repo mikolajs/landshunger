@@ -1,4 +1,4 @@
-package eu.brosbit.generatos
+package eu.brosbit.generators
 
 import eu.brosbit.tiles.*
 
@@ -29,7 +29,7 @@ class MapGenerator(val sizeXY: Int):
     var usedHills = addHillsSurroundMounts()
     //    // ///// TODO: surrounding mountains not work!!!
     println("Hills Souranding mountains " + usedHills)
-    while usedHills < allPools/5 do
+    while usedHills < allPools/4 do
       val position = drawRandomFreePosition(Hill())
       usedHills += 1
       usedHills += setRandomHillsNear(position)

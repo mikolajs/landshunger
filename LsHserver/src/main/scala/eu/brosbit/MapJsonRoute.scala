@@ -1,7 +1,6 @@
 package eu.brosbit
-import eu.brosbit.hexlib.MapGenerator
+import eu.brosbit.generators.{MapGenerator, MapObjectStarterGenerator, MapCounter}
 import zio.json.*
-import eu.brosbit.hexlib.MapObjectStarterGenerator
 
 case class TileMap(m:Array[Array[String]])
 object TileMap:
@@ -33,6 +32,10 @@ object MapJsonRoute:
     else 
       val immobileObjectGenerator = MapObjectStarterGenerator(aMap.get.worldTiles)
       immobileObjectGenerator.generate
+      val mc = MapCounter(aMap.get.worldTiles)
+      println(mc.showTilesStatistics)
+      println(mc.showWoodStatistics)
+      println(mc.showGrassStatistics)
       //println(immobileObjectGenerator.getString)
       immobileObjectConvert.toJson
 

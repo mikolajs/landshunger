@@ -4,10 +4,11 @@ class Grid {
     console.log("Unit Size: " + unitSize);
     this.gridContainer = gridContainer;
     this.x = X; this.y = Y;
-    //this.drawHexGrid();
+    //this.drawHexGrid(0);
     //this.drawPointIndexes();
   }
   drawHexGrid(beginY) {
+  	this.gridContainer.removeChildren(0, this.gridContainer.children.length);
         let background = new PIXI.Graphics();
         background.lineStyle(2, 0x000000);
         background.zOrder = 1001;
@@ -16,7 +17,7 @@ class Grid {
         let pointY = 0;
         for (let i = 0; i < this.y; i++) {
             pointY = (i * 5) * this.unitSize + 12;
-            if (beginY + i % 2 == 0) {
+            if ((i + beginY) % 2 == 0) {
                 pointX = 0;
             }
             else {
@@ -61,8 +62,8 @@ class Grid {
       let style = new PIXI.TextStyle({"fill":"black"});
       for(let i = 0; i < this.x; i++){
         for(let j = 0; j < this.y; j++){
-          let point = this.getCenterOfPoolInPixels(i, j);
-          let t = new PIXI.Text(j+beginY + "," + i+beginX, style);
+          let point = this.getCenterOfPoolInPixels(i, j, beginY);
+          let t = new PIXI.Text(j+beginY + "," + (i+beginX), style);
           t.anchor.set(0.5);
           t.position.set(point.x, point.y);
           this.gridContainer.addChild(t);
@@ -94,5 +95,9 @@ class Grid {
             return new PIXI.Point(
               (10 * x + 5) * this.unitSize, (y * 5 + 3) * this.unitSize);
         }
+    }
+    clearGrid(){
+      this.gridContainer.removeChildren(0, this.gridContainer.children.length);
+      //this.container.removeChildren(0,this.container.children.length);
     }
 }
