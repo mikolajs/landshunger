@@ -12,10 +12,12 @@ class MapObjectStarterGenerator(map:Array[Array[Tile]]):
   val maxSize = ROWS*COLS
   val hex = Hex(ROWS.toShort, COLS.toShort)
   val rand = Random()
+  println("Create MapObjectStarterGenerator " + maxSize)
+  generate()
 
-  def generate:Unit = 
-    allFreeWithGrass()
+  def generate():Unit = 
     randomWood(COLS*ROWS/4)
+    allFreeWithGrass()
 
   def getString =
     map.map(line => 
@@ -31,7 +33,7 @@ class MapObjectStarterGenerator(map:Array[Array[Tile]]):
 
 
   private def randomWood(woodsNumber:Int):Unit = 
-    println("start create Forest")
+    //println("start create Forest")
     val allowed = List(Plain.shortName, Hill.shortName, Humus.shortName)
     var createdWoods = 0
     while createdWoods < woodsNumber do
@@ -43,7 +45,7 @@ class MapObjectStarterGenerator(map:Array[Array[Tile]]):
       map(h.r)(h.c).imObjOpt = Some(imm) 
       createdWoods += 1
       // objectMap(h.r)(h.c) = forest
-    println(s"Created $createdWoods woods")
+    //println(s"Created $createdWoods woods")
   
   private def randomHexPoint(allowed:List[String]):HexPoint = 
     var notFound = true
@@ -55,12 +57,12 @@ class MapObjectStarterGenerator(map:Array[Array[Tile]]):
     hexPoint
       
   private def allFreeWithGrass() =
-    println("start add Grass")
-    val allowed = List(Plain.shortName, Hill.shortName, Humus.shortName)
+    //println("start add Grass")
+    val allowed = List(Plain.shortName, Hill.shortName, Humus.shortName, Steppe.shortName)
     for r <- 0 until ROWS do
       for c <- 0 until COLS do
         val tile = map(r)(c).aType.shortName
-        if allowed.contains(tile) then
+        if allowed.contains(tile) && map(r)(c).imObjOpt.isEmpty then
           val grass = Grass()
           grass.setBio((rand.nextDouble()*Grass.maxBio).toShort)
           val imm = ImmovableObject(grass)

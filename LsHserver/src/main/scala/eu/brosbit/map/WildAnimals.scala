@@ -11,9 +11,9 @@ class WildAnimals(map:TheMap, nrCreate:Int) {
   //++ Peccary, Buffalo, Fish
 
   private val wordSize = map.getMap.length
-
+  
+  /*
   for(_ <- 1 to nrCreate) createDeerHeard
-
   implicit val orderingTilesBio:BioTileOrdering = new BioTileOrdering
 
 
@@ -154,5 +154,5 @@ class WildAnimals(map:TheMap, nrCreate:Int) {
 
     }
   }
-
+ */
 }

@@ -1,2 +1,1 @@
-# to low number of hills?
 # repair moving long way map – not moving to the end of map.

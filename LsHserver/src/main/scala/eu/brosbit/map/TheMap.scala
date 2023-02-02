@@ -1,31 +1,32 @@
 package eu.brosbit
 
 import eu.brosbit.tiles.*
+import eu.brosbit.generators.*
 
-class TheMap(mapPath:String):
-  private val dataInfo = createMap
-  private val wordSize:Int = dataInfo._1
-  private val map:Array[Array[Tile]] = createMap._2
-  private val unitMap:Array[Array[Boolean]] = Array.ofDim(wordSize, wordSize)
+class TheMap(gameId:String):
+  var newGameId = gameId
+  private var dataInfo = createMap
+  private var wordSize:Int = 0
+  private var worldTiles:Array[Array[Tile]] = Array.ofDim(0,0)
+  startMap()
 
-  def getMap: Array[Array[Tile]] = map
-  def getUnitMap: Array[Array[Boolean]] = unitMap
+  def getMap: Array[Array[Tile]] = worldTiles
+  //def getUnitMap: Array[Array[Boolean]] = unitMap
   def getWordSize:Int = wordSize
-  def getTile(row:Int, col:Int) = map(row)(col)
+  def getTile(row:Int, col:Int) = worldTiles(row)(col)
+  def getMapTilesForJson = worldTiles.map(arr => arr.map( t => t.aType.shortName)) 
 
-  private def createMap =
-    val mapData = loadFromFileMap
-    val wordSize = calculateWordSize(mapData.length)
-    val map:Array[Array[Tile]] = Array.ofDim(wordSize, wordSize)
-    println(s"SIZE OF MAP = ${mapData.size}")
-    println(s"Size of World: $wordSize")
-    for i <- 0 until wordSize
-         j <- 0 until wordSize do
-      map(i)(j) = choiceTile(mapData(i*wordSize+j))
-    
-    (wordSize, map)
-  
+  def startMap():Unit = if !loadFromDB then createMap
 
+  private def createMap:Unit =
+    val mg = MapGenerator(50)
+    wordSize = 50
+    worldTiles = mg.getMap
+    val mosg = MapObjectStarterGenerator(worldTiles)
+
+  private def loadFromDB:Boolean = false
+
+  /*
   private def loadFromFileMap: Array[Byte] = {
     import java.io.File;
     import java.nio.file.Files;
@@ -49,20 +50,8 @@ class TheMap(mapPath:String):
     case 3 => Mountain()
     case _ => Plain()
   }
+  */
 
-  private def calculateWordSize(l:Int) = Math.round(Math.sqrt(l)).toInt
 
-  def printTiles: Unit = 
-    for (i <- 0 until wordSize) do
-      for (j <- 0 until wordSize) do
-        print(map(i)(j).log + "\t")
-      println()
-
-  private def printArray[A](arr:Array[A]): Unit = 
-    for  i <- 0 until wordSize
-          j <- 0 until wordSize do
-      print(arr(i*wordSize+j).toString + "\t")
-      if(j == wordSize -1) then println()
-    
 
 end TheMap

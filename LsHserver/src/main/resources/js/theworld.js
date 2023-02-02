@@ -2,6 +2,7 @@ class TheWorld {
 
  constructor(mapWorld){
    this.loaded = 0;
+   this.gameId = '0';
    // this.sizeXY = 100;
   this.host = window.origin + '/json/'
    //console.log("size of map " + width + " of " + height);
@@ -22,12 +23,12 @@ class TheWorld {
     if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200){
       console.log('LOADED Tiles JSON');
       let jsonData = JSON.parse(xhr.responseText);
-      this.loaded++;
+      console.log(jsonData);
       this._createTilesMap(jsonData);
       this.loadImmovableObjects();
     }
   }
-  xhr.open("GET", this.host + 'tileMap.json', true);
+  xhr.open("GET", this.host + 'tileMap/'+this.gameId, true);
   xhr.send();
  }
 
@@ -39,16 +40,18 @@ class TheWorld {
     if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200){
       console.log('LOADED Tiles JSON');
       let jsonData = JSON.parse(xhr.responseText);
-      this.loaded++;
+      console.log(jsonData);
       this._createImmovableObjectsMap(jsonData);
     }
   }
-  xhr.open("GET", this.host + 'objectMap.json', true);
+  xhr.open("GET", this.host + 'objectMap/' + this.gameId, true);
   xhr.send();
  }
 
- _createTilesMap(jsonData){
+ _createTilesMap(jsonDataFull){
   //x rows, y cols
+  this.gameId = jsonDataFull.id;
+  let jsonData = jsonDataFull.m;
   this.Y = jsonData.length;
   this.X = jsonData[0].length;
   console.log("TheWorld create Tiles Map size of data: " + this.X + " " + this.Y);
@@ -66,7 +69,13 @@ class TheWorld {
   //console.log("_createWorld X " + this.X + " Y " + this.Y);
 }
 
-_createImmovableObjectsMap(jsonData) {
+_createImmovableObjectsMap(jsonDataFull) {
+  let gameId = jsonDataFull.id;
+  if(gameId != this.gameId) {
+    console.log('Error!!! Game id ' + this.gameId + ' not found! Game id found ' + gameId);
+    return;
+  }
+  let jsonData = jsonDataFull.m;
   let Y = jsonData.length;
   let X = jsonData[0].length;
   let obj = {}
@@ -79,9 +88,10 @@ _createImmovableObjectsMap(jsonData) {
     for(let j = 0; j < X; j++){
       obj = jsonData[i][j];
       if(obj.n == 'f0') {
-        if(obj.hp > 750) obj.n = 'f3';
-        else if(obj > 500) obj.n = 'f2';
-        else if(obj > 250) obj.n = 'f1';
+        if(obj.hp > 800) obj.n = 'f4';
+        else if(obj.hp > 600) obj.n = 'f3';
+        else if(obj.hp > 400) obj.n = 'f2';
+        else if(obj.hp > 200) obj.n = 'f1';
       }
       this.worldObjects[i][j] = obj;
     }

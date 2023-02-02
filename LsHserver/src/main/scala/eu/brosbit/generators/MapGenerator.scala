@@ -11,35 +11,37 @@ class MapGenerator(val sizeXY: Int):
 
   val worldTiles:Array[Array[Tile]] = Array.ofDim[Tile](sizeXY, sizeXY).map(row => row.map(x => new Plain))
   val allPools = sizeXY*sizeXY
-  println("Size of map: " + allPools)
+  var poolsLeft = allPools
+  println("Create MapGenerator: Size of map: " + allPools)
   generateMap()
   
   def getMapStringJson() = "[" + worldTiles
     .map(line => "[" +line.map(tile => "\""+tile.aType.shortName+"\"").mkString(", ") + "]\n")
     .mkString(", ") + "]"
 
-  def getMapStringForJson = worldTiles.map(arr => arr.map( t => t.aType.shortName)) 
+  def getMapTilesForJson = worldTiles.map(arr => arr.map( t => t.aType.shortName)) 
 
   def getMap:Array[Array[Tile]] = worldTiles
 
   def generateMap(): Unit =
     mainRiver()
     makeChainOfMounts(allPools/20)
-    makeRandomMountains(allPools/30)
+    makeRandomMountains(allPools/50)
     var usedHills = addHillsSurroundMounts()
     //    // ///// TODO: surrounding mountains not work!!!
-    println("Hills Souranding mountains " + usedHills)
+    //println("Hills Souranding mountains " + usedHills)
     while usedHills < allPools/4 do
       val position = drawRandomFreePosition(Hill())
       usedHills += 1
       usedHills += setRandomHillsNear(position)
 
-    println("In the end used hills: " + usedHills)
+    //println("In the end used hills: " + usedHills)
     
     var usedWaters = 0
     usedWaters +=  makeLakes(allPools/20, 3)
-    println("Used waters for Lakes: " + usedWaters)
+    //println("Used waters for Lakes: " + usedWaters)
     makeSteppes(allPools/10, 10)
+    //println("Plain tiles left " + freePools)
   
 
 
@@ -250,10 +252,11 @@ class MapGenerator(val sizeXY: Int):
   private def makeSteppes(steppeNumber:Int, size:Int) = 
     var source:HexPoint = HexPoint(0,0)
     var steppes = steppeNumber
-    while steppes > 4 do
+    while steppes > 4 && freePools > allPools/4 do
       source = drawRandomFreePosition(Steppe())
       steppes -= 1
       steppes -= steppesGroupDraw(source, size)
+      //println("steppes to create "+steppes)
   
 
   private def makeNewDirForLinePools(_dir: Int) =
@@ -312,7 +315,7 @@ class MapGenerator(val sizeXY: Int):
     var next = true
     var nextSource = source
     var arrAddedSteppes:List[HexPoint] = Nil
-    //println("beging Steppe source: " + nextSource.x + "," + nextSource.y);
+    //println("beging Steppe source: " + nextSource.r + "," + nextSource.c);
     while next && steppesNumber < size do
       arrAddedSteppes = makeNextSteppeDrawElement(nextSource)
       steppesNumber += arrAddedSteppes.length
@@ -334,7 +337,9 @@ class MapGenerator(val sizeXY: Int):
           arrForLong = nearPoint::arrForLong
       
     arrForLong;
-   
+  
+  private def freePools =
+    worldTiles.map(line => line.map(t => if t.aType.shortName == Plain.shortName then 1 else 0).sum).sum
 
    //// TODO: Implement!!!
   private def findMountainInCenter() = ' '

@@ -10,8 +10,8 @@ object MainApp extends ZIOAppDefault {
   val PORT = 8090
   val app: HttpApp[Any, Nothing] = Http.collect[Request] {
     case Method.GET -> !! / "text" => Response.text("Hello World!")
-    case Method.GET -> !! / "json" / "tileMap.json" => Response.json(MapJsonRoute.getTileMap)
-    case Method.GET -> !! / "json" / "objectMap.json" => Response.json(MapJsonRoute.getImmobileMap)
+    case Method.GET -> !! / "json" / "tileMap" / gameId  => Response.json(MapJsonRoute.getTileMap(gameId))
+    case Method.GET -> !! / "json" / "objectMap" / gameId => Response.json(MapJsonRoute.getImmobileMap(gameId))
   }
 
   val staticFiles: HttpApp[Any, Nothing] = Http.collectHttp[Request] {

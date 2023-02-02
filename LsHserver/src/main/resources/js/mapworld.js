@@ -71,8 +71,8 @@ class MapWorld {
         //console.log(obj);
         const p = this.grid.getCenterOfPoolInPixels(j, i, startY);
         n = this.worldData.worldObjects[startY+i][startX+j].n;
-        if(n == '') continue;
-        //console.log(tile + " w maps");
+        if(n == '' || n == 'g0') continue;
+        console.log(n + " w maps");
         const objSprite = new PIXI.Sprite(this._getTileTexture(n));
         objSprite.anchor.set(0.5);
         objSprite.x = p.x;
@@ -109,6 +109,7 @@ class MapWorld {
     else if(tile == 'st') return this.resources.s.texture;
     else if(tile == 'fd') return this.resources.f.texture;
     else if(tile == 'hu') return this.resources.u.texture;
+    else if(tile == 'f4') return this.resources.f4.texture;
     else if(tile == 'f3') return this.resources.f3.texture;
     else if(tile == 'f2') return this.resources.f2.texture;
     else if(tile == 'f1') return this.resources.f1.texture;
