@@ -18,6 +18,8 @@ class MapCounter(map:Array[Array[Tile]]):
     var numberOfFords = 0
     var numberOfSteppes = 0
     var numberOfPlain = 0
+    var numberOfSwamp = 0
+    var numberOfHumus = 0
     for r <- 0 until ROWS
         c <- 0 until COLS do
        if map(r)(c).aType.shortName == Mountain.shortName then numberOfMountains += 1
@@ -26,8 +28,11 @@ class MapCounter(map:Array[Array[Tile]]):
        else if map(r)(c).aType.shortName == Ford.shortName then numberOfFords += 1
        else if map(r)(c).aType.shortName == Steppe.shortName then numberOfSteppes += 1
        else if map(r)(c).aType.shortName == Plain.shortName then numberOfPlain += 1
+       else if map(r)(c).aType.shortName == Humus.shortName then numberOfHumus += 1
+       else if map(r)(c).aType.shortName == Swamp.shortName then numberOfSwamp += 1
     s"""All tiles: $allPools with $numberOfMountains mountains, $numberOfHills hills, $numberOfSteppes steppes,
-    | $numberOfWaters water and $numberOfFords fords. Plain remains $numberOfPlain""".stripMargin
+    | $numberOfHumus humus, $numberOfSwamp swamps
+    | $numberOfWaters water and $numberOfFords fords. Plain remains $numberOfPlain.""".stripMargin
 
   def showWoodStatistics = 
     var numberOfForests = 0;
@@ -42,7 +47,7 @@ class MapCounter(map:Array[Array[Tile]]):
     s"""Forest: $numberOfForests with $amountOfWoods trees"""
     
   def showGrassStatistics = 
-    var numberOfGrass = 0;
+    var numberOfGrass = 0
     var amountOfGrass = 0
     for r <- 0 until ROWS
         c <- 0 until COLS do
@@ -52,6 +57,18 @@ class MapCounter(map:Array[Array[Tile]]):
           numberOfGrass += 1
           amountOfGrass += p.getBio
     s"""Grass: $numberOfGrass with $amountOfGrass grass size"""  
+
+  def showPlanktonStatistics = 
+    var numberOfPlankton = 0
+    var amountOfPlankton = 0
+    for r <- 0 until ROWS
+        c <- 0 until COLS do
+      if map(r)(c).imObjOpt.isDefined && map(r)(c).aType.level.toInt == 0 then
+        val p = map(r)(c).imObjOpt.get.plant
+        if p.obj.shortName == Plankton.shortName then 
+          numberOfPlankton += 1
+          amountOfPlankton += p.getBio
+    s"""Plankton: $numberOfPlankton with $amountOfPlankton plankton size"""
 
 
 

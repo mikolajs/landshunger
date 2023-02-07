@@ -5,6 +5,7 @@ import eu.brosbit.immovable.Forest
 import eu.brosbit.immovable.ImmovableObject
 import eu.brosbit.immovable.Grass
 import eu.brosbit.hexlib.*
+import eu.brosbit.immovable.Plankton
 
 class MapObjectStarterGenerator(map:Array[Array[Tile]]):
   val ROWS = map.size
@@ -18,6 +19,7 @@ class MapObjectStarterGenerator(map:Array[Array[Tile]]):
   def generate():Unit = 
     randomWood(COLS*ROWS/4)
     allFreeWithGrass()
+    addPlankton()
 
   def getString =
     map.map(line => 
@@ -66,4 +68,14 @@ class MapObjectStarterGenerator(map:Array[Array[Tile]]):
           val grass = Grass()
           grass.setBio((rand.nextDouble()*Grass.maxBio).toShort)
           val imm = ImmovableObject(grass)
+          map(r)(c).imObjOpt = Some(imm)
+  
+  private def addPlankton() =
+    for r <- 0 until ROWS do
+      for c <- 0 until COLS do
+        val tile = map(r)(c).aType.shortName
+        if tile == DeepWater.shortName then
+          val plankton = Plankton()
+          plankton.setBio(Plankton.maxBio)
+          val imm = ImmovableObject(plankton)
           map(r)(c).imObjOpt = Some(imm)

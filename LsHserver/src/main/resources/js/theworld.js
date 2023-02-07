@@ -92,7 +92,7 @@ _createImmovableObjectsMap(jsonDataFull) {
         else if(obj.hp > 600) obj.n = 'f3';
         else if(obj.hp > 400) obj.n = 'f2';
         else if(obj.hp > 200) obj.n = 'f1';
-      }
+      } 
       this.worldObjects[i][j] = obj;
     }
   }

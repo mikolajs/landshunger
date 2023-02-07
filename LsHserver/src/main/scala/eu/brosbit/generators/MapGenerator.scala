@@ -41,6 +41,8 @@ class MapGenerator(val sizeXY: Int):
     usedWaters +=  makeLakes(allPools/20, 3)
     //println("Used waters for Lakes: " + usedWaters)
     makeSteppes(allPools/10, 10)
+    makeTiles(allPools/30, 6, Humus.shortName)
+    makeTiles(allPools/50, 4, Swamp.shortName)
     //println("Plain tiles left " + freePools)
   
 
@@ -310,6 +312,7 @@ class MapGenerator(val sizeXY: Int):
      arrForLong
    }
 
+
   private def steppesGroupDraw(source:HexPoint, size:Int) =
     var steppesNumber = 0
     var next = true
@@ -338,6 +341,47 @@ class MapGenerator(val sizeXY: Int):
       
     arrForLong;
   
+  private def makeTiles(tileNumber:Int, size:Int, tile:String) = 
+    var source:HexPoint = HexPoint(0,0)
+    var tiles = tileNumber
+    while tiles > 4 && freePools > allPools/2 do
+      val newTile = tile match 
+          case t if t == Steppe.shortName => Steppe()
+          case t if t == Humus.shortName => Humus()
+          case _ => Plain()
+      source = drawRandomFreePosition(newTile)
+      tiles -= 1
+      tiles -= createGroupTile(source, size, tile)
+      //println("steppes to create "+steppes)
+
+  private def createGroupTile(source:HexPoint, size:Int, tile:String) =
+    var number = 0
+    var next = true
+    var nextSource = source
+    var arrAddedTiles:List[HexPoint] = Nil
+    while next && number < size do
+      arrAddedTiles = makeNextTileDrawElement(nextSource, tile)
+      number += arrAddedTiles.length
+      //println("for $tile chains: " + i + "; " + arrAddedTiles.length);
+      if arrAddedTiles.length == 0 then next = false
+      else nextSource = arrAddedTiles(Math.floor(Math.random()*arrAddedTiles.length).toInt)
+    //println("Created steppes tiles: " + steppesNumber);
+    number
+
+  private def makeNextTileDrawElement(source:HexPoint, tile:String):List[HexPoint] =
+    var arrForLong:List[HexPoint] = Nil
+    for dir <- 0 to 5 do
+      val nearDir = poolForDir(source.r, dir)
+      val nearPoint = HexPoint(source.r+nearDir.r, source.c + nearDir.c)
+      if !(nearPoint.r < 0 || nearPoint.r >= this.sizeXY || nearPoint.c < 0 || nearPoint.c >= this.sizeXY) then
+        if worldTiles(nearPoint.r)(nearPoint.c).aType.shortName == Plain.shortName then
+          tile match 
+            case t if t == Steppe.shortName => worldTiles(nearPoint.r)(nearPoint.c) = Steppe()
+            case t if t == Humus.shortName => worldTiles(nearPoint.r)(nearPoint.c) = Humus()
+            case _ => 
+          arrForLong = nearPoint::arrForLong
+    arrForLong;
+
   private def freePools =
     worldTiles.map(line => line.map(t => if t.aType.shortName == Plain.shortName then 1 else 0).sum).sum
 

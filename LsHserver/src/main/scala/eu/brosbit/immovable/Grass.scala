@@ -8,7 +8,7 @@ class Grass extends Plant {
 object Grass extends PlantConst {
   def apply(): Grass = new Grass()
   override val name: String = "grass"
-  override val shortName: String = "g0"
+  override val shortName: String = "gr"
   override val maxBio: Short = 120
   override val growBio: Short = 15
   override val growHP: Short = 0

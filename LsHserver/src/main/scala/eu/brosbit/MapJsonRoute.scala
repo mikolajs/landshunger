@@ -36,6 +36,7 @@ object MapJsonRoute:
       println(mc.showTilesStatistics)
       println(mc.showWoodStatistics)
       println(mc.showGrassStatistics)
+      println(mc.showPlanktonStatistics)
       TileMap(newGameId, theMap.getMapTilesForJson).toJson
 
    
