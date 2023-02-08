@@ -7,6 +7,16 @@ import zhttp.service.server.ServerChannelFactory
 import zhttp.service.EventLoopGroup
 
 object MainApp extends ZIOAppDefault {
+
+  val action: ZIO[Any, java.io.IOException, Unit] =
+    for { 
+      _ <- MapJsonRoute.nextDay()
+      _ <- Console.printLine("Start next day")
+    } yield ()
+
+  val  repeated = action.repeat(Schedule.fixed(10.seconds))
+  repeated.fork
+
   val PORT = 8090
   val app: HttpApp[Any, Nothing] = Http.collect[Request] {
     case Method.GET -> !! / "text" => Response.text("Hello World!")

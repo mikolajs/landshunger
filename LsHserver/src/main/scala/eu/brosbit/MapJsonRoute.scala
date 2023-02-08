@@ -1,6 +1,7 @@
 package eu.brosbit
 import eu.brosbit.generators.{MapGenerator, MapObjectStarterGenerator, MapCounter}
 import zio.json.*
+import zio.*
 import scala.collection.immutable.*
 import eu.brosbit.tiles.*
 
@@ -23,6 +24,11 @@ object ErrorJson:
 
 object MapJsonRoute:
   var maps:Map[String, TheMap] = Map()
+
+  def nextDay() = 
+    println("Next day start")
+    for key <- maps.keys do maps(key).nextDay()
+    Console.print("Maps working")
 
   def getTileMap(gameId:String) = 
     println("get tiles "+gameId)

@@ -5,6 +5,7 @@ import eu.brosbit.generators.*
 
 class TheMap(gameId:String):
   var newGameId = gameId
+  var day = 0
   private var dataInfo = createMap
   private var wordSize:Int = 0
   private var worldTiles:Array[Array[Tile]] = Array.ofDim(0,0)
@@ -26,6 +27,9 @@ class TheMap(gameId:String):
 
   private def loadFromDB:Boolean = false
 
+  def nextDay() =
+    day += 1
+    println(s"Run next day in TheMap $newGameId at $day")
   /*
   private def loadFromFileMap: Array[Byte] = {
     import java.io.File;
