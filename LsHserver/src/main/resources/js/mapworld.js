@@ -12,7 +12,7 @@ class MapWorld {
     //console.log(this.X + " and " + this.Y);
     this.startX = 0;
     this.startY = 0;
-    
+    this.interval = setInterval(() => this.worldData.loadImmovableObjects(), 20000);
   }
 
   drawMapAsynchronic(){

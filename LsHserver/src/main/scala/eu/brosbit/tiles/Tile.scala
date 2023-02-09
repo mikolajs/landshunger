@@ -14,11 +14,10 @@ end TileObj
 trait Tile:
    val aType:TileObj
    var imObjOpt:Option[ImmovableObject]
-
+   //TODO: How to use fertility?
    def nextDay:Unit =
-       if imObjOpt.nonEmpty then
-          if imObjOpt.get.isInstanceOf[Plant] then
-             imObjOpt.get.asInstanceOf[Plant].nextDay()
+      if imObjOpt.nonEmpty && !imObjOpt.get.build then
+         imObjOpt.get.plant.nextDay()
 
 
    def setImmovableObject(o:ImmovableObject) = imObjOpt = if(imObjOpt != null) Some(o) else None

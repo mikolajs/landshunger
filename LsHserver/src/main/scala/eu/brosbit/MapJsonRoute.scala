@@ -26,9 +26,8 @@ object MapJsonRoute:
   var maps:Map[String, TheMap] = Map()
 
   def nextDay() = 
-    println("Next day start")
     for key <- maps.keys do maps(key).nextDay()
-    Console.print("Maps working")
+    Console.printLine(s"Maps working. Number of maps:  ${maps.keys.size}")
 
   def getTileMap(gameId:String) = 
     println("get tiles "+gameId)

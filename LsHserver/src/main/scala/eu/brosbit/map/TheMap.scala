@@ -2,6 +2,7 @@ package eu.brosbit
 
 import eu.brosbit.tiles.*
 import eu.brosbit.generators.*
+import zio.Console
 
 class TheMap(gameId:String):
   var newGameId = gameId
@@ -29,7 +30,10 @@ class TheMap(gameId:String):
 
   def nextDay() =
     day += 1
-    println(s"Run next day in TheMap $newGameId at $day")
+    worldTiles.foreach(line =>
+      line.foreach(tile => tile.nextDay 
+    ))
+    Console.printLine(s"Run next day in TheMap $newGameId at $day")
   /*
   private def loadFromFileMap: Array[Byte] = {
     import java.io.File;

@@ -8,14 +8,13 @@ import zhttp.service.EventLoopGroup
 
 object MainApp extends ZIOAppDefault {
 
-  val action: ZIO[Any, java.io.IOException, Unit] =
+  val action: ZIO[Any, Throwable, Unit] =
     for { 
       _ <- MapJsonRoute.nextDay()
       _ <- Console.printLine("Start next day")
     } yield ()
 
-  val  repeated = action.repeat(Schedule.fixed(10.seconds))
-  repeated.fork
+  val  repeated = action.repeat(Schedule.fixed(30.seconds)).fork
 
   val PORT = 8090
   val app: HttpApp[Any, Nothing] = Http.collect[Request] {
@@ -38,7 +37,9 @@ object MainApp extends ZIOAppDefault {
     _ <- Server.start(port = PORT, http = staticFiles ++ app)
   } yield ExitCode.success
 
-  override def run:ZIO[Environment with ZIOAppArgs with Scope,Any,Any]  = program
+  override def run:ZIO[Environment with ZIOAppArgs with Scope,Any,Any]  = 
+    repeated.zip(program)
+  
 
 
   // Run it like any simple app
