@@ -11,6 +11,8 @@ class TheMap(gameId:String):
   private var wordSize:Int = 0
   private var worldTiles:Array[Array[Tile]] = Array.ofDim(0,0)
   startMap()
+  private val mc = MapCounter(worldTiles)
+  private val tileManager = TilesManager(worldTiles)
 
   def getMap: Array[Array[Tile]] = worldTiles
   //def getUnitMap: Array[Array[Boolean]] = unitMap
@@ -33,7 +35,19 @@ class TheMap(gameId:String):
     worldTiles.foreach(line =>
       line.foreach(tile => tile.nextDay 
     ))
-    Console.printLine(s"Run next day in TheMap $newGameId at $day")
+    tileManager.nextDay()
+    println(s"Run next day in TheMap $newGameId at $day")
+    showStatistics
+
+  def showStatistics = 
+    println(mc.showTilesStatistics)
+    println(mc.showWoodStatistics)
+    println(mc.showGrassStatistics)
+    println(mc.showPlanktonStatistics)
+
+
+  
+
   /*
   private def loadFromFileMap: Array[Byte] = {
     import java.io.File;

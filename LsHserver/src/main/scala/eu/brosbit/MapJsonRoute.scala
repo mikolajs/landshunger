@@ -25,9 +25,7 @@ object ErrorJson:
 object MapJsonRoute:
   var maps:Map[String, TheMap] = Map()
 
-  def nextDay() = 
-    for key <- maps.keys do maps(key).nextDay()
-    Console.printLine(s"Maps working. Number of maps:  ${maps.keys.size}")
+  def nextDay():Unit = for key <- maps.keys do maps(key).nextDay()
 
   def getTileMap(gameId:String) = 
     println("get tiles "+gameId)
@@ -37,11 +35,6 @@ object MapJsonRoute:
       val theMap = TheMap(newGameId)
       maps = maps + (newGameId -> theMap)
       //println(aMap.etMapStringJson())
-      val mc = MapCounter(theMap.getMap)
-      println(mc.showTilesStatistics)
-      println(mc.showWoodStatistics)
-      println(mc.showGrassStatistics)
-      println(mc.showPlanktonStatistics)
       TileMap(newGameId, theMap.getMapTilesForJson).toJson
 
    

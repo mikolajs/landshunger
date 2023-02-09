@@ -1,2 +1,4 @@
-# create Schedule for nextDay
-# update wood, plankton and grass with next day
+# add fishes, deers, boars, wisents 
+# prepare fishes images
+# life of animals and eat
+# show animals position in on map

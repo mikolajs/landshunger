@@ -9,9 +9,9 @@ object Forest  extends  PlantConst  {
   def apply(): Forest = new Forest()
   override val name: String = "Forest"
   override val shortName: String = "f0"
-  override val maxBio: Short = 40
-  override val growBio: Short = 10
-  override val growHP: Short = 50
-  override val maxHP: Short = 1000
+  override val maxBio: Int = 40
+  override val growBio: Int = 10
+  override val growHP: Int = 50
+  override val maxHP: Int = 1000
 
 }

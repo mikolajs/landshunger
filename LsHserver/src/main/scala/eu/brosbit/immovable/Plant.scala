@@ -4,12 +4,12 @@ abstract  class Plant {
 
   val obj:PlantConst
 
-  protected var bio: Short = 0
-  protected var hp: Short = 0
+  protected var bio: Int = 0
+  protected var hp: Int = 0
 
   def getBio = bio
-  def setBio(bio:Short) = this.bio = bio
-  def setHP(hp:Short) = this.hp = hp
+  def setBio(bio:Int) = this.bio = bio
+  def setHP(hp:Int) = this.hp = hp
   def getHP = hp
 
   def nextDay() = yields()
@@ -19,8 +19,8 @@ abstract  class Plant {
   }
 
   def yields() = {
-    bio = (bio + obj.growBio).toShort
-    hp = (hp + obj.growHP).toShort
+    bio = (bio + obj.growBio)
+    hp = (hp + obj.growHP)
     if(bio > obj.maxBio) bio = obj.maxBio
     if(hp > obj.maxHP) hp = obj.maxHP
   }
@@ -30,8 +30,8 @@ abstract  class Plant {
 trait PlantConst {
   val name:String = "Plant"
   val shortName:String ="pl"
-  val growBio:Short = 0
-  val maxBio:Short = 0
-  val growHP: Short = 0
-  val maxHP:Short  = 0
+  val growBio:Int = 0
+  val maxBio:Int = 0
+  val growHP:Int = 0
+  val maxHP:Int = 0
 }

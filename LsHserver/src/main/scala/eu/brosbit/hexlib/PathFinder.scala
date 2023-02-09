@@ -1,6 +1,5 @@
 package eu.brosbit.hexlib
 
-import eu.brosbit.movable.MapPosition
 
 class PathFinder(hex:Hex) {
 

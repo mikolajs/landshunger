@@ -1,7 +1,8 @@
 package eu.brosbit
 
 import eu.brosbit.immovable.{Forest, Grass, Plant}
-import eu.brosbit.movable.{Deer, MapPosition}
+import eu.brosbit.movable.{Deer}
+import eu.brosbit.hexlib.MapPosition
 
 import scala.collection.mutable.ArrayBuffer
 

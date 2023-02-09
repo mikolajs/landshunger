@@ -10,7 +10,7 @@ object MainApp extends ZIOAppDefault {
 
   val action: ZIO[Any, Throwable, Unit] =
     for { 
-      _ <- MapJsonRoute.nextDay()
+      _ <- ZIO.attempt { MapJsonRoute.nextDay() }
       _ <- Console.printLine("Start next day")
     } yield ()
 

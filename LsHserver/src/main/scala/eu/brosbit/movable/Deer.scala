@@ -1,6 +1,7 @@
 package eu.brosbit.movable
 
 import scala.collection.mutable.ArrayBuffer
+import eu.brosbit.hexlib.MapPosition
 
 class Deer(r:Int, c:Int) extends  Animal {
   override val obj = Deer
@@ -12,10 +13,10 @@ class Deer(r:Int, c:Int) extends  Animal {
 }
 
 object  Deer extends AnimalConst  {
-  override val speed: Short = 20
-  override val meat: Short = 200
-  override val milk: Short = 0
-  override val wool: Short = 0
-  override val leather: Short = 20
-  override val eatSize: Short =  5
+  override val speed: Int = 20
+  override val meat: Int = 200
+  override val milk: Int = 0
+  override val wool: Int = 0
+  override val leather: Int = 20
+  override val eatSize: Int =  5
 }
