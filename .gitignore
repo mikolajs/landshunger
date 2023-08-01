@@ -5,15 +5,17 @@ LsHserver/.bloop/
 LsHserver/.metals/
 LsHserver/target
 LsHserver/project/target/
-LsHcore/target
-LsHcore/project/target/
+LsHCore/target
+LsHCore/project/target/
 LsHScala3-vertx/target/
 LsHScala3-vertx/project/target/
 LsHScala3-akka/target/
 LsHScala3-akka/project/target/
+lsh-ziohttp/target/
+lsh-ziohttp/project/target/
 
-hexlib/project/target/
-hexlib/target/
+hexlibJS/project/target/
+hexlibJS/target/
 
 #javascript
 # vim
