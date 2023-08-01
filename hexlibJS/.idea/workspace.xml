@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3f5eb113-4473-4a39-85f6-5854f0dfdc0b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/hexlibjs/HexLibrary.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHCore/.bsp/sbt.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHCore/.bsp/sbt.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHCore/.idea/modules/LsHcore-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHCore/.idea/modules/LsHcore-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHCore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHCore/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHCore/project/.bloop/lshcore-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHCore/project/.bloop/lshcore-build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/project/.bloop/bloop.settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/project/.bloop/bloop.settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/project/.bloop/lshserver-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/project/.bloop/lshserver-build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/project/.bloop/lshserver-build/bloop-internal-classes/classes-Metals-yP9XJFYXRA27NfBtGCICJw==-HpcPLla7QniAkFw57Et1YQ==/META-INF/semanticdb/BuildHelper.scala.semanticdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/project/.bloop/lshserver-build/bloop-internal-classes/classes-Metals-yP9XJFYXRA27NfBtGCICJw==-HpcPLla7QniAkFw57Et1YQ==/META-INF/semanticdb/Dependencies.scala.semanticdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/project/.bloop/lshserver-build/lshserver-build-analysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/project/.bloop/lshserver-build/lshserver-build-analysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/project/build.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/project/build.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/project/project/.bloop/bloop.settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/project/project/.bloop/bloop.settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/project/project/.bloop/lshserver-build-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/project/project/.bloop/lshserver-build-build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/bisons_l.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/bisons_m.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/bisons_s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/boar_l.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/boar_m.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/boar_s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/cows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/deer_l.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/deer_m.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/deer_s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_g.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_i.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_iron.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_new_c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/sheep.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/village.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/village3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/immovable/Forest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/immovable/Forest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/map/TheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/map/TheMap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/map/WildAnimals.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/map/WildAnimals.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/movable/Animal.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/movable/Animal.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/movable/Deer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../LsHserver/src/main/scala/eu/brosbit/movable/Deer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/camp1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/castle1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/dworek1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/fort1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/fort2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/fort3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zame8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek_drew1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek_drew2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek_drew3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/.bsp/sbt.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/.metals/metals.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/js/src/main/scala/eu/brosbit/Main.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/project/Dependencies.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/project/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/project/plugin.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/shared/src/main/scala/eu/brosbit/HexBase.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/shared/src/main/scala/eu/brosbit/HexFlat.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/shared/src/main/scala/eu/brosbit/HexRound.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/shared/src/main/scala/eu/brosbit/PathFinder.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/shared/src/test/scala/eu/brosbit/HexToolRoundSpec.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/shared/src/test/scala/eu/brosbit/HexToolsFlatSpec.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hexlib/shared/src/test/scala/eu/brosbit/PathFinderSpec.scala" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2TOpO6W3oQW6AIYMcqfR44QuGbx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="ScalaProjectSettings">
+    <option name="scala3DisclaimerShown" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3f5eb113-4473-4a39-85f6-5854f0dfdc0b" name="Changes" comment="" />
+      <created>1690923952806</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690923952806</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+  </component>
+</project>

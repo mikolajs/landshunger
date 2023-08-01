@@ -23,13 +23,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e32c88f5-ccdc-41f5-8672-fd6f1f646670" name="Default Changelist" comment="Hex library, count distance and list neighbours. Check Dotty.">
-      <change afterPath="$PROJECT_DIR$/.metals/metals.lock.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metals/metals.mv.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/metals.sbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.bsp/sbt.json" beforeDir="false" afterPath="$PROJECT_DIR$/.bsp/sbt.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/eu/brosbit/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/.bloop/lshcore-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/.bloop/lshcore-build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/bisons_l.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/bisons_m.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/bisons_s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/boar_l.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/boar_m.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/boar_s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/cows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/deer_l.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/deer_m.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/deer_s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_g.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_i.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_iron.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_new_c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/mine_s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/sheep.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/village.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LsHserver/src/main/resources/img/village3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/camp1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/castle1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/dworek1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/fort1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/fort2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/fort3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zame8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek_drew1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek_drew2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets/forty/zamek_drew3.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,15 +103,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ms/Programowanie/landshunger/LsHCore&quot;,
-    &quot;scala_project_settings_configurable.last_selected_tab_index&quot;: &quot;0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Bytecode Indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/ms/Programowanie/opos",
+    "scala_project_settings_configurable.last_selected_tab_index": "0",
+    "settings.editor.selected.configurable": "Bytecode Indices"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="eu.brosbit" />

@@ -1,18 +1,42 @@
 package eu.brosbit
 
 import eu.brosbit.immovable.{Forest, Grass, Plant}
-import eu.brosbit.movable.{Deer}
+import eu.brosbit.movable.{Deer, Fish}
 import eu.brosbit.hexlib.MapPosition
 
 import scala.collection.mutable.ArrayBuffer
 
 class WildAnimals(map:TheMap, nrCreate:Int) {
   private val hexlib = MainExtra.hexLib
-  var deerArr:ArrayBuffer[Deer] = new ArrayBuffer[Deer]()
+  val deerArr:ArrayBuffer[Deer] = ArrayBuffer[Deer]()
+  val fishArr:ArrayBuffer[Fish] = ArrayBuffer[Fish]()
   //++ Peccary, Buffalo, Fish
 
   private val wordSize = map.getMap.length
-  
+
+  for _ <- 0 to nrCreate do
+    createFishShoal
+
+  private def createFishShoal: Unit = 
+    val randPoint = MapPosition((Math.random()*wordSize).toInt, (Math.random()*wordSize).toInt)
+    var tried = 0
+    var lines = 0
+    ///TODO: check if good point in c
+    while !canPlaceFish(randPoint.r, randPoint.c) do
+      if(tried >= wordSize) then
+        tried = 0
+        randPoint.r =  ((randPoint.r+1) % wordSize).toShort
+        lines += 1
+        if(lines > wordSize) return
+      else tried += 1
+      randPoint.c = ((randPoint.c + 1) % wordSize).toShort
+
+    val newShoal = Fish(randPoint.r,randPoint.c)
+    fishArr += newShoal
+
+  private def canPlaceFish(r:Int, c:Int): Boolean = isWater(r, c) && freeFromAnimals(c, r)
+  private def isWater(r:Int, c:Int):Boolean = if map.getTile(r, c).aType.level == 0 then true else false
+  private def freeFromAnimals(r:Int, c:Int): Boolean = map.getMovable(r, c).arr.size == 0//?????
   /*
   for(_ <- 1 to nrCreate) createDeerHeard
   implicit val orderingTilesBio:BioTileOrdering = new BioTileOrdering

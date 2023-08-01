@@ -19,4 +19,5 @@ object  Deer extends AnimalConst  {
   override val wool: Int = 0
   override val leather: Int = 20
   override val eatSize: Int =  5
+  override val maxSize: Int = 20
 }

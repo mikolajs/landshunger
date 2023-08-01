@@ -217,7 +217,7 @@
         "platform": {
             "name": "jvm",
             "config": {
-                "home": "/usr/lib/jvm/java-11-oracle",
+                "home": "/usr/lib/jvm/java-17-oracle",
                 "options": [
                     "-Duser.dir=/home/ms/Programowanie/landshunger/LsHserver/project"
                 ]

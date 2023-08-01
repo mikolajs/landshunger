@@ -2,6 +2,7 @@ package eu.brosbit
 
 import eu.brosbit.tiles.*
 import eu.brosbit.generators.*
+import eu.brosbit.movable.*
 import zio.Console
 
 class TheMap(gameId:String):
@@ -13,12 +14,14 @@ class TheMap(gameId:String):
   startMap()
   private val mc = MapCounter(worldTiles)
   private val tileManager = TilesManager(worldTiles)
-
+  val wildAnimals = WildAnimals(this, 10)
+  private var movablePools:Array[Array[Pool]] = Array.ofDim(0, 0)
   def getMap: Array[Array[Tile]] = worldTiles
   //def getUnitMap: Array[Array[Boolean]] = unitMap
   def getWordSize:Int = wordSize
   def getTile(row:Int, col:Int) = worldTiles(row)(col)
   def getMapTilesForJson = worldTiles.map(arr => arr.map( t => t.aType.shortName)) 
+  def getMovable(row:Int, col:Int) = movablePools(row)(col)
 
   def startMap():Unit = if !loadFromDB then createMap
 
@@ -27,6 +30,7 @@ class TheMap(gameId:String):
     wordSize = 50
     worldTiles = mg.getMap
     val mosg = MapObjectStarterGenerator(worldTiles)
+    movablePools = Array.ofDim[Pool](wordSize, wordSize)
 
   private def loadFromDB:Boolean = false
 

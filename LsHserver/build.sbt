@@ -3,7 +3,7 @@
 ThisBuild / organization := "eu.brosbit"
 ThisBuild / version := "0.1"
 
-val ZioVersion   = "2.0.1"
+val ZioVersion   = "2.0.15"
 val ZHTTPVersion = "2.0.0-RC11"
 
 

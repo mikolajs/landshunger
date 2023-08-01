@@ -16,5 +16,6 @@ trait AnimalConst:
   val wool:Int
   val leather:Int
   val eatSize:Int
+  val maxSize:Int
 
 
