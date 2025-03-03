@@ -5,7 +5,7 @@ object Humus  extends TileObj:
   override val level: Byte = 0
   override val fertility: Byte = 0
   override val name: String = "humus"
-  override val shortName: String = "hu"
+  override val shortName: String = "u"
 
 class Humus extends Tile:
   override val aType = Humus

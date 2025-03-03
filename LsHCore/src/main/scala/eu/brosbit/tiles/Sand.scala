@@ -5,7 +5,7 @@ object Sand extends TileObj:
   override val level: Byte = 1
   override val fertility: Byte = 0
   override val name: String = "sand"
-  override val shortName: String = "sa"
+  override val shortName: String = "d"
 
 class Sand extends Tile:
   override val aType = Sand

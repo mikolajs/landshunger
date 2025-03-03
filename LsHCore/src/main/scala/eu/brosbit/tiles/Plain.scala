@@ -5,7 +5,7 @@ object  Plain extends TileObj:
   override val level: Byte = 0
   override val fertility: Byte = 9
   override val name: String = "plain"
-  override val shortName: String = "pl"
+  override val shortName: String = "p"
 
 
 class Plain  extends Tile:
