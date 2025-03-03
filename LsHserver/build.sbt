@@ -2,6 +2,10 @@
 // give the user a nice default project!
 ThisBuild / organization := "eu.brosbit"
 ThisBuild / version := "0.1"
+val scala3Version = "3.2.0"
+
+ThisBuild / scalaVersion := "3.2.0"
+
 
 val ZioVersion   = "2.0.15"
 val ZHTTPVersion = "2.0.0-RC11"
