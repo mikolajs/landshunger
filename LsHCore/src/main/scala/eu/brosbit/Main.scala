@@ -2,6 +2,7 @@ package eu.brosbit
 
 import eu.brosbit.hexlib.Hex
 import eu.brosbit.tiles.Tile
+import eu.brosbit.Printer
 
 object Main:
   //
@@ -52,23 +53,11 @@ object Main:
     "{ 'jsonMap':[" + mapString + "]}"
 
 
-  private def toViewMapChar(ch:Char) = 
-     ch match 
-       case c if c == 'p' => '.'
-       case c if c == 'w' => '~'
-       case c if c == 'h' => 'O'
-       case c if c == 'm' => 'X'
-       case c if c == 'a' => 'v'
-       case c if c == 'f' => '-'
-       case c if c == 'l' => '='
-       case c if c == 'c' => ';'
-       case c if c == 'i' => '*'
-       case c => c
-     
-  private def createInfoTile(tile:Tile) = 
-    toViewMapChar(tile.aType.shortName.head)
-
   
   private def mkMapString(m:Array[Array[Tile]]) = 
-    val mapString = m.map(line => line.map(t => toViewMapChar(t.aType.shortName.head)).mkString).mkString("\n")
+    val mapString = m.map(line => 
+        val firstLine = line.map(t => Printer.getFirstLine(t)).mkString("|")
+        val secondLine = line.map(t => Printer.getSecondLine(t)).mkString("|")
+        firstLine + "\n" + secondLine 
+        ).mkString("\n")
     mapString

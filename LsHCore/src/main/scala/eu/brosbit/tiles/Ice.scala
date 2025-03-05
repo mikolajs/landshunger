@@ -5,7 +5,7 @@ object Ice extends TileObj:
   override val level: Byte = 1
   override val fertility: Byte = 0
   override val name: String = "ice pool"
-  override val shortName: String = "i"
+  override val shortName: String = "ic"
 
 class Ice extends Tile:
   override val aType = Ice
