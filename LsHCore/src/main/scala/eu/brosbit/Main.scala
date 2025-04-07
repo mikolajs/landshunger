@@ -6,7 +6,7 @@ import eu.brosbit.Printer
 
 object Main:
   //
-  val SIZE = 30
+  val SIZE = 40
   val hexLib = new Hex(SIZE, SIZE)
   var days = 0
   val dayTime = 1
@@ -17,7 +17,8 @@ object Main:
     val plantsManager = new PlantsManager(map)
     val wildAnimals = new WildAnimals(map, 3)
     //val statistics = new Statistics(map)
-    println(mkMapString(map))
+    //println(mkMapString(map))
+    println(mkTileMapString(map))
     val mapManager = MapManager(map, plantsManager, wildAnimals)
     mapManager.nextDay()
     days = 1
@@ -61,3 +62,10 @@ object Main:
         firstLine + "\n" + secondLine 
         ).mkString("\n")
     mapString
+
+  private def mkTileMapString(m:Array[Array[Tile]]) = 
+    val mapString = m.map(line => 
+        line.map(t => Printer.toViewMapSymbol(t.aType.shortName)).mkString
+        ).mkString("\n")
+    mapString
+    
