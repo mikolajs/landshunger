@@ -20,15 +20,16 @@ class MapGeneratorSteppe(val sizeXY: Int):
 
   def generateMap(): Unit =
     mainRiver()
-    makeChainOfMounts(allPools/10)
-    makeRandomMountains(sizeXY)
+    
+    makeChainOfMounts(allPools/18)
+    makeRandomMountains(sizeXY/2)
     var usedHills = addHillsSurroundMounts()
     //    // ///// TODO: surrounding mountains not work!!!
-    while usedHills < allPools/10 do
-      val position = drawRandomFreePosition(Hill())
-      usedHills += 1
-      usedHills += setRandomHillsNear(position)
-
+    //while usedHills < allPools/8 do
+    //  val position = drawRandomFreePosition(Hill())
+    //  usedHills += 1
+    //  usedHills += setRandomHillsNear(position)
+ 
   //    println("In the end used hills: " + usedHills)
   //    var userdWaters = 0
   //    userdWaters += 100
@@ -117,37 +118,29 @@ class MapGeneratorSteppe(val sizeXY: Int):
 
   def mainRiver(): Unit =
     val random = Random()
-    var start = random.nextInt(sizeXY / 4) + sizeXY / 2
-    worldTiles(start)(0) = new DeepWater
+    var start = sizeXY / 8 - random.nextInt(sizeXY / 4) + sizeXY / 2
+    worldTiles(0)(start) = new DeepWater
     println("Start main river: " + start)
     var ROW = 1
     var r = 0
-    var ford = 5
+    var ford = 2 + random.nextInt(5)
     var rFord = 0
     var sideRiverStart: List[HexPoint] = List()
     var longRiverSide = 10
     while ROW < this.sizeXY do
       r = random.nextInt(2)
-      if (ROW % 2 == 1) start -= r
-      else start += r
-      if (ford < 6) then
-        this.worldTiles(start)(ROW) = new DeepWater
-        ford += 1
-        longRiverSide -= 1
+      if (ROW % 2 == 1) start += r
+      else start -= r
+      if (ford > 0) then
+        this.worldTiles(ROW)(start) = new DeepWater
         if (longRiverSide <= 0) then
           longRiverSide = 10
-          sideRiverStart = HexPoint(start, ROW) :: sideRiverStart
-        else
-          rFord = random.nextInt(4)
-        //println("rFord " + rFord);
-        if (rFord < 1) then
-          this.worldTiles(start)(ROW) = new Ford
-          ford = 0
-        else
-          this.worldTiles(start)(ROW) = new DeepWater
-          longRiverSide -= 1
-          ford += 1
-
+          sideRiverStart = HexPoint(ROW, start) :: sideRiverStart
+      else
+        longRiverSide -= 1
+        this.worldTiles(ROW)(start) = new Ford
+        ford = 5 + random.nextInt(5)
+      ford -= 1
       ROW += 1
     //console.log("longRiverSide: " + longRiverSide);
     println("Finish main river: " + start)
@@ -156,7 +149,6 @@ class MapGeneratorSteppe(val sizeXY: Int):
 
   //TODO: Implement
   private def mkSideRivers(sideRiverStart: List[HexPoint]): Unit = {
-    //console.log("_mkSideRivers not Implemented");
     val random = new Random()
     var weightRandom = 0.5;
     for a <- sideRiverStart do

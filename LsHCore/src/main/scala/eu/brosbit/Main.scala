@@ -16,7 +16,7 @@ object Main:
     val map = MapGeneratorSteppe(SIZE).getMap
     val plantsManager = new PlantsManager(map)
     val wildAnimals = new WildAnimals(map, 3)
-    //val statistics = new Statistics(map)
+    val statistics = new Statistics(map)
     //println(mkMapString(map))
     println(mkTileMapString(map))
     val mapManager = MapManager(map, plantsManager, wildAnimals)
@@ -32,6 +32,7 @@ object Main:
         wildAnimals.moveAnimals
 
       println("STATYSTYKI:")
+      statistics.countTiles
       //statistics.countForests
       //statistics.countHPOfForest
       //statistics.countGrasses
@@ -64,8 +65,12 @@ object Main:
     mapString
 
   private def mkTileMapString(m:Array[Array[Tile]]) = 
-    val mapString = m.map(line => 
-        line.map(t => Printer.toViewMapSymbol(t.aType.shortName)).mkString
-        ).mkString("\n")
+    var r = 1
+    val mapString = m.reverse.map(line => 
+        line.map(t => Printer.toViewMapSymbol(t.aType.shortName)).mkString(" ")
+        ).map(line => 
+          r += 1
+          if r % 2 == 0 then line else " "+line
+          ).mkString("\n")
     mapString
     
