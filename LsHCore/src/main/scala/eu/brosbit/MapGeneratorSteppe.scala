@@ -208,12 +208,11 @@ class MapGeneratorSteppe(val sizeXY: Int):
 
   private def  poolForDir(row: Int, dir:Int) =
     dir match
-      case 0 if row % 2 == 0 =>  HexPoint(-1, -1)
-      case 0 if row % 2 == 1 =>  HexPoint(-1, 0)
+      case 0 => if row % 2 == 0 then HexPoint(-1, -1) else  HexPoint(-1, 0)
       case 1 => if row % 2 == 0  then HexPoint(-1, 0) else HexPoint(-1, 1)
       case 2 => HexPoint(0, 1)
       case 3 => if row % 2 == 0 then  HexPoint(1, 0) else HexPoint(1, 1)
-      case 4 => if row % 2 == 0 then HexPoint(1, -1) else HexPoint(-1, 1)
+      case 4 => if row % 2 == 0 then HexPoint(1, -1) else HexPoint(1, 0)
       case 5 => HexPoint(0, -1)
       case _ => HexPoint(0,0)
   /*
@@ -246,6 +245,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
     for dir <- 0 to 5 do
       val trans = poolForDir(r, dir);
       val center = HexPoint(r + trans.r, c + trans.c);
+      println(s"($r, $c), $dir, $trans, $center") 
       if checkGoodPointPos(center) && worldTiles(center.r)(center.c).aType.shortName == Plain.shortName then
         worldTiles(center.r)(center.c) = Hill();
         numbOfHills += 1;
