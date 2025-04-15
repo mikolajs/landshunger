@@ -15,17 +15,18 @@ object Printer:
 
   def toViewMapSymbol(short:String):String = 
      short match 
-       case c if c == "pl" =>  "."
-       case c if c == "hi" => "O" 
-       case c if c == "mo" => "X"
-       case c if c == "sw" => "v"
-       case c if c == "st" => ","
-       case c if c == "fd" => "="
-       case c if c == "wd" => "~"
-       case c if c == "ws" => "~"
-       case c if c == "wc" => "~"
-       case c if c == "ic" => "*"
-       case c if c == "hu" => "#"
+       case c if c == Plain.shortName     => "."
+       case c if c == Hill.shortName      => "O" 
+       case c if c == Mountain.shortName  => "X"
+       case c if c == Swamp.shortName     => "v"
+       case c if c == Steppe.shortName    => ","
+       case c if c == Ford.shortName      => "="
+       case c if c == DeepWater.shortName => "~"
+       case c if c == ShallowWater.shortName => "~"
+       case c if c == CoolWater.shortName => "~"
+       case c if c == Ice.shortName       => "*"
+       case c if c == Humus.shortName     => "#"
+       case c if c == Sand.shortName      => "-"
        case c => c
 
   def toViewMapSymbolColor(short:String):String = 

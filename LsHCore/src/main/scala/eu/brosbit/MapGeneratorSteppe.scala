@@ -9,6 +9,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
 
   val worldTiles:Array[Array[Tile]] = Array.ofDim[Tile](sizeXY, sizeXY).map(row => row.map(x => new Plain))
   val allPools = sizeXY*sizeXY
+  val random = Random()
   println("Size of map: " + allPools)
   generateMap()
 
@@ -20,20 +21,19 @@ class MapGeneratorSteppe(val sizeXY: Int):
 
   def generateMap(): Unit =
     mainRiver()
-    
-    makeChainOfMounts(allPools/18)
-    makeRandomMountains(sizeXY/2)
+    makeChainOfMounts(allPools/25)
+    makeRandomMountains(sizeXY/10)
     var usedHills = addHillsSurroundMounts()
-    //    // ///// TODO: surrounding mountains not work!!!
-    //while usedHills < allPools/8 do
-    //  val position = drawRandomFreePosition(Hill())
-    //  usedHills += 1
-    //  usedHills += setRandomHillsNear(position)
- 
-  //    println("In the end used hills: " + usedHills)
-  //    var userdWaters = 0
-  //    userdWaters += 100
-  //    userdWaters +=  makeLakes(200, 4)
+    while usedHills < allPools/5 do
+      val position = drawRandomFreePosition(Hill())
+      usedHills += 1
+      usedHills += setRandomHillsNear(position)
+    val userdWaters =  makeLakes(allPools/30, 4)
+    tileGroupDraw(Steppe.shortName, allPools/40)
+    tileGroupDraw(Swamp.shortName, allPools/120)
+    tileGroupDraw(Humus.shortName, allPools/80)
+    tileGroupDraw(Sand.shortName, allPools/120)
+    
   //    println("Used waters for Lakes: " + userdWaters)
   //    makeSteppes(700, 10)
 
@@ -117,7 +117,6 @@ class MapGeneratorSteppe(val sizeXY: Int):
     watersNumber
 
   def mainRiver(): Unit =
-    val random = Random()
     var start = sizeXY / 8 - random.nextInt(sizeXY / 4) + sizeXY / 2
     worldTiles(0)(start) = new DeepWater
     println("Start main river: " + start)
@@ -126,15 +125,15 @@ class MapGeneratorSteppe(val sizeXY: Int):
     var ford = 2 + random.nextInt(5)
     var rFord = 0
     var sideRiverStart: List[HexPoint] = List()
-    var longRiverSide = 10
+    var longRiverSide = 7 + random.nextInt(4)
     while ROW < this.sizeXY do
       r = random.nextInt(2)
-      if (ROW % 2 == 1) start += r
+      if (ROW % 2 == 0) start += r
       else start -= r
       if (ford > 0) then
         this.worldTiles(ROW)(start) = new DeepWater
         if (longRiverSide <= 0) then
-          longRiverSide = 10
+          longRiverSide = 7 + random.nextInt(4)
           sideRiverStart = HexPoint(ROW, start) :: sideRiverStart
       else
         longRiverSide -= 1
@@ -142,17 +141,18 @@ class MapGeneratorSteppe(val sizeXY: Int):
         ford = 5 + random.nextInt(5)
       ford -= 1
       ROW += 1
+      longRiverSide -= 1
     //console.log("longRiverSide: " + longRiverSide);
-    println("Finish main river: " + start)
+    //println("Finish main river: " + start)
     mkSideRivers(sideRiverStart)
 
 
   //TODO: Implement
   private def mkSideRivers(sideRiverStart: List[HexPoint]): Unit = {
-    val random = new Random()
+    println(s"side rivers ${sideRiverStart.size}")
     var weightRandom = 0.5;
     for a <- sideRiverStart do
-      println(s"rivers side start: ' + a[0] + ', ' + a[1]");
+      println(s"rivers side start: (${a.r},${a.c})");
       var COL = a.c
       var ROW = a.r
       var r = 0
@@ -165,9 +165,9 @@ class MapGeneratorSteppe(val sizeXY: Int):
         r = -1
         weightRandom -= 0.15
       COL += r
-      worldTiles(COL)(ROW) = new DeepWater
+      worldTiles(ROW)(COL) = new DeepWater
       COL += r
-      worldTiles(COL)(ROW) = new DeepWater
+      worldTiles(ROW)(COL) = new DeepWater
       var sideRiverLong = random.nextInt(12) + 8
       var lastUpDownOrLeft = 0
       while (sideRiverLong > 0) do
@@ -180,16 +180,16 @@ class MapGeneratorSteppe(val sizeXY: Int):
         if upDownOrLeft == 0 || lastUpDownOrLeft == -upDownOrLeft then
           COL += r
           if !(COL < 0 || COL >= sizeXY || ROW < 0 || ROW >= sizeXY) then
-            worldTiles(COL)(ROW) = if waterType == 'w' then new DeepWater else new Ford
+            worldTiles(ROW)(COL) = if waterType == 'w' then new DeepWater else new Ford
           else if ROW % 2 == 0 then
             ROW += upDownOrLeft
           if r < 0 then COL += r
           if !(COL < 0 || COL >= sizeXY || ROW < 0 || ROW >= sizeXY) then
-            worldTiles(COL)(ROW) = if waterType == 'w' then new DeepWater else new Ford
+            worldTiles(ROW)(COL) = if waterType == 'w' then new DeepWater else new Ford
           else if r > 0 then COL += r
           ROW += upDownOrLeft
           if !(COL < 0 || COL >= sizeXY || ROW < 0 || ROW >= sizeXY) then
-            worldTiles(COL)(ROW) = if waterType == 'w' then new DeepWater else new Ford
+            worldTiles(ROW)(COL) = if waterType == 'w' then new DeepWater else new Ford
 
         lastUpDownOrLeft = upDownOrLeft
         sideRiverLong -= 1
@@ -245,7 +245,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
     for dir <- 0 to 5 do
       val trans = poolForDir(r, dir);
       val center = HexPoint(r + trans.r, c + trans.c);
-      println(s"($r, $c), $dir, $trans, $center") 
+      //println(s"X ($r, $c), O $center") 
       if checkGoodPointPos(center) && worldTiles(center.r)(center.c).aType.shortName == Plain.shortName then
         worldTiles(center.r)(center.c) = Hill();
         numbOfHills += 1;
@@ -279,37 +279,48 @@ class MapGeneratorSteppe(val sizeXY: Int):
     arrForLong
 
 
-  private def steppesGroupDraw(source: HexPoint, size:Int):Int = returning {
-    var steppesNumber = 0
-    var nextSource = source
-    var arrAddedSteppes:List[HexPoint] = Nil
-     // console.log("beging Steppe source: " + nextSource.x + "," + nextSource.y);
-    for  i <- 1 to size do
-      arrAddedSteppes = makeNextSteppeDrawElement(nextSource)
-      steppesNumber += arrAddedSteppes.length
-       // println("for steppe chains: " + i + "; " + arrAddedSteppes.length);
-       if(arrAddedSteppes.length == 0) throwReturn(steppesNumber)
-       nextSource = arrAddedSteppes(math.floor(math.random()*arrAddedSteppes.length).toInt)
-     // console.log("_longLakeDraw steppesNumber: " + steppesNumber)
-    steppesNumber
-  }
+  private def tileGroupDraw(aTypeShortName: String, size:Int) = 
+    var allNumber = 0
+    var securityFuse = 50
+    while allNumber < size do
+      securityFuse -= 1
+      val R = random.nextInt(sizeXY)
+      var C = random.nextInt(sizeXY)
+      if worldTiles(R)(C).aType.shortName == Plain.shortName then
+        worldTiles(R)(C) = getTileType(aTypeShortName)
+        allNumber += 1
+        allNumber += makeTileElements(HexPoint(R, C), aTypeShortName, 5)
+      if securityFuse < 0 then allNumber = size
 
 
-  private def makeNextSteppeDrawElement(source: HexPoint) =
-    var arrForLong:List[HexPoint] = Nil
-    for dir <- 0 to 5 do
-      val nearDir = this.poolForDir(source.r, dir)
-      val nearPoint = HexPoint(source.r+nearDir.r, source.c + nearDir.c);
+  private def makeTileElements(from: HexPoint, aTypeShortName: String, numb:Int) =
+    val dirs = Random.shuffle(List(0, 1, 2, 3, 4, 5)).take(numb)
+    var createdNumb = 0
+    for dir <- dirs do
+      val nearDir = this.poolForDir(from.r, dir)
+      val nearPoint = HexPoint(from.r+nearDir.r, from.c + nearDir.c);
       if nearPoint.r >= 0 && nearPoint.r < this.sizeXY && nearPoint.c >= 0 && nearPoint.c < this.sizeXY then
-        if this.worldTiles(nearPoint.c)(nearPoint.r).aType.shortName == "p" then
-          this.worldTiles(nearPoint.c)(nearPoint.r) = Steppe();
-          arrForLong = nearPoint::arrForLong
+        if this.worldTiles(nearPoint.c)(nearPoint.r).aType.shortName == Plain.shortName then
+          this.worldTiles(nearPoint.c)(nearPoint.r) = getTileType(aTypeShortName);
+          createdNumb += 1
+    createdNumb
 
-    arrForLong
+  private def getTileType(aTSN:String) =
+    aTSN match
+      case Plain.shortName      => Plain()
+      case Ford.shortName       => Ford()
+      case CoolWater.shortName  => CoolWater()
+      case DeepWater.shortName  => DeepWater()
+      case Hill.shortName       => Hill()
+      case Humus.shortName      => Humus()
+      case Ice.shortName        => Ice()
+      case Mountain.shortName   => Mountain()
+      case Sand.shortName       => Sand()
+      case ShallowWater.shortName  => ShallowWater()
+      case Steppe.shortName     => Steppe()
+      case Swamp.shortName      => Swamp()
 
 
-   //// TODO: Implement!!!
-   //private def findMountainInCenter = ???
 
 
 

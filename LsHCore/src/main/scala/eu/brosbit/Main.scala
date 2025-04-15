@@ -66,7 +66,7 @@ object Main:
 
   private def mkTileMapString(m:Array[Array[Tile]]) = 
     var r = 1
-    val mapString = m.reverse.map(line => 
+    val mapString = m.map(line => 
         line.map(t => Printer.toViewMapSymbol(t.aType.shortName)).mkString(" ")
         ).map(line => 
           r += 1
