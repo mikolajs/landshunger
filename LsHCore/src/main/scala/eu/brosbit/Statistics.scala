@@ -35,7 +35,7 @@ class Statistics(map:Array[Array[Tile]]){
   }
   def countTiles:Unit = 
     println("start tiles")
-    val tiles = map.flatten.map(t => t.aType.name).groupBy(identity).map(e => (e._1, e._2.size))
+    val tiles = map.flatten.map(t => Printer.toViewMapSymbol(t.aType.shortName) + " " +t.aType.name).groupBy(identity).map(e => (e._1, e._2.size))
     println("Tiles:")
     for t <- tiles do
       println(s"${t._1} : ${t._2}")

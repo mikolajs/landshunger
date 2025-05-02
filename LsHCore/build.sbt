@@ -15,6 +15,7 @@ lazy val root = project.
     libraryDependencies ++= Seq(
       "org.scalactic" % "scalactic_3" % "3.2.14",
       "org.scalatest" % "scalatest_3" % "3.2.14" % "test",
-      "ch.qos.logback"    % "logback-classic"           % "1.2.3"
+      "ch.qos.logback"    % "logback-classic"           % "1.2.3",
+      "eu.brosbit" % "hexlib_3" % "0.2"
     )
   )

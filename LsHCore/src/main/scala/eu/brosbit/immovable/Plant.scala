@@ -4,7 +4,7 @@ abstract  class Plant extends ImmovableObject {
 
   val obj:PlantConst
 
-  protected var bio: Short = 0
+  protected var bio: Short = 1
   protected var food: Short = 0
   protected var hp: Short = 0
 
@@ -38,6 +38,7 @@ trait PlantConst extends ImmovableObjectConst {
   val genType = "P"
   val name:String = "Plant"
   val shortName:String ="pl"
+  val symbol = " "
   val growBio:Short = 0
   val maxBio:Short = 0
   val growHP: Short = 0

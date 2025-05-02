@@ -1,6 +1,6 @@
 package eu.brosbit.movable
 import scala.collection.mutable.ArrayBuffer
-case class MapPosition(var r:Int, var c:Int)
+import eu.brosbit.hexlib.MapPosition
 
 trait Animal extends Movable {
   val obj:AnimalConst

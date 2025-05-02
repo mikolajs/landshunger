@@ -37,11 +37,11 @@ object Printer:
 
   def toHexNr(nr:Int, max:Int) = 
     val x = scala.math.round(nr*15.0/max)
-    if x < 10 then x.toString.head else (x + 65).toChar.toString
+    if x < 10 then x.toString.head else (x + 55).toChar.toString
 
   private def getObjShort(imObjOpt:Option[ImmovableObject]):String = 
     imObjOpt.map(o => 
-        val name = toViewMapSymbol(o.obj.shortName)
+        val name = toViewMapSymbol(o.obj.symbol)
         val hp = toHexNr(o.getHP().toInt, o.obj.maxHP)
         val bio = if o.isInstanceOf[Plant] then toHexNr(o.asInstanceOf[Plant].getBio, o.asInstanceOf[Plant].obj.maxBio) else ' '
         name+hp+bio

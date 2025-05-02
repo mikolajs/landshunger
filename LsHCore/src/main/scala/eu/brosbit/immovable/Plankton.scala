@@ -8,6 +8,7 @@ object Plankton extends PlantConst {
   def apply() = new Plankton
   override val name: String = "Plankton"
   override val shortName: String = "Pl"
+  override val symbol: String = ":"
   override val maxBio: Short = 100
   override val growBio: Short = 15
   override val growHP: Short = 0

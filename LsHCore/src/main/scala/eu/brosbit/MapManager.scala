@@ -7,7 +7,7 @@ class MapManager(map: Array[Array[Tile]], plantsManager: PlantsManager, wildAnim
   //def createDeers(n:Int):Unit = (1 to n).foreach(_ => wildAnimals.createDeerHeard)
 
   def nextDay(): Unit = {
-    //plantsManager.nextDay()
+    plantsManager.nextDay()
     //wildAnimals.calculateForage()
     for(a <- map; t <- a) t.nextDay
   }

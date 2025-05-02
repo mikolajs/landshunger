@@ -29,7 +29,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
       usedHills += 1
       usedHills += setRandomHillsNear(position)
     val userdWaters =  makeLakes(allPools/30, 4)
-    tileGroupDraw(Steppe.shortName, allPools/40)
+    tileGroupDraw(Steppe.shortName, allPools/30)
     tileGroupDraw(Swamp.shortName, allPools/120)
     tileGroupDraw(Humus.shortName, allPools/80)
     tileGroupDraw(Sand.shortName, allPools/120)
@@ -147,7 +147,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
     mkSideRivers(sideRiverStart)
 
 
-  //TODO: Implement
+  //TODO: to many fords! 
   private def mkSideRivers(sideRiverStart: List[HexPoint]): Unit = {
     println(s"side rivers ${sideRiverStart.size}")
     var weightRandom = 0.5;
@@ -157,7 +157,6 @@ class MapGeneratorSteppe(val sizeXY: Int):
       var ROW = a.r
       var r = 0
       var ford = 4
-      var rFord = 0
       if (random.nextDouble() > weightRandom) then
         r = 1
         weightRandom += 0.15
@@ -215,17 +214,6 @@ class MapGeneratorSteppe(val sizeXY: Int):
       case 4 => if row % 2 == 0 then HexPoint(1, -1) else HexPoint(1, 0)
       case 5 => HexPoint(0, -1)
       case _ => HexPoint(0,0)
-  /*
-    _makeSteppes(steppeNumber, size){
-      let source;
-      while(steppeNumber > 4) {
-        source = this._drawRandomFreePosition('s');
-        steppeNumber--;
-        steppeNumber -= this._steppesGroupDraw(source, size);
-      }
-    }
-
- */
 
   private def makeNewDirForLinePools(_dir: Int) =
     ///// TODO: is 50% of forward, change to 80%
@@ -249,7 +237,7 @@ class MapGeneratorSteppe(val sizeXY: Int):
       if checkGoodPointPos(center) && worldTiles(center.r)(center.c).aType.shortName == Plain.shortName then
         worldTiles(center.r)(center.c) = Hill();
         numbOfHills += 1;
-    ///// TODO: add mayby a second line of hiils
+    ///// TODO: add mayby a second line of hils
     numbOfHills
 
   private def longLakeDraw(source:HexPoint, size:Int):Int = returning {

@@ -1,6 +1,7 @@
 package eu.brosbit.movable
 
 import scala.collection.mutable.ArrayBuffer
+import eu.brosbit.hexlib.MapPosition
 
 class Deer(r:Int, c:Int) extends  Animal {
   override val obj = Deer

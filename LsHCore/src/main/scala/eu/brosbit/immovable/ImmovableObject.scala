@@ -14,5 +14,6 @@ trait  ImmovableObjectConst {
   val genType:String
   val name:String
   val shortName:String
+  val symbol:String
   val maxHP:Short
 }

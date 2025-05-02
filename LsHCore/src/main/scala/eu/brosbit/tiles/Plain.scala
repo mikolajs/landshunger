@@ -2,7 +2,7 @@ package eu.brosbit.tiles
 import eu.brosbit.immovable.*
 
 object  Plain extends TileObj:
-  override val level: Byte = 0
+  override val level: Byte = 1
   override val fertility: Byte = 9
   override val name: String = "plain"
   override val shortName: String = "pl"

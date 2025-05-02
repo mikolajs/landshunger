@@ -17,31 +17,29 @@ object Main:
     val plantsManager = new PlantsManager(map)
     val wildAnimals = new WildAnimals(map, 3)
     val statistics = new Statistics(map)
-    //println(mkMapString(map))
     println(mkTileMapString(map))
+    statistics.countTiles
     val mapManager = MapManager(map, plantsManager, wildAnimals)
-    mapManager.nextDay()
     days = 1
-    val daysShow = 1
-
+    val daysShow = 5
     var play = true
-
     while(play) do
       println(s"Dzień $days")
+      mapManager.nextDay()
+
       for time <- 1 to dayTime do
         wildAnimals.moveAnimals
 
       println("STATYSTYKI:")
-      statistics.countTiles
-      //statistics.countForests
-      //statistics.countHPOfForest
-      //statistics.countGrasses
-      //statistics.countBioGrasses
+      statistics.countForests
+      statistics.countHPOfForest
+      statistics.countGrasses
+      statistics.countBioGrasses
       wildAnimals.showInfoDeer
       //wildAnimals.consumeAndGrown()
-      Thread.sleep(1000)
-      mapManager.nextDay()
       wildAnimals.nextDay
+      println(mkMapString(map))
+      Thread.sleep(1000)
       days += 1
       if days >= daysShow then play = false
 

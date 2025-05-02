@@ -1,7 +1,7 @@
 package eu.brosbit
 
 import eu.brosbit.immovable.{Forest, Grass, Plant}
-import eu.brosbit.movable.{Deer, MapPosition}
+import eu.brosbit.movable.{Deer}
 import eu.brosbit.tiles.Tile
 import eu.brosbit.hexlib.*
 
