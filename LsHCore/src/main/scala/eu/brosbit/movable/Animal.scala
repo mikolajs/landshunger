@@ -18,5 +18,7 @@ trait AnimalConst {
   val wool:Short
   val leather:Short
   val eatSize:Short
+  val name:String
+  val symbol:String
 }
 

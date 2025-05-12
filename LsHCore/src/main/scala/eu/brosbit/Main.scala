@@ -15,7 +15,8 @@ object Main:
   def main(args: Array[String]): Unit =
     val map = MapGeneratorSteppe(SIZE).getMap
     val plantsManager = new PlantsManager(map)
-    val wildAnimals = new WildAnimals(map, 3)
+    val mapUnit:Array[Array[Int]] = Array.ofDim[Int](SIZE,SIZE)
+    val wildAnimals = new WildAnimals(map, mapUnit, 3)
     val statistics = new Statistics(map)
     println(mkTileMapString(map))
     statistics.countTiles

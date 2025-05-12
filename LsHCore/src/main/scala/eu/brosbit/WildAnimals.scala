@@ -1,20 +1,25 @@
 package eu.brosbit
 
 import eu.brosbit.immovable.{Forest, Grass, Plant}
-import eu.brosbit.movable.{Deer}
+import eu.brosbit.movable.{Deer, Boar, Wisent}
 import eu.brosbit.tiles.Tile
 import eu.brosbit.hexlib.*
 
 import scala.collection.mutable.{ArrayBuffer, ArrayStack}
 
-class WildAnimals(map:Array[Array[Tile]], nrCreate:Int) {
+class WildAnimals(map:Array[Array[Tile]], unitArray:Array[Array[Int]], nrCreate:Int) {
   var deerArr:ArrayBuffer[Deer] = new ArrayBuffer[Deer]()
+  var boarArr:ArrayBuffer[Boar] = new ArrayBuffer[Boar]()
+  var wisentArr:ArrayBuffer[Wisent] = new ArrayBuffer[Wisent]()
+  val rand = scala.util.Random()
   //++ Peccary, Buffalo, Fish
-  val mapUnit:Array[Array[Boolean]] = Array.ofDim[Boolean](40,40)
   private val wordSize = map.length
   val hexlib = Hex(wordSize, wordSize)
-
-  for(_ <- 1 to nrCreate) createDeerHeard
+  for _ <- 1 to nrCreate do
+    createHeard("Deer")
+    createHeard("Boar")
+    createHeard("Wisent")
+    
 
   implicit val orderingTilesBio:BioTileOrdering = new BioTileOrdering
 
@@ -22,16 +27,15 @@ class WildAnimals(map:Array[Array[Tile]], nrCreate:Int) {
   def getDeer:Array[Deer] = deerArr.toArray
 
   //when animal don't eat but go to new destination
-  def moveAnimals:Unit = {
+  def moveAnimals:Unit = 
     // check if they have something to eat
     val deerToMove = deerArr.filter(d => { d.moveTo.length > 0 })
 
 
-  }
 
-  def nextDay:Unit = {
+  def nextDay:Unit = 
     calculateForage()
-  }
+  
 
   //they eat some of bio and if they ate all, they looking for moving somewhere else
   def feed():Unit = {
@@ -66,7 +70,7 @@ class WildAnimals(map:Array[Array[Tile]], nrCreate:Int) {
 
    OR?
    val prior = bio/distance nad go where max
- */
+ 
   private def findNewDestinationNearOrElseFar(d:Deer):Unit = {
       val position = (d.position::hexlib.neighbours(d.position))
         .filter(mp => {
@@ -80,30 +84,32 @@ class WildAnimals(map:Array[Array[Tile]], nrCreate:Int) {
            findNewDestinationFar(d)
         } else if(position != d.position) d.moveTo += position
   }
-
+*/
 
   //TODO: implement this method
   private def findNewDestinationFar(deer: Deer):Unit = {
-
+      
   }
 
 
-  private def createDeerHeard: Unit = {
+  private def createHeard(animal:String): Unit = 
+    var r = rand.nextInt(wordSize)
+    var c = rand.nextInt(wordSize)
     val randPoint = MapPosition((Math.random()*wordSize).toInt, (Math.random()*wordSize).toInt)
     var tried = 0
-    var lines = 0
-    while(!canPlaceDeer(randPoint.c, randPoint.r)){
-      if(tried >= wordSize) {
-        tried = 0
-        randPoint.r =  ((randPoint.r+1) % wordSize).toShort
-        lines += 1
-        if(lines > wordSize) return
-      } else tried += 1
-      randPoint.c = ((randPoint.c + 1) % wordSize).toShort
-    }
-    val newHeard = new Deer(randPoint.r,randPoint.c)
-    deerArr += newHeard
-  }
+    var found = false
+    while(tried < wordSize && !canPlaceAnimal(randPoint.c, randPoint.r)) do
+      if(tried >= wordSize) then
+        r = rand.nextInt(wordSize)
+        c = rand.nextInt(wordSize)
+        found = true
+      else tried += 1
+   
+    if found then  
+      animal match
+        case "Deer" => deerArr += Deer(r, c)
+        case "Boar" => boarArr += Boar(r, c)
+        case "Wisent" => wisentArr += Wisent(r, c)
 
   def addDeerHeard(deer:Deer):Unit = deerArr += deer
 
