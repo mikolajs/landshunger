@@ -11,7 +11,7 @@ trait ImmovableObject {
 }
 
 trait  ImmovableObjectConst {
-  val genType:String
+  val aType:String
   val name:String
   val shortName:String
   val symbol:String
