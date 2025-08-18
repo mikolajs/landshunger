@@ -1,0 +1,2 @@
+* produkcja json o typach immovable
+* produkcja json dla roślin
