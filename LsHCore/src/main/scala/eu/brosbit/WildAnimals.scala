@@ -47,7 +47,7 @@ class WildAnimals(map:Array[Array[Tile]], unitArray:Array[Array[Int]], nrCreate:
         plant.setBio((plant.getBio - toEat).toShort)
         d.eaten = (d.eaten + toEat).toShort
       } else {
-        findNewDestinationNearOrElseFar(d)
+        //findNewDestinationNearOrElseFar(d)
         d.eaten = (d.eaten + plant.getBio).toShort
         plant.setBio(0)
       }
@@ -98,13 +98,14 @@ class WildAnimals(map:Array[Array[Tile]], unitArray:Array[Array[Int]], nrCreate:
     val randPoint = MapPosition((Math.random()*wordSize).toInt, (Math.random()*wordSize).toInt)
     var tried = 0
     var found = false
-    while(tried < wordSize && !canPlaceAnimal(randPoint.c, randPoint.r)) do
+    /*while(tried < wordSize && !canPlaceAnimal(randPoint.c, randPoint.r)) do
       if(tried >= wordSize) then
         r = rand.nextInt(wordSize)
         c = rand.nextInt(wordSize)
         found = true
       else tried += 1
    
+      */
     if found then  
       animal match
         case "Deer" => deerArr += Deer(r, c)
@@ -128,13 +129,13 @@ class WildAnimals(map:Array[Array[Tile]], unitArray:Array[Array[Int]], nrCreate:
     freeAndPlainOrHill(c, r) && isWood(c, r)
 
   private def freeAndPlainOrHill(c:Int, r:Int):Boolean = {
-    if (mapUnit(r)(c)) return false
+    if (unitArray(r)(c)) return false
     val level = map(r)(c).aType.level
     if (level > 2 || level < 1) false else true
   }
 
   private def freePlain(c: Int, r: Int): Boolean = {
-    if (mapUnit(r)(c)) return false
+    if (unitArray(r)(c)) return false
     if (map(r)(c).aType.level == 1) true else false
   }
 
