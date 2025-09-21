@@ -1,6 +1,6 @@
 package eu.brosbit.lshcore.tiles
 
-import eu.brosbit.immovable.*
+import eu.brosbit.lshcore.immovable.*
 
 object CoolWater extends TileObj:
   override val level: Byte = 0 

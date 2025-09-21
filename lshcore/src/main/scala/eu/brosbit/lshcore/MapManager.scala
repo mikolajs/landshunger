@@ -4,7 +4,7 @@ import eu.brosbit.lshcore.immovable.ImmovableObject
 import eu.brosbit.lshcore.tiles.*
 
 class MapManager(tileMap: Array[Array[Tile]], objectMap: Array[Array[ImmovableObject]], 
-                 plantsManager: PlantsManager, wildAnimals: WildAnimals) {
+                 plantsManager: PlantsManager, wildAnimals: WildAnimals, villageManager: VillageManager) {
 
   //def createDeers(n:Int):Unit = (1 to n).foreach(_ => wildAnimals.createDeerHeard)
 

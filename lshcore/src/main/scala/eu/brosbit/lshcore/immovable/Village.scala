@@ -1,9 +1,20 @@
 package eu.brosbit.lshcore.immovable
 
-import eu.brosbit.items
+import eu.brosbit.lshcore.items
+import eu.brosbit.lshcore.tiles.Tile
+import eu.brosbit.hexlib.*
 
-class SmallVillage(const:BuildingConst) extends Building:
+class SmallVillage(row:Int, col:Int) extends Building(row, col):
   override val obj = VillageConst1
+  var peasants = 10
+  var nobles = 1
+  var pools:List[MapPosition] = Nil
+  
+  def countPools():List[Hex] =
+    val hex  = Hex(row, col)
+    List()
+    
+  
 
 
 object VillageConst1 extends BuildingConst:

@@ -6,7 +6,7 @@ import eu.brosbit.lshcore.tiles.Tile
 
 object Main:
   //
-  val SIZE = 40
+  val SIZE = 20
   val hexLib = new Hex(SIZE, SIZE)
   var days = 0
   val dayTime = 1
@@ -56,10 +56,13 @@ object Main:
     "{ 'jsonMap':[" + mapString + "]}"
 
   private def mkMapString(m:Array[Array[Tile]], o:Array[Array[ImmovableObject]]) = 
+    var lineNr = -1
     val mapString = for r <- m.indices yield 
         val firstLine = m(r).map(t => Printer.getFirstLine(t)).mkString("|")
         val secondLine = o(r).map(t => Printer.getSecondLine(t)).mkString("|")
-        firstLine + "\n" + secondLine
+        lineNr += 1
+        if lineNr % 2 == 0 then firstLine + "\n" + secondLine
+        else "  " + firstLine + "\n  " + secondLine 
         
     mapString.mkString("\n")
 
