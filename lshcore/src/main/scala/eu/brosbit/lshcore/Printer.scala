@@ -46,6 +46,11 @@ object Printer:
         val hp = toHexNr(plant.getHP, plant.obj.maxHP)
         val bio = toHexNr(plant.getBio, plant.obj.maxBio) 
         name+hp+bio
+      case building:Building =>
+        val name = toViewMapSymbol(building.obj.symbol)
+        val hp = toHexNr(building.getHP, building.obj.maxHP)
+        val people = " "
+        name+hp+people
       case _ => "   " 
     }
     
