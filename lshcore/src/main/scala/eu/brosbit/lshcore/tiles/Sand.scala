@@ -1,6 +1,6 @@
 package eu.brosbit.lshcore.tiles
 
-import eu.brosbit.immovable.*
+import eu.brosbit.lshcore.immovable.*
 
 object Sand extends TileObj:
   override val level: Byte = 1

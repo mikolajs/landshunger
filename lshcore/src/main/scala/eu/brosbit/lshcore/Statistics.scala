@@ -1,6 +1,5 @@
 package eu.brosbit.lshcore
 
-import eu.brosbit.immovable.*
 import eu.brosbit.lshcore.immovable.{Forest, Grass, ImmovableObject}
 import eu.brosbit.lshcore.tiles.Tile
 

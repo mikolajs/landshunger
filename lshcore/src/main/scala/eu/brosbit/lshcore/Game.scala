@@ -11,7 +11,8 @@ class Game(SIZE:Int):
   val objectMap = plantsManager.objectMap
   val mapUnit: Array[Array[Int]] = Array.ofDim[Int](SIZE, SIZE)
   val wildAnimals = new WildAnimals(tileMap, mapUnit, 3)
-  val mapManager = MapManager(tileMap, objectMap, plantsManager, wildAnimals)
+  val villageManager = VillageManager(tileMap, objectMap)
+  val mapManager = MapManager(tileMap, objectMap, plantsManager, wildAnimals, villageManager)
   
   private var blocked: Boolean = false
   

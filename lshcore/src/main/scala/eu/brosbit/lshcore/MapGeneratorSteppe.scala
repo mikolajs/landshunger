@@ -1,8 +1,6 @@
 package eu.brosbit.lshcore
 
-import eu.brosbit.lshcore.tiles.{CoolWater, DeepWater, Ford, Hill, Humus, Ice, Mountain, Plain, Sand, ShallowWater, Steppe, Swamp, Tile}
-import eu.brosbit.tiles.*
-
+import eu.brosbit.lshcore.tiles.*
 import scala.util.Random
 import scala.util.control.NonLocalReturns.*
 case class HexPoint(r: Int, c: Int)

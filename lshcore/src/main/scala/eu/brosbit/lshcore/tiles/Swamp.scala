@@ -1,6 +1,6 @@
 package eu.brosbit.lshcore.tiles
 
-import eu.brosbit.immovable._
+import eu.brosbit.lshcore.immovable._
 
 object Swamp extends TileObj:
   override val level: Byte = 1

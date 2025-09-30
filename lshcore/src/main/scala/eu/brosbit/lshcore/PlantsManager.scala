@@ -1,9 +1,8 @@
 package eu.brosbit.lshcore
 
 import eu.brosbit.hexlib.*
-import eu.brosbit.lshcore.immovable.{Forest, Grass, ImmovableObject, Plankton, Plant, Wasteland}
-import eu.brosbit.lshcore.tiles.{CoolWater, DeepWater, Ford, Hill, Humus, Plain, ShallowWater, Steppe, Tile}
-import eu.brosbit.tiles.*
+import eu.brosbit.lshcore.immovable.*
+import eu.brosbit.lshcore.tiles.*
 
 class PlantsManager(tileMap:Array[Array[Tile]]) {
   private val waters = tileMap.flatten.count(_.aType.level == 0)

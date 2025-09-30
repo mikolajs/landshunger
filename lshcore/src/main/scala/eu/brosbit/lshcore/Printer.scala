@@ -1,10 +1,8 @@
 package eu.brosbit.lshcore
 
-import eu.brosbit.tiles.*
-import eu.brosbit.immovable.*
-import eu.brosbit.lshcore.immovable.{ImmovableObject, Plant}
-import eu.brosbit.lshcore.tiles.{CoolWater, DeepWater, Ford, Hill, Humus, Ice, Mountain, Plain, Sand, ShallowWater, Steppe, Swamp, Tile}
-import eu.brosbit.movable.*
+import eu.brosbit.lshcore.tiles.*
+import eu.brosbit.lshcore.immovable.*
+import eu.brosbit.lshcore.movable.*
 
 object Printer:
   val ANSI_RED = "\u001B[31m"
