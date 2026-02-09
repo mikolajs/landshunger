@@ -25,6 +25,7 @@ object VillageConst1 extends BuildingConst:
   override val buildEffort:Int = 5000
   override val strongBuilding:Int = 1233 //how havy to destroy
   override val image = "village_small"
+  override val symbol = "^"
   override val stoneNeed:Int = 0
   override val woodNeed:Int = 100
   override val ironNeed:Int = 0

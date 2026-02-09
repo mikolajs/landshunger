@@ -29,6 +29,6 @@ trait CompanyConst:
   val meleeSoft = 20
   val meleeHard = 10
   val horse = "no"
-  val pancertype = ""
+  val pacerType = "no"
   
 

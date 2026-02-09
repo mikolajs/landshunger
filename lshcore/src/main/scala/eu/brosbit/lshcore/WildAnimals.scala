@@ -45,7 +45,7 @@ class WildAnimals(map:Array[Array[Tile]], unitArray:Array[Array[Int]], nrCreate:
         plant.setBio((plant.getBio - toEat).toShort)
         d.eaten = (d.eaten + toEat).toShort
       } else {
-        findNewDestinationNearOrElseFar(d)
+        //findNewDestinationNearOrElseFar(d)
         d.eaten = (d.eaten + plant.getBio).toShort
         plant.setBio(0)
       }
@@ -100,13 +100,18 @@ y
     val randPoint = MapPosition((Math.random()*wordSize).toInt, (Math.random()*wordSize).toInt)
     var tried = 0
     var found = false
+<<<<<<< HEAD:LsHCore/src/main/scala/eu/brosbit/WildAnimals.scala
+    /*while(tried < wordSize && !canPlaceAnimal(randPoint.c, randPoint.r)) do
+=======
     while(tried < wordSize && !canPlaceAnimal(randPoint.c, randPoint.r, animal)) do
+>>>>>>> 2870d9bf9454e7e409e609e4000b4f8636165549:lshcore/src/main/scala/eu/brosbit/lshcore/WildAnimals.scala
       if(tried >= wordSize) then
         r = rand.nextInt(wordSize)
         c = rand.nextInt(wordSize)
         found = true
       else tried += 1
    
+      */
     if found then  
       animal match
         case "Deer" => deerArr += Deer(r, c)
@@ -136,13 +141,21 @@ y
     freeAndPlainOrHill(c, r) && isWood(c, r)
 
   private def freeAndPlainOrHill(c:Int, r:Int):Boolean = {
+<<<<<<< HEAD:LsHCore/src/main/scala/eu/brosbit/WildAnimals.scala
+    if (unitArray(r)(c)) return false
+=======
     if unitArray(r)(c) > 0 then return false
+>>>>>>> 2870d9bf9454e7e409e609e4000b4f8636165549:lshcore/src/main/scala/eu/brosbit/lshcore/WildAnimals.scala
     val level = map(r)(c).aType.level
     if (level > 2 || level < 1) false else true
   }
 
   private def freePlain(c: Int, r: Int): Boolean = {
+<<<<<<< HEAD:LsHCore/src/main/scala/eu/brosbit/WildAnimals.scala
+    if (unitArray(r)(c)) return false
+=======
     if (unitArray(r)(c) > 0) return false
+>>>>>>> 2870d9bf9454e7e409e609e4000b4f8636165549:lshcore/src/main/scala/eu/brosbit/lshcore/WildAnimals.scala
     if (map(r)(c).aType.level == 1) true else false
   }
 
