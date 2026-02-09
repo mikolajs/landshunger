@@ -40,5 +40,4 @@ class GrowPlantsSpec  extends AnyFlatSpec with Matchers {
     grass.setBio((Grass.maxBio - 5).toShort)
     grass.getBio should be (Grass.maxBio - 5)
   }
-
 }

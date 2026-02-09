@@ -5,7 +5,7 @@ class Wasteland extends ImmovableObject:
   override def getHP: Int = 0
   override def nextDay(): Unit = {}
   override def log = "empty"
-  override def toJson: String = "" 
+  override def toJson: String = ""
   
 object Wasteland extends ImmovableObjectConst:
   override val aType: String = "W" 

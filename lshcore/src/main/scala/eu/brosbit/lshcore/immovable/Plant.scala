@@ -1,5 +1,7 @@
 package eu.brosbit.lshcore.immovable
 
+import eu.brosbit.lshcore.items.{ItemList, Peasants}
+
 abstract  class Plant extends ImmovableObject {
 
   val obj:PlantConst
@@ -17,14 +19,19 @@ abstract  class Plant extends ImmovableObject {
   override def nextDay(): Unit = yields()
 
   override def log: String = {
-    s"${obj.shortName}:hp=${hp},bi=$bio"
+    s"${obj.shortName}:hp=${hp},bi=$bio,fo=$food"
   }
-
+  
+  def harvest(items:ItemList, peasants: Peasants):Int
+  
   private def yields(): Unit = {
     bio = bio + obj.growBio
     hp = hp + obj.growHP
+    food = food + obj.growFood
     if(bio > obj.maxBio) bio = obj.maxBio
     if(hp > obj.maxHP) hp = obj.maxHP
+    if food > obj.maxFood then food = obj.maxFood
+    if obj.growHP == 0 && bio == obj.maxBio && food == obj.maxFood then hp = 1
   }
 
   override def toJson: String =

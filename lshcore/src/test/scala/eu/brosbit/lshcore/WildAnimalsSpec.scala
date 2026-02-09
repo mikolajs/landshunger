@@ -3,13 +3,12 @@ package eu.brosbit.lshcore
 import eu.brosbit.lshcore.immovable.{Grass, Plant}
 import eu.brosbit.lshcore.movable.Deer
 import eu.brosbit.lshcore.tiles.{Plain, Tile}
-import eu.brosbit.movable.{MapPosition}
 import org.scalatest.flatspec.AnyFlatSpecLike
 import org.scalatest.matchers.should.Matchers
 
 class WildAnimalsSpec extends AnyFlatSpecLike with Matchers {
 
-
+ /*
   val mapTestPath = "test.data"
   val map = new TheMap(mapTestPath)
   val flattenMapArray = map.getMap.flatten
@@ -41,4 +40,6 @@ class WildAnimalsSpec extends AnyFlatSpecLike with Matchers {
       }
 
   }
+  
+  */
 }

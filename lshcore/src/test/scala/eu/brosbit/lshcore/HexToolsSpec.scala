@@ -1,14 +1,13 @@
 package eu.brosbit.lshcore
+///przenieść test do hexlib!!!
 
-import eu.brosbit.hexlib.Hex
-import eu.brosbit.movable.MapPosition
+import eu.brosbit.hexlib.*
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 class HexToolsSpec extends AnyFlatSpec with Matchers {
-  val hex = new Hex(  5, 5)
-
-
+  val hex = new Hex( 5, 5)
+  
   "Distance" should "count 1 from 0,0 to 0,1" in {
     hex.distance(MapPosition(0,0), MapPosition(0,1)) should be(1)
   }

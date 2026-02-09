@@ -1,7 +1,10 @@
 package eu.brosbit.lshcore.immovable
 
+import eu.brosbit.lshcore.items.{ItemList, Peasants}
+
 class Plankton extends Plant {
   override val obj: PlantConst = Plankton
+  override def harvest(items: ItemList, peasants: Peasants): Int = 0
 }
 
 object Plankton extends PlantConst {
