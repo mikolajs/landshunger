@@ -5,8 +5,9 @@ LsHserver/.bloop/
 LsHserver/.metals/
 LsHserver/target
 LsHserver/project/target/
-LsHCore/target
-LsHCore/project/target/
+lshcore/target
+lshcore/project/target/
+lshcore/trying_code/.scala-build/
 LsHScala3-vertx/target/
 LsHScala3-vertx/project/target/
 LsHScala3-akka/target/
