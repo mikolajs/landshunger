@@ -4,11 +4,11 @@ abstract class FarmAnimal:
   var lastFeeding = 0.0f
   var feeding = 1.0f
   def eat(nr:Int) = 
-    val nrReturn = if Const.consumtion <= nr then 
+    val nrReturn = if Const.consumption <= nr then 
       lastFeeding = 1.0f
-      nr - Const.consumtion*n
+      nr - Const.consumption*n
     else 
-      lastFeeding = nr.toFloat / (Const.consumtion*n)
+      lastFeeding = nr.toFloat / (Const.consumption*n)
       0
     mkLongFeeding
     nrReturn
@@ -40,7 +40,7 @@ abstract class FarmAnimal:
 
 
 trait  FarmAnimalConst:
-  val consumtion:Int
+  val consumption:Int
   val dayProduce:Int
   val weekProduce:Int
   val reproduceFactor:Float
@@ -51,10 +51,11 @@ class Cows extends FarmAnimal:
   override val Const = CowsConst
 class Ship extends FarmAnimal:
   override val Const = ShipConst
-  
+class Pigs extends FarmAnimal:
+  override val Const = PigsConst
 
 object CowsConst extends  FarmAnimalConst:
-  val consumtion = 5
+  val consumption = 5
   val dayProduce = 3
   val weekProduce = 1
   val meat: Int =  20
@@ -62,12 +63,20 @@ object CowsConst extends  FarmAnimalConst:
   val reproduceFactor = 0.2f
 
 object ShipConst extends  FarmAnimalConst:
-  val consumtion = 2
+  val consumption = 2
   val dayProduce = 1
   val weekProduce = 1
   val meat: Int = 5
   val leather: Int = 1
   val reproduceFactor = 0.2f
+
+object PigsConst extends FarmAnimalConst:
+  val consumption = 2
+  val dayProduce = 0
+  val weekProduce = 0
+  val meat: Int = 6
+  val leather: Int = 3
+  val reproduceFactor = 0.3f
 
 def mkSlauther(animal:FarmAnimal):(Int, Int) =
   animal.n match
@@ -80,7 +89,9 @@ def mkSlauther(animal:FarmAnimal):(Int, Int) =
 def main():Unit = 
     val cows = Cows()
     val ship = Ship()
+    val pigs = Pigs()
     var forage = 50000
+    var corns = 20000
     var milk = 0
     var wool = 0
     var meat = 0
@@ -90,17 +101,20 @@ def main():Unit =
         milk += cows.getDayProduct
         forage = ship.eat(forage)
         milk += ship.getDayProduct
+        corns = pigs.eat(corns)
         if i % 5 == 0 then
           wool += ship.getWeekProduct
           cows.reproduce
           ship.reproduce
+          pigs.reproduce
           val (m1, l1) = mkSlauther(cows)
           val (m2, l2) = mkSlauther(ship)
-          meat += (m1 + m2)
-          leather += (l1 + l2)
+          val (m3, l3) = mkSlauther(pigs)
+          meat += (m1 + m2 + m3)
+          leather += (l1 + l2 + l3)
 
-    println(s"forage: $forage, milk: $milk wool: $wool")
+    println(s"forage: $forage, corn $corns, milk: $milk wool: $wool,")
     println(s"meat: $meat, leather: $leather")
-    println(s"Cows ${cows.n}, Ship: ${ship.n}")
+    println(s"Cows ${cows.n}, Ship: ${ship.n}, Pigs: ${pigs.n}")
   
 

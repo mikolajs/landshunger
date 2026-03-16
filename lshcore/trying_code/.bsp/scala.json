@@ -1,0 +1,26 @@
+{
+  "name": "scala",
+  "argv": [
+    "/opt/scala3.5/bin/scala-cli.jar",
+    "--cli-default-scala-version",
+    "3.5.0",
+    "--repository",
+    "file:///opt/scala3.5/maven2",
+    "--prog-name",
+    "scala",
+    "bsp",
+    "--json-options",
+    "/home/administrator/Programming/landshunger/lshcore/trying_code/.scala-build/ide-options-v2.json",
+    "--json-launcher-options",
+    "/home/administrator/Programming/landshunger/lshcore/trying_code/.scala-build/ide-launcher-options.json",
+    "--envs-file",
+    "/home/administrator/Programming/landshunger/lshcore/trying_code/.scala-build/ide-envs.json",
+    "/home/administrator/Programming/landshunger/lshcore/trying_code/animals.scala"
+  ],
+  "version": "1.4.0",
+  "bspVersion": "2.1.1",
+  "languages": [
+    "scala",
+    "java"
+  ]
+}
