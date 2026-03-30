@@ -17,8 +17,8 @@ class FarmTestSpec extends AnyFlatSpec with Matchers:
     val cows = Cows()
     val ship = Ship()
     val pigs = Pigs()
-    items.forage = 190000
-    items.corns = 30000
+    items.forage = 19000
+    items.corns = 3000
     
     def getSlauther(animal:FarmAnimal) =
       val (m, l) = animal.mkSlauther()
@@ -41,15 +41,15 @@ class FarmTestSpec extends AnyFlatSpec with Matchers:
           case _ =>
         }
         items.forage = cows.eat(items.forage)
-        items.cheesCow += cows.getDayProduct
+        items.chees += cows.getDayProduct
         items.forage = ship.eat(items.forage)
         items.chees += ship.getDayProduct
         items.corns = pigs.eat(items.corns)
         if i % 5 == 0 then
           items.wool += ship.getWeekProduct
-          cows.reproduce
-          ship.reproduce
-          pigs.reproduce
+          cows.reproduce()
+          ship.reproduce()
+          pigs.reproduce()
           getSlauther(cows)
           getSlauther(ship)
           getSlauther(pigs)

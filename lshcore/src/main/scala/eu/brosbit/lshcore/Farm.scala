@@ -56,12 +56,7 @@ abstract class FarmAnimal:
   def mkSlaughter(items:ItemList): Unit =
     val (m, l) = slaughter()
     if m > 0 && l > 0 then println(s"mkSlaughter $m $l")
-    this match {
-      case _: Pigs =>
-        items.pork  += m
-      case _ => 
-        items.meat += m
-    }
+    items.meat += m
     items.leathers += l
 
 trait  FarmAnimalConst:

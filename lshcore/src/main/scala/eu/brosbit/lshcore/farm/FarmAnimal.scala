@@ -4,8 +4,10 @@ abstract class FarmAnimal:
   val Const:FarmAnimalConst
   var n = 10
   var y = 10
+  var weeks = 0
   var lastFeeding = 0.0f
   var feeding = 1.0f
+  var expectedN = 50
   def eat(nr:Int) =
     val nrReturn = if Const.consumption <= nr then
       lastFeeding = 1.0f
@@ -19,8 +21,15 @@ abstract class FarmAnimal:
   def getDayProduct:Int = scala.math.round(Const.dayProduce*n * lastFeeding)
   def getWeekProduct:Int = scala.math.round(Const.weekProduce*n * lastFeeding)
 
-  def reproduce:Unit =
-    n = (n*(1.0f + Const.reproduceFactor)).toInt
+  def reproduce():Unit =
+    weeks -= 1
+    if y == 0 then
+      y = (Const.reproduceFactor*n).toInt
+      weeks = Const.growWeeks
+    else if weeks <= 0 then
+      n += y
+      y = 0
+
 
 
   def mkLongFeeding:Unit =
@@ -44,10 +53,8 @@ abstract class FarmAnimal:
   
   def mkSlauther():(Int, Int) =
     n match
-      case n:Int if n < 15 => (0, 0)
-      case n:Int if n < 80 => slaughter(4)
-      case n:Int if n < 150 => slaughter(20)
-      case n => slaughter(50)
+      case n:Int if n < expectedN => (0, 0)
+      case n => slaughter(n-expectedN)
 
 
 trait  FarmAnimalConst:
@@ -57,5 +64,6 @@ trait  FarmAnimalConst:
   val reproduceFactor:Float
   val meat:Int
   val leather:Int
+  val growWeeks:Int
 
 
