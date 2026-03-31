@@ -11,7 +11,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 class FarmTestSpec extends AnyFlatSpec with Matchers:
     val items = ItemList()
     val tiles = Array(Steppe(), Steppe(), Steppe(), Humus(), Humus(), Humus(), Plain(), Plain(), Plain(), Plain(), Plain(), Plain(), Hill(), Hill(), Hill(), Hill(), Mountain(), Mountain())
-    val fields = Array[ImmovableObject](Grass(), Grass(), Grass(), Grass(), Wheat(), Wheat(), Wheat(), Wheat(), Wheat(), Oat(), Grass(), Grass(), Grass(), Oat(), Oat(), Oat(), Wasteland(), Wasteland())
+    val fields = Array[ImmovableObject](Clover(), Clover(), Clover(), Grass(), Wheat(), Wheat(), Wheat(), Wheat(), Wheat(), Oat(), Grass(), Grass(), Grass(), Oat(), Oat(), Oat(), Wasteland(), Wasteland())
     val peasants = Peasants() 
     peasants.n = 80
     val cows = Cows()
@@ -36,7 +36,6 @@ class FarmTestSpec extends AnyFlatSpec with Matchers:
         fields.foreach {
           case gr: Grass if gr.getBio > gr.obj.maxBio / 3 => 
               harvGrass += gr.harvest(items, peasants)
-          case gr: Grass =>
           case pl: Plant => harvCorn += pl.harvest(items, peasants)
           case _ =>
         }

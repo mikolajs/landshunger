@@ -4,10 +4,10 @@ class Cows extends FarmAnimal:
   override val Const = CowsConst
 
 object CowsConst extends  FarmAnimalConst:
-  val consumption = 5
+  val consumption = 6
   val dayProduce = 2
   val weekProduce = 1
-  val meat: Int =  20
-  val leather: Int = 3
+  val meat: Int =  300
+  val leather: Int = 5
   val reproduceFactor = 0.2f
   val growWeeks = 8
