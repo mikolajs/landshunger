@@ -9,7 +9,7 @@ class Rye extends Plant:
     if hp == 0 then 0
     else
       val wt = food * 3
-      if peasants.workTime < wt then {
+      if peasants.workTime > wt then {
         items.corns += food
         food = 0
         bio = 0
@@ -25,13 +25,12 @@ class Rye extends Plant:
       }
 
 object Rye extends PlantConst:
-  def apply(): Rye = new Rye()
   override val name: String = "rye"
   override val shortName: String = "R"
   override val symbol: String = "-"
-  override val maxBio: Int = 80
-  override val growBio: Int = 3
-  override val maxFood: Int = 50;
-  override val growFood: Int = 2;
+  override val maxBio: Int = 160
+  override val growBio: Int = 6
+  override val maxFood: Int = 160;
+  override val growFood: Int = 6;
   override val growHP: Int = 0
   override val maxHP: Int = 1
