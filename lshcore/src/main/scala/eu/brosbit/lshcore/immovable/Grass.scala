@@ -1,12 +1,12 @@
 package eu.brosbit.lshcore.immovable
 
 import eu.brosbit.lshcore.items.{ItemList, Peasants}
+import eu.brosbit.lshcore.movable.Peasants
 
 class Grass extends Plant:
-  override val obj = Grass
-
+  import Grass.*
   override def harvest(items: ItemList, peasants: Peasants): Int =
-    val mx = bio * harvTime 
+    val mx = (bio * harvTime).toInt
     if peasants.workTime > mx then
       items.forage += bio
       bio = 0
@@ -16,9 +16,9 @@ class Grass extends Plant:
         //get only some free time of workers
         val bioGet = (peasants.workTime / 2) / harvTime
         bio -= bioGet
-        peasants.workTime -= bioMax*2
-        items.forage += bioMax
-        bioMax
+        peasants.workTime -= (maxBio*2).toInt
+        items.forage += maxBio.toInt
+        maxBio
    
 
 

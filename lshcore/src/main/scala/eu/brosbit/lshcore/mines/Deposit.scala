@@ -7,23 +7,29 @@ class Deposit(aType:String, reachConst:Double):
   val woodConst = 0.15 // how many wood per unit work
   var canDig = false
   var deckWork = 0
-  var deckValue = 0.0 // how many deposit on unit deck work
+  var deckValue = 0.0
+  var depDiged = 0.0
   var step = 0
-  def mkDig(work:Int) = 
-    if step > depth || !canDig then
+  def mkDig(work:Int):(Int, Int) = 
+    if step > depth then
       (0, work)
-    else if  work >= deckWork then
+    else if  work > deckWork then
       var workR = work
-      val deposit = scala.math.round(deckValue*work).toInt
-      deckValue = 0
+      depDiged += deckValue 
+      val deposit = depDiged.toInt 
+      depDiged -= depDiged.toInt
+      deckValue = 0.0
       workR -= deckWork 
-      deckWork = area*workConst
+      deckWork= 0
       canDig = false
-      (deposit, workR)
+      (deposit, work - deckWork)
     else
-      val deposit = scala.math.round(deckValue*work).toInt
+      val deposit = deckValue*(work/deckWork)
       deckWork -= work
-      (deposit, 0)
+      if deckWork == 0 then 
+        canDig = false
+        deckValue = 0
+      (deposit.toInt, 0)
 
   def canBuildDeck():Boolean =  !canDig && step < depth
 
@@ -32,26 +38,24 @@ class Deposit(aType:String, reachConst:Double):
     else
       val availibleWoodWork = scala.math.round(wood / woodConst).toInt
       val doWork = if availibleWoodWork >= work then work else availibleWoodWork
-      var aWork = work
-      var aWood = wood
+      var woodR = wood
       if doWork >= deckWork then
-        aWood -= scala.math.round(deckWork*woodConst).toInt
-        aWork -= deckWork
+        woodR -= scala.math.ceil(deckWork*woodConst).toInt
+        val workR = deckWork
+        deckWork = 0
         mkStartDig()
-        (aWork, aWood)
+        (work-workR, woodR)
       else
         deckWork -= doWork
-        aWork -= doWork
-        aWood -= scala.math.round(doWork*woodConst).toInt
-        (aWork, aWood)
+        woodR -= scala.math.ceil(doWork*woodConst).toInt
+        (work-doWork, woodR)
         
   def maxPeopleWork = area
       
   private def mkStartDig() =
     canDig = true
-    val deckRich = (-aParam*step*step + bParam*step).toDouble
+    deckValue = (-aParam*step*step + bParam*step).toDouble
     deckWork = area*workConst
-    deckValue = deckRich/deckWork.toDouble*reachConst
     step += 1
     
   private def randomDeposit() = 
@@ -68,30 +72,23 @@ class Deposit(aType:String, reachConst:Double):
 def main():Unit = 
   val mine = Deposit("iron", 0.95)
   var iron = 0
-  var workB = 0
-  var workD = 0
-  var wood = 0
+  var wood = 0 
+  var work = 0
   import scala.util.Random
-  val rand = Random()
-  var buildRound = 0
-  var digRound = 0
+  val r = Random()
   while mine.step < mine.depth do
-    if mine.canDig then
-      val w = rand.nextInt(100) + 10
-      val (ir, wr) = mine.mkDig(w)
-      iron += ir
-      workD += (w -wr)
-      digRound += 1
-    else
-      val wr = rand.nextInt(100) + 10
-      val wo = rand.nextInt(20) + 2
-      val (workR, woodR) = mine.buildDeck(wr, wo)
-      workB += (wr - workR)
-      wood += (wo - woodR)
-      buildRound += 1
-  println(s"all iron procuce $iron, wood used $wood, work for build did $workB, work for dig $workD")
-  println(s"build rounds $buildRound, dig rounds $digRound")
-  
+    while !mine.canDig do
+      val woodS = r.nextInt(40)+10
+      val workS = r.nextInt(200)+100
+      val (rWork, rWood) = mine.buildDeck(workS, woodS)
+      wood += (woodS - rWood)
+      work += (workS - rWork)
+      println(s"build deck $wood, $work, ${mine.step}")
+    while mine.canDig do
+      val workS = r.nextInt(200)+100
+      val (dep, rWork) = mine.mkDig(workS)
+      work += (workS - rWork)
+      iron += dep.toInt
+      println(s"mk dig $iron, $work")
 
-//main()
-
+  println(s"all iron values $iron works: $work, timber: $wood")

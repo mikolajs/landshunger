@@ -6,7 +6,7 @@ import eu.brosbit.lshcore.tiles.Tile
 
 object Main:
   //
-  val SIZE = 20
+  val SIZE = 15 
   val hexLib = new Hex(SIZE, SIZE)
   var days = 0
   val dayTime = 1
@@ -18,7 +18,7 @@ object Main:
     //val plantsManager = game.plantsManager
     //val objectMap = plantsManager.objectMap
     val mapUnit:Array[Array[Int]] = Array.ofDim[Int](SIZE,SIZE)
-    val wildAnimals = game.wildAnimals 
+    //val wildAnimals = game.wildAnimals 
     val statistics = new Statistics(game.tileMap, game.objectMap)
     println(mkTileMapString(game.tileMap))
     statistics.countTiles()

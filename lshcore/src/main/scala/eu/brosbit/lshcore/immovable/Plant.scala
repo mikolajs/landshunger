@@ -52,4 +52,5 @@ trait PlantConst extends ImmovableObjectConst {
   val maxHP:Int  = 0
   val maxFood:Int = 0
   val growFood:Int = 0
+  val harvTime:Int = 0
 }

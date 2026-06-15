@@ -6,12 +6,10 @@ import eu.brosbit.lshcore.items.{ItemList, Peasants}
  * 
  */
 class Oat extends Plant:
-  override val obj = Oat
 
+  import Oat.*
   override def harvest(items: ItemList, peasants: Peasants): Int =
-    if hp == 0 then 0
-    else
-      val wt = food * 4
+    val wt =  if hp == 0 then 0 else wt = food * 4
     if peasants.workTime > wt then {
         items.corns += food
         food = 0
@@ -28,7 +26,6 @@ class Oat extends Plant:
       }  
 
 object Oat extends PlantConst:
-  def apply(): Oat = new Oat()
   override val name: String = "oat"
   override val shortName: String = "O"
   override val symbol: String = "-"
