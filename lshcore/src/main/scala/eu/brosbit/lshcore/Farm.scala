@@ -76,6 +76,9 @@ class Goats extends FarmAnimal:
   override val Const:FarmAnimalConst = GoatsConst
 class Pigs extends FarmAnimal:
   override val Const:FarmAnimalConst = PigsConst
+class Horses extends FarmAnimal:
+  override val Const:FarmAnimalConst = HorsesConst
+
 
 object CowsConst extends  FarmAnimalConst:
   val consumption = 8
@@ -114,3 +117,11 @@ object PigsConst extends FarmAnimalConst:
   val growWeeks = 16
 
 
+object HorsesConst extends FarmAnimalConst:
+  val consumption = 4
+  val dayProduce = 0
+  val weekProduce = 0
+  val meat = 0
+  val leather = 0
+  val reproduceFactor = 0.4f
+  val growWeeks = 22
