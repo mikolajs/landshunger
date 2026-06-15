@@ -8,26 +8,28 @@ class Deposit(aType:String):
   var canDig = false
   var deckWork = 0
   var deckValue = 0.0
+  var depDiged = 0.0
   var step = 0
-  def mkDig(work:Int) = 
+  def mkDig(work:Int):(Int, Int) = 
     if step > depth then
       (0, work)
-    else if  work > workDeck then
+    else if  work > deckWork then
       var workR = work
-      val deposit = deckValue
-      deckValue = 0
-      workR -= workDeck
-      workDeck = 0
+      depDiged += deckValue 
+      val deposit = depDiged.toInt 
+      depDiged -= depDiged.toInt
+      deckValue = 0.0
+      workR -= deckWork 
+      deckWork= 0
       canDig = false
-      deckSize = 0
-      (deposit, work - workDeck)
+      (deposit, work - deckWork)
     else
-      val deposit = deckValue*(work/workDeck)
-      workDeck -= work
-      if workDeck == 0 then 
+      val deposit = deckValue*(work/deckWork)
+      deckWork -= work
+      if deckWork == 0 then 
         canDig = false
-        deckSize = 0
-      (deposit, 0)
+        deckValue = 0
+      (deposit.toInt, 0)
 
   def canBuildDeck():Boolean =  !canDig && step < depth
 
@@ -36,25 +38,25 @@ class Deposit(aType:String):
     else
       val availibleWoodWork = scala.math.round(wood / woodConst).toInt
       val doWork = if availibleWoodWork >= work then work else availibleWoodWork
+      var woodR = wood
       if doWork >= deckWork then
-        wood -= scala.math.ceil(deckWork*woodConst).toInt
-        work -= deckWork
+        woodR -= scala.math.ceil(deckWork*woodConst).toInt
+        val workR = deckWork
         deckWork = 0
         mkStartDig()
-        (work, wood)
+        (work-workR, woodR)
       else
         deckWork -= doWork
-        work -= doWork
-        wood -= scala.math.ceil(doWork*woodConst).toInt
-        (work, wood)
+        woodR -= scala.math.ceil(doWork*woodConst).toInt
+        (work-doWork, woodR)
         
 
       
   private def mkStartDig() =
     canDig = true
-    val deckRich = (-aParam*step*step + bParam*step).toDouble
+    deckValue = (-aParam*step*step + bParam*step).toDouble
     deckWork = area*workConst
-    deckValue = deckRich/deckWork.toDouble
+    step += 1
     
   private def randomDeposit() = 
     import scala.util.Random
@@ -72,11 +74,23 @@ class Deposit(aType:String):
 def main():Unit = 
   val mine = Deposit("iron")
   var iron = 0
+  var wood = 0 
+  var work = 0
+  import scala.util.Random
+  val r = Random()
   while mine.step < mine.depth do
-    mine.buildDeck(1000, 100)
-    iron += mine.deckValue
-  println(s"all iron values $iron")
-  
+    while !mine.canDig do
+      val woodS = r.nextInt(40)+10
+      val workS = r.nextInt(200)+100
+      val (rWork, rWood) = mine.buildDeck(workS, woodS)
+      wood += (woodS - rWood)
+      work += (workS - rWork)
+      println(s"build deck $wood, $work, ${mine.step}")
+    while mine.canDig do
+      val workS = r.nextInt(200)+100
+      val (dep, rWork) = mine.mkDig(workS)
+      work += (workS - rWork)
+      iron += dep.toInt
+      println(s"mk dig $iron, $work")
 
-main()
-
+  println(s"all iron values $iron works: $work, timber: $wood")
