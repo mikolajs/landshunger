@@ -1,0 +1,25 @@
+#  TEAM ROW COL UNIT...
+A1 1 1 K K S
+A2 1 0 P P S S S
+A3 2 0 P P P S S S
+A4 3 0 P P S S S S
+A5 0 3 P P P P S S
+A6 4 1 P S S S
+A7 5 1 P P P S S
+A8 5 2 P P S S
+A9 5 3 K K K
+A10 5 4 A K K
+B1 2 1 K K K
+B2 2 2 K K P S
+B3 3 1 P P P P P S
+B4 2 3 P P S S S
+B5 4 2 P P S S S
+B6 4 3 P P S S S
+B7 3 2 P A A
+B8 3 3 P P P S S
+B9 3 4 K K P
+C1 2 4 K K K K
+C2 1 4 K K P S
+C3 2 5 K P S
+D1 0 5 K K P P
+D2 1 5 P P P A

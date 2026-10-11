@@ -1,4 +1,8 @@
 import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.Buffer
+import scala.jdk.CollectionConverters._
+import scala.languageFeature.experimental.macros
+import scala.compiletime.ops.double
 
 case class CubePoint(x:Int, y:Int, z:Int)
 
@@ -43,33 +47,80 @@ class Hex(rows:Int, cols:Int) {
   }
 }
 
-class Soldier(val id:Int, _x:Int, _y:Int, val gr:Char):
+abstract class Soldier(val _id:Int, _x:Int, _y:Int, val owner:Char, val typeS:String):
   var x = _x
   var y = _y
   val mp = MapPosition(x, y)
+  var nr:Int
+
+class Cavalary(val id:Int, _x:Int, _y:Int, owner:Char) extends Soldier(id, _x, _y, owner, "K"):
+  var nr = 60
+class Shooter(val id:Int, _x:Int, _y:Int, owner:Char) extends Soldier(id, _x, _y, owner, "S"):
+  var nr = 120
+class Infantry(val id:Int, _x:Int, _y:Int, owner:Char) extends Soldier(id, _x, _y, owner, "P"):
+  var nr = 120
+class Artillery(val id:Int, _x:Int, _y:Int, owner:Char) extends Soldier(id, _x, _y, owner, "A"):
+  var nr = 48
+  var barrels = 8
+
 
 case class SoldierUnit(val id:Int, val gr:Char):
   def info = s"id:$id group: $gr"
 
+class SoldierStack(owner:Char):
+  val stack = ArrayBuffer[Soldier]()
 
-val soldiers = Array(Soldier(0, 0, 2,'B'), Soldier(1, 1, 1, 'A'), Soldier(2, 1, 2, 'B'), Soldier(3, 1, 3, 'C'),
-Soldier(4, 2, 1, 'A'), Soldier(5, 2, 2, 'B'), Soldier(6, 2, 3, 'C'), Soldier(7, 2, 4, 'C'), 
-Soldier(8, 2, 7, 'D'), Soldier(9, 3, 5, 'B'), Soldier(10, 3, 6, 'D'), Soldier(11, 3, 7, 'D'), 
-Soldier(12, 4, 1, 'B'), Soldier(13, 4, 2, 'C'), Soldier(14, 4, 4, 'A'), Soldier(15, 4, 5, 'A'), 
-Soldier(16, 4, 6, 'B'), Soldier(17, 5, 2, 'C'), Soldier(18, 5, 3, 'C'), Soldier(19, 5, 4, 'A'), 
-Soldier(20, 5, 5, 'C'), Soldier(21, 5, 6, 'C'), Soldier(22, 6, 3, 'A'), Soldier(23, 6, 4, 'A'),
-Soldier(24, 6, 6, 'C'), Soldier(25, 6, 7, 'C'), Soldier(26, 7, 2, 'D'), Soldier(27, 7, 3, 'D'), 
-Soldier(28, 7, 6, 'C'), Soldier(29, 8, 2, 'B'), Soldier(30, 8, 3, 'B'), Soldier(31, 8, 4, 'D'), 
-Soldier(32, 8, 6, 'A'), Soldier(33, 8, 7, 'C'), Soldier(34, 9, 2, 'B'), Soldier(35, 9, 6, 'A'))
-val connections = Array((0, 2, 'B') -> (1, 1, 'A'), (1, 1, 'A') -> (1, 2, 'B'), (1, 1, 'A') -> (2, 2, 'B'),
-(1, 2, 'B') -> (1, 3, 'C'), (2, 1, 'A') -> (2, 2, 'B'), (2, 2, 'B') -> (2, 3, 'C'),
-(3, 5, 'B') -> (3, 6, 'D'), (3, 5, 'B') -> (4, 5, 'A'), (4, 1, 'B') -> (4, 2, 'C'),
-(4, 4, 'A') -> (5, 3, 'C'), (4, 5, 'A') -> (4, 6, 'B'), (4, 5, 'A') -> (5, 5, 'C'),
-(4, 6, 'B') -> (5, 5, 'C'), (5, 2, 'C') -> (6, 3, 'A'), (5, 3, 'C') -> (5, 4, 'A'),
-(5, 3, 'C') -> (6, 3, 'A'), (5, 3, 'C') -> (6, 4, 'A'), (5, 4, 'A') -> (5, 5, 'C'),
-(6, 3, 'A') -> (7, 2, 'D'), (6, 3, 'A') -> (7, 3, 'D'), (6, 4, 'A') -> (7, 4, 'D'),
-(7, 2, 'D') -> (8, 2, 'B'), (7, 2, 'D') -> (8, 3, 'B'), (7, 3, 'D') -> (8, 3, 'B'),
-(7, 6, 'C') -> (8, 6, 'A'), (8, 3, 'B') -> (8, 4, 'D'), (8, 6, 'A') -> (8, 7, 'C'))
+//val ta1 = SoldierStack('A')
+//ta1.stack.addAll(Array(Soldier(1, )))
+def loadSoldierFromFile(fileName:String):Buffer[SoldierStack] =
+  val fp = java.nio.file.Paths.get(fileName)
+  var id = 0
+  var A, B, C, D = 0
+  val soldierStack = java.nio.file.Files.readAllLines(fp).asScala.filter(line => line.length > 6 && line(0) != '#').map(line =>
+    val data = line.split(" ").toArray
+    val team = data(0)(0)
+    //val id = data(0).drop(1).toInt
+    val row = data(1).toInt
+    var col = data(2).toInt
+    val untis = data.drop(3)
+    var nr = 0
+    team match
+        case 'A' => nr = A
+        case 'B' => nr = B
+        case 'C' => nr = C
+        case 'D' => nr = D  
+        case _ =>   
+    val us = for un <- untis yield
+      nr += 1
+      un match
+        case "K" =>  Cavalary(nr, row, col, team)
+        case "P" => Infantry(nr, row, col, team)
+        case "S" => Shooter(nr, row, col, team)
+        case _ => Artillery(nr, row, col, team)
+    team match
+        case 'A' => A = nr
+        case 'B' => B = nr
+        case 'C' => C = nr
+        case 'D' => D = nr 
+        case _ =>   
+    val ab = ArrayBuffer[SoldierStack]()
+    val ss = SoldierStack(team)
+    ss.stack.addAll(us)
+    ss
+  )
+  soldierStack
+  
+def createBufforsByTeams(buffSold:Buffer[SoldierStack]):Array[ArrayBuffer[Soldier]] =
+  val teamsSoldiers = Array.ofDim[ArrayBuffer[Soldier]](4)
+  for i <- 0 until teamsSoldiers.length do
+    teamsSoldiers(i) = ArrayBuffer[Soldier]()
+  buffSold.map(soldierStack =>
+    val team = soldierStack.stack.head.owner
+    val i = team.toInt - 65
+    for soldier <- soldierStack.stack do
+      teamsSoldiers(i) += soldier
+  )
+  teamsSoldiers
 
 def mkOrderedMapPos(mp1:MapPosition, mp2:MapPosition) =
   if mp1.r < mp2.r then
@@ -104,27 +155,32 @@ def createEdge(t:(Int, Int, Int, Int))=
 
 @main
 def main():Unit = 
-  assert(soldiers.length == 36)
-  assert((0 until soldiers.length).zip(soldiers).forall(z => z._1 == z._2.id))
-  assert(connections.size == 27)
-  val world = Array.ofDim[ArrayBuffer[SoldierUnit]](10, 10)
-  for r <- 0 until world.length do
-    for c <- 0 until world(r).length do
-      world(r)(c) = ArrayBuffer[SoldierUnit]()
-  for soldier <- soldiers do
-    val su = SoldierUnit(soldier.id, soldier.gr)
-    world(soldier.x)(soldier.y) += (su)
-  //println(hex.neighbours(MapPosition(0, 2)))
-  //println(hex.neighbours(MapPosition(1, 1)))
-  val conns = createConnections(world).sortWith((t1, t2) => 
-    if t1._1 == t2._1 && t1._2 == t2._2 && t1._3 == t2._3 then t1._4 < t2._4
-    else if t1._1 == t2._1 && t1._2 == t2._2 then t1._3 < t2._3
-    else if t1._1 == t2._1 then t1._2 < t2._2
-    else t1._1 < t2._1)
-  println(s"number of connections ${conns.length}")
-  for conn <- conns do
-    println(createEdge(conn))
-  
+ //val worldMap = Array.ofDim[Some[SoldierStack]](10)(10)
+  val ss = loadSoldierFromFile("soldiers.txt")
+  val array = createBufforsByTeams(ss)
+  //Ilość jednostek
+  assert(array(0).length == 45)
+  assert(array(1).length == 39)
+  assert(array(2).length == 11)
+  assert(array(3).length == 8)
+  // assert((0 until soldiers.length).zip(soldiers).forall(z => z._1 == z._2.id))
+  // assert(connections.size == 27)
+  // val world = Array.ofDim[ArrayBuffer[SoldierUnit]](10, 10)
+  // for r <- 0 until world.length do
+  //   for c <- 0 until world(r).length do
+  //     world(r)(c) = ArrayBuffer[SoldierUnit]()
+  // for soldier <- soldiers do
+  //   val su = SoldierUnit(soldier.id, soldier.gr)
+  //   world(soldier.x)(soldier.y) += (su)
+  // //println(hex.neighbours(MapPosition(0, 2)))
+  // //println(hex.neighbours(MapPosition(1, 1)))
+  // val conns = createConnections(world).sortWith((t1, t2) => 
+  //   if t1._1 == t2._1 && t1._2 == t2._2 && t1._3 == t2._3 then t1._4 < t2._4
+  //   else if t1._1 == t2._1 && t1._2 == t2._2 then t1._3 < t2._3
+  //   else if t1._1 == t2._1 then t1._2 < t2._2
+  //   else t1._1 < t2._1)
+  // println(s"number of connections ${conns.length}")
+  // for conn <- conns do
+  //   println(createEdge(conn))
 
-
-
+// main()
