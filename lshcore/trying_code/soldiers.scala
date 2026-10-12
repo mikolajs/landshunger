@@ -67,7 +67,7 @@ class Artillery(val id:Int, _x:Int, _y:Int, owner:Char) extends Soldier(id, _x, 
 case class SoldierUnit(val id:Int, val gr:Char):
   def info = s"id:$id group: $gr"
 
-class SoldierStack(owner:Char):
+class SoldierStack(val owner:Char):
   val stack = ArrayBuffer[Soldier]()
 
 //val ta1 = SoldierStack('A')
@@ -153,11 +153,28 @@ def createConnections(soldiersMap:Array[Array[ArrayBuffer[SoldierUnit]]]):Array[
 def createEdge(t:(Int, Int, Int, Int))=
   s"(${t._1}, ${t._2}) -> (${t._3}, ${t._4})"
 
+def toExerciseLesson(soldiersMap:Array[Array[ArrayBuffer[SoldierUnit]]]): Unit =
+  val mmm = Map('A' -> "BrosBit", 'B' -> "BitRate", 'C' -> "NonameBit", 'D' -> "ProBit")
+  val hex = Hex(10, 10)
+  for r <- 0 until soldiersMap.length do
+    //println(s"$r arr ${soldiersMap(r).length}")
+    for c <- 0 until soldiersMap(r).length do
+      if soldiersMap(r)(c).nonEmpty then 
+        println(s"($r, $c) ${soldiersMap(r)(c).head.info}")
+        val mpBase = MapPosition(r, c)
+        val neighbours = hex.neighbours(mpBase)
+        for mp <- neighbours do
+          if soldiersMap(mp.r)(mp.c).nonEmpty && soldiersMap(mp.r)(mp.c).head.gr != soldiersMap(r)(c).head.gr then
+            val ordMPT = mkOrderedMapPos(mpBase, mp)
+            val ordT = (ordMPT._1.r, ordMPT._1.c, ordMPT._2.r, ordMPT._2.c)
+        
+        
+
 @main
 def main():Unit = 
  //val worldMap = Array.ofDim[Some[SoldierStack]](10)(10)
-  val ss = loadSoldierFromFile("soldiers.txt")
-  val array = createBufforsByTeams(ss)
+  val soldiers = loadSoldierFromFile("soldiers.txt")
+  val array = createBufforsByTeams(soldiers)
   //Ilość jednostek
   assert(array(0).length == 45)
   assert(array(1).length == 39)
@@ -165,15 +182,15 @@ def main():Unit =
   assert(array(3).length == 8)
   // assert((0 until soldiers.length).zip(soldiers).forall(z => z._1 == z._2.id))
   // assert(connections.size == 27)
-  // val world = Array.ofDim[ArrayBuffer[SoldierUnit]](10, 10)
-  // for r <- 0 until world.length do
-  //   for c <- 0 until world(r).length do
-  //     world(r)(c) = ArrayBuffer[SoldierUnit]()
-  // for soldier <- soldiers do
-  //   val su = SoldierUnit(soldier.id, soldier.gr)
-  //   world(soldier.x)(soldier.y) += (su)
-  // //println(hex.neighbours(MapPosition(0, 2)))
-  // //println(hex.neighbours(MapPosition(1, 1)))
+  val world = Array.ofDim[ArrayBuffer[SoldierUnit]](10, 10)
+  for r <- 0 until world.length do
+    for c <- 0 until world(r).length do
+      world(r)(c) = ArrayBuffer[SoldierUnit]()
+  for soldierSt <- soldiers do
+    for soldier <- soldierSt.stack do
+      val su = SoldierUnit(soldier._id, soldierSt.owner)
+      world(soldier.x)(soldier.y) += (su)
+  toExerciseLesson(world)
   // val conns = createConnections(world).sortWith((t1, t2) => 
   //   if t1._1 == t2._1 && t1._2 == t2._2 && t1._3 == t2._3 then t1._4 < t2._4
   //   else if t1._1 == t2._1 && t1._2 == t2._2 then t1._3 < t2._3
