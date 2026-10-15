@@ -156,19 +156,36 @@ def createEdge(t:(Int, Int, Int, Int))=
 def toExerciseLesson(soldiersMap:Array[Array[ArrayBuffer[SoldierUnit]]]): Unit =
   val mmm = Map('A' -> "BrosBit", 'B' -> "BitRate", 'C' -> "NonameBit", 'D' -> "ProBit")
   val hex = Hex(10, 10)
-  for r <- 0 until soldiersMap.length do
-    //println(s"$r arr ${soldiersMap(r).length}")
-    for c <- 0 until soldiersMap(r).length do
-      if soldiersMap(r)(c).nonEmpty then 
-        println(s"($r, $c) ${soldiersMap(r)(c).head.info}")
+  var nr = 0
+  val itMap = Array.ofDim[Office](10,10)
+  for r <- 0 until itMap.length do
+    for c <- 0 until itMap(r).length do
+      if soldiersMap(r)(c).nonEmpty then
+        val sm = soldiersMap(r)(c)
+        itMap(r)(c) = Office(nr, sm.length, mmm(sm.head.gr))
+        nr += 1
+      else 
+        itMap(r)(c) = Office()
+  val offices = itMap.map(arr => arr.map(office => if office.nr > 0 then office.getSize else "" )).flatten.filter(p => p.nonEmpty)
+  println(offices.length)
+  for office <- offices do 
+    println(office)
+  for r <- 0 until itMap.length do
+    for c <- 0 until itMap(r).length do
+      if itMap(r)(c).nr > 0 then 
         val mpBase = MapPosition(r, c)
         val neighbours = hex.neighbours(mpBase)
         for mp <- neighbours do
-          if soldiersMap(mp.r)(mp.c).nonEmpty && soldiersMap(mp.r)(mp.c).head.gr != soldiersMap(r)(c).head.gr then
-            val ordMPT = mkOrderedMapPos(mpBase, mp)
-            val ordT = (ordMPT._1.r, ordMPT._1.c, ordMPT._2.r, ordMPT._2.c)
+          if itMap(mp.r)(mp.c).name != "" && itMap(mp.r)(mp.c).name != "" then
+            println(s"""${itMap(r)(c).nr} ${itMap(mp.r)(mp.c).nr} """)
+
         
-        
+
+case class Office(val nr:Int = -1, val w:Int = 0, val name:String = ""):
+  def getInfo:String = s"$name $nr" 
+  def getSize:String = s"$name $nr $w"
+
+
 
 @main
 def main():Unit = 
@@ -191,6 +208,7 @@ def main():Unit =
       val su = SoldierUnit(soldier._id, soldierSt.owner)
       world(soldier.x)(soldier.y) += (su)
   toExerciseLesson(world)
+  val connections = createConnections(world)
   // val conns = createConnections(world).sortWith((t1, t2) => 
   //   if t1._1 == t2._1 && t1._2 == t2._2 && t1._3 == t2._3 then t1._4 < t2._4
   //   else if t1._1 == t2._1 && t1._2 == t2._2 then t1._3 < t2._3
