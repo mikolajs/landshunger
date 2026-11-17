@@ -1,6 +1,6 @@
 package eu.brosbit.lshcore.immovable
 
-import eu.brosbit.lshcore.items.{ItemList, Peasants}
+import eu.brosbit.lshcore.items.ItemList
 import eu.brosbit.lshcore.movable.Peasants
 
 class Grass extends Plant:

@@ -1,0 +1,121 @@
+2026-11-17 11:33:06.555059+01:00 database: flush
+org.h2.message.DbException: Błąd ogólny: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]"
+General error: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]" [50000-250]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:123)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1693)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:521)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:298)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2193)
+	at org.h2.mvstore.db.Store.<init>(Store.java:140)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at scala.meta.internal.metals.H2ConnectionProvider.upgradeIfNeeded(H2ConnectionProvider.scala:132)
+	at scala.meta.internal.metals.H2ConnectionProvider.persistentConnection(H2ConnectionProvider.scala:108)
+	at scala.meta.internal.metals.H2ConnectionProvider.tryAutoServer(H2ConnectionProvider.scala:62)
+	at scala.meta.internal.metals.H2ConnectionProvider.connect(H2ConnectionProvider.scala:44)
+	at scala.meta.internal.metals.H2ConnectionProvider.connection(H2ConnectionProvider.scala:34)
+	at scala.meta.internal.metals.Tables.$anonfun$fingerprints$1(Tables.scala:33)
+	at scala.meta.internal.metals.Fingerprints.load(Fingerprints.scala:52)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$loadFingerPrints$1(MetalsLspService.scala:646)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Błąd ogólny: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]"
+General error: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]" [50000-250]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 31 more
+Caused by: org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:998)
+	at org.h2.mvstore.FileStore.getUnsupportedWriteFormatException(FileStore.java:974)
+	at org.h2.mvstore.FileStore.processCommonHeaderAttributes(FileStore.java:580)
+	at org.h2.mvstore.RandomAccessStore.readStoreHeader(RandomAccessStore.java:231)
+	at org.h2.mvstore.FileStore.start(FileStore.java:944)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	... 25 more
+2026-11-17 11:33:06.561329+01:00 database: opening /home/administrator/Programowanie/landshunger/lshcore/.metals/metals
+org.h2.message.DbException: Nieprawidłowa wersja pliku bazy danych lub nieprawidłowy nagłówek pliku "/home/administrator/Programowanie/landshunger/lshcore/.metals/metals.mv.db"
+Unsupported database file version or invalid file header in file "/home/administrator/Programowanie/landshunger/lshcore/.metals/metals.mv.db" [90048-250]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:165)
+	at org.h2.mvstore.db.Store.<init>(Store.java:149)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at scala.meta.internal.metals.H2ConnectionProvider.upgradeIfNeeded(H2ConnectionProvider.scala:132)
+	at scala.meta.internal.metals.H2ConnectionProvider.persistentConnection(H2ConnectionProvider.scala:108)
+	at scala.meta.internal.metals.H2ConnectionProvider.tryAutoServer(H2ConnectionProvider.scala:62)
+	at scala.meta.internal.metals.H2ConnectionProvider.connect(H2ConnectionProvider.scala:44)
+	at scala.meta.internal.metals.H2ConnectionProvider.connection(H2ConnectionProvider.scala:34)
+	at scala.meta.internal.metals.Tables.$anonfun$fingerprints$1(Tables.scala:33)
+	at scala.meta.internal.metals.Fingerprints.load(Fingerprints.scala:52)
+	at scala.meta.internal.metals.MetalsLspService.$anonfun$loadFingerPrints$1(MetalsLspService.scala:646)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Nieprawidłowa wersja pliku bazy danych lub nieprawidłowy nagłówek pliku "/home/administrator/Programowanie/landshunger/lshcore/.metals/metals.mv.db"
+Unsupported database file version or invalid file header in file "/home/administrator/Programowanie/landshunger/lshcore/.metals/metals.mv.db" [90048-250]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 26 more
+Caused by: org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:998)
+	at org.h2.mvstore.FileStore.getUnsupportedWriteFormatException(FileStore.java:974)
+	at org.h2.mvstore.FileStore.processCommonHeaderAttributes(FileStore.java:580)
+	at org.h2.mvstore.RandomAccessStore.readStoreHeader(RandomAccessStore.java:231)
+	at org.h2.mvstore.FileStore.start(FileStore.java:944)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2193)
+	at org.h2.mvstore.db.Store.<init>(Store.java:140)
+	... 23 more
+	Suppressed: org.h2.message.DbException: Błąd ogólny: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]"
+General error: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]" [50000-250]
+		at org.h2.message.DbException.get(DbException.java:212)
+		at org.h2.message.DbException.convert(DbException.java:407)
+		at org.h2.mvstore.db.Store.lambda$new$0(Store.java:123)
+		at org.h2.mvstore.MVStore.handleException(MVStore.java:1693)
+		at org.h2.mvstore.MVStore.panic(MVStore.java:521)
+		at org.h2.mvstore.MVStore.<init>(MVStore.java:298)
+		... 25 more
+	Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Błąd ogólny: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]"
+General error: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]" [50000-250]
+		at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+		at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+		... 31 more
+	Caused by: [CIRCULAR REFERENCE: org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]]
+	Suppressed: org.h2.message.DbException: Błąd ogólny: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]"
+General error: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]" [50000-250]
+		at org.h2.message.DbException.get(DbException.java:212)
+		at org.h2.message.DbException.convert(DbException.java:407)
+		at org.h2.mvstore.db.Store.lambda$new$0(Store.java:123)
+		at org.h2.mvstore.MVStore.handleException(MVStore.java:1693)
+		at org.h2.mvstore.MVStore.unlockAndCheckPanicCondition(MVStore.java:505)
+		at org.h2.mvstore.MVStore.<init>(MVStore.java:318)
+		... 25 more
+	Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Błąd ogólny: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]"
+General error: "org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]" [50000-250]
+		at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+		at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+		... 31 more
+	Caused by: [CIRCULAR REFERENCE: org.h2.mvstore.MVStoreException: The write format 2 is smaller than the supported format 3 [2.5.250/5]]

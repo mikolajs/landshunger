@@ -2,7 +2,8 @@ package eu.brosbit.lshcore
 import eu.brosbit.lshcore.immovable.*
 import eu.brosbit.lshcore.tiles.*
 import eu.brosbit.lshcore.farm.*
-import eu.brosbit.lshcore.items.{ItemList, Peasants}
+import eu.brosbit.lshcore.items.ItemList
+import eu.brosbit.lshcore.movable.Peasants
 
 
 class Village():

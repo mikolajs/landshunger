@@ -1,23 +1,25 @@
 package eu.brosbit.lshcore.immovable
 
-import eu.brosbit.lshcore.items.{ItemList, Peasants}
+import eu.brosbit.lshcore.items.ItemList
+import eu.brosbit.lshcore.movable.Peasants
 
 class Clover extends Plant:
   override val obj = Clover
 
-  override def harvest(items: ItemList, peasants: Peasants): Int =
-      val mx = bio * 2
-      if peasants.workTime > mx then
-        items.forage += bio
-        bio = 0
-        peasants.workTime -= mx
-        bio
-      else
-        val bioMax = peasants.workTime / 2
-        bio -= bioMax
-        peasants.workTime -= bioMax*2
-        items.forage += bioMax
-        bioMax
+  override def harvest(items: ItemList, work: Int): (Int, Int) =
+    var workTime = work
+    val mx = bio * 2
+    if workTime > mx then
+      items.forage += bio
+      bio = 0
+      workTime -= mx
+      (bio, workTime)
+    else
+      val bioMax = workTime / 2
+      bio -= bioMax
+      workTime -= bioMax*2
+      items.forage += bioMax
+      (bioMax, workTime)
    
 
 

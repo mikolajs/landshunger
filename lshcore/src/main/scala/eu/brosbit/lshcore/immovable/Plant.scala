@@ -1,6 +1,6 @@
 package eu.brosbit.lshcore.immovable
 
-import eu.brosbit.lshcore.items.{ItemList, Peasants}
+import eu.brosbit.lshcore.items.ItemList
 
 abstract  class Plant extends ImmovableObject {
 
@@ -22,7 +22,7 @@ abstract  class Plant extends ImmovableObject {
     s"${obj.shortName}:hp=${hp},bi=$bio,fo=$food"
   }
   
-  def harvest(items:ItemList, peasants: Peasants):Int
+  def harvest(workTime:Int):Int
   
   private def yields(): Unit = {
     bio = bio + obj.growBio

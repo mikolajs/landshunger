@@ -1,6 +1,7 @@
 package eu.brosbit.lshcore.immovable
 
-import eu.brosbit.lshcore.items.{ItemList, Peasants}
+import eu.brosbit.lshcore.items.ItemList
+import eu.brosbit.lshcore.movable.Peasants
 
 /* Only on Hills produce corn
  * 
@@ -9,7 +10,7 @@ class Oat extends Plant:
 
   import Oat.*
   override def harvest(items: ItemList, peasants: Peasants): Int =
-    val wt =  if hp == 0 then 0 else wt = food * 4
+    val wt:Int =  if hp == 0 then 0 else food * 4
     if peasants.workTime > wt then {
         items.corns += food
         food = 0

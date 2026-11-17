@@ -1,24 +1,26 @@
 package eu.brosbit.lshcore.immovable
 
-import eu.brosbit.lshcore.items.{ItemList, Peasants}
+import eu.brosbit.lshcore.items.ItemList
+import eu.brosbit.lshcore.movable.Peasants
 
 class Forest extends Plant:
   hp = 5
   override val obj = Forest
 
-  override def harvest(items: ItemList, peasants: Peasants): Int =
+  override def harvest(items: ItemList, work: Int): (Int, Int) =
+    var workTime = work
     val mx = (hp-5) * 3
-    if peasants.workTime > mx then
+    if workTime > mx then
       items.wood += (hp-5)
       hp = 5 
-      peasants.workTime -= mx
-      hp - 5
+      workTime -= mx
+      (hp - 5, workTime)
     else
-      val hpMax = peasants.workTime / 3
+      val hpMax = workTime / 3
       hp -= hpMax
-      peasants.workTime -= hpMax*3
+      workTime -= hpMax*3
       items.wood += hpMax 
-      hpMax  
+      (hpMax, workTime)
 
 
 object Forest  extends  PlantConst  {

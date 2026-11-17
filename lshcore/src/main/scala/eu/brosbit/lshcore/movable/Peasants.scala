@@ -1,4 +1,4 @@
-package eu.brosbit.lshcore.items
+package eu.brosbit.lshcore.movable
 
 class Peasants:
   var n = 10
